@@ -1,3 +1,26 @@
-# Literature
+# Sibling Data
 
-Here is a review of existing methods.
+
+## Dyads
+```{r}
+library(tidyverse)
+library(NlsyLinks)
+library(discord)
+
+data(sample_data)
+
+df_sample <- sample_data 
+
+df_sample$adhd_s1 <- as.factor(rbinom(nrow(df_sample), 1, 0.3))
+
+df_sample$adhd_s2 <- as.factor(rbinom(nrow(df_sample), 1, 0.3))
+
+df<- discord_data(data = sample_data,
+outcome = "height",
+predictors = "weight",
+pair_identifiers = c("_s1", "_s2"),
+sex = NULL,
+race = NULL,
+demographics = "none")
+
+```
