@@ -23,6 +23,7 @@ df <- twinData
 class(df)
 glimpse(df)
 ```
+
 ```{r addsex}
 
 df <- df %>% mutate(sex = 
@@ -33,9 +34,10 @@ df <- df %>% mutate(sex =
                                     zygosity %in% c("DZFF","DZMM","DZOS") ~ "DZ",
                                 TRUE ~ NA_character_ ))
 ```
-# Summary Statistics
 
-## Numeric Variables
+## Summary Statistics
+
+### Numeric Variables
 ```{r summary-stats}
 
 # Calculate summary statistics
@@ -85,6 +87,7 @@ combined_summary <- bind_rows(zygosity_summary, sex_summary) %>%
 combined_summary
 
 ```
+
 What if you want to examine effects by cohort? You can use the `group_by` function to group the data by cohort and then calculate the summary statistics for each cohort.
 
 ```{r summary-stats-cohort}
@@ -157,8 +160,90 @@ df_summary  %>% mutate(variable = factor(variable, levels = variable_order)) %>%
     arrange(variable,zyg,sex)
 
 ```
+## Plots
+
+Histograms and scatter plots to visualize distributions and relationships.
 
 
+```{r data-viz, fig.width=8, fig.height=4}
+ggplot(df, aes(x = wt1)) +
+  geom_histogram(bins=30, fill="blue", color="black") +
+  labs(x="weight", y="Frequency", title="Distribution of weight for Twin 1") +
+  theme_minimal()
+```
+```{r}
+# Basic Scatter Plot of weight of Twin 1 vs. weight of Twin 2
+p <- ggplot(df, aes(x=wt1, y=wt2, color=zyg)) +
+  geom_point(alpha=.5) +
+  labs(x = "Weight of Twin 1", 
+       y = "Weight of Twin 2", 
+       title = "Scatterplot of weight by Zygosity") +
+  scale_color_viridis_d(option = "virdis",
+                        begin = 0.1,end=.85) +
+  theme_minimal()
+
+p
+```
+
+Adding a regression line to the scatter plot.
+
+```{r}
+p + geom_smooth(method = "lm", se = FALSE)
+
+```
+
+```{r}
+
+library(ggplot2)
+library(ggExtra)
 
 
+# Create marginal density plots for x and y axes
+p_x <- ggplot(df, aes(x = wt1, fill = zyg)) +
+  geom_density(alpha = 0.5) +
+  theme_minimal() +
+  scale_fill_viridis_d(option = "viridis", begin = 0.1, end = 0.85) +
+  theme(axis.title.x = element_blank(),
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank())
 
+p_x
+
+
+p_y <- ggplot(df, aes(x = wt2, fill = zyg)) +
+  geom_density(alpha = 0.5) +
+  scale_fill_viridis_d(option = "viridis", begin = 0.1, end = 0.85) +
+  coord_flip() +
+  theme_minimal() +
+  theme(axis.title.y = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank())
+
+ p_y
+ 
+ 
+# with marginal histogram
+p1 <- ggMarginal(p, type="histogram")
+ 
+p1
+```
+```{r}
+# marginal density
+p2 <- ggMarginal(p, type="density")
+p2
+```
+
+```{r}
+# marginal boxplot
+p3 <- ggMarginal(p, type="boxplot")
+p3
+```
+
+
+## Correlation Matrix
+
+```{r correlation-matrix}
+
+# Calculate the correlation matrix
+
+```
