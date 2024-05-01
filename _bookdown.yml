@@ -1,5 +1,11 @@
-book_filename: "bookdown-demo"
+book_filename: "Data Atlas"
 language:
+  label:
+    fig: "Figure "
+    tab: "Table "
   ui:
-    chapter_name: "Chapter "
+    chapter_name: ""
+always_allow_html: true
 delete_merged_file: true
+new_session: true
+output_dir: "docs"

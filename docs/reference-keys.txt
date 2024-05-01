@@ -1,0 +1,16 @@
+intro
+abstract
+descriptives-wide
+import-data
+data-structure
+summary-statistics
+numeric-variables
+frequency-tables
+plots
+correlation-matrix
+methods
+math-example
+applications
+example-one
+example-two
+final-words

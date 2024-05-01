@@ -1,5 +1,28 @@
-# (PART\*) Descriptives {-}
+--- 
+title: "Data Atlas"
+author: 
+- S. Mason Garrison
+date: "2024-05-01"
+knit: "bookdown::render_book"
+site: bookdown::bookdown_site
+url: 'https\://R-Computing-Lab/data-atlas'
+github-repo: R-Computing-Lab/data-atlas
+twitter-handle: smasongarrison
+cover-image: assets/logo.png
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "Data Atlas"
+favicon: assets/favicon.ico
+---
 
-# Abstract {#abstract}
+
+# (PART\*) Front Matter {-}
+
+# Abstract {#intro}
 
 The adage 'A picture is worth a thousand words' is just as applicable to Behavior Genetics as it is to journalism. In this talk, I delve into the rich diverse history of data visualization techniques in the field of behavior genetics, tracing advancements from Wright's [@Wright1920] classic path diagram of guinea pigs to the contemporary usage of Manhattan plots. This survey sets the stage for the development of two resources aimed at bolstering the field's visualization toolkit. The first, an atlas employing 'ggplot2' in R, aims to guide researchers in selecting the most appropriate visualization techniques for their data. The second, a proposed R package, seeks to facilitate the integration of 'OpenMx'-compatible visualizations, streamlining the presentation of complex genetic analyses. Emphasizing practical advice, the talk will cover effective uses of path diagrams, family trees, and interaction visualizations, with the goal of improving clarity and interpretability of genetic data. This initiative aspires to democratize advanced data visualization tools, making them more accessible to the behavior genetics community and, in turn, amplifying the impact and reach of its research.
+
+
+
