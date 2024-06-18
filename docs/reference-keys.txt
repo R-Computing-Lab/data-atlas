@@ -2,8 +2,6 @@ introduction-to-ggplot2
 understanding-ggplot2s-grammar-of-graphics
 case-study-visualizing-twin-data
 plot-development-stages
-step-1-initial-plot
-tab-2
 welcome-to-ggplot
 math-example
 descriptives-wide
