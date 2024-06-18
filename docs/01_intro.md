@@ -131,9 +131,9 @@ It would produce a scatter plot comparing the height of twins with the height of
 <img src="01_intro_files/figure-html/unnamed-chunk-6-1.png" width="70%" />
 
 
-# Plot Development Stages {.tabset}
+### Plot Development Stages {.tabset}
 
-## Step 1: Initial Plot
+#### Step 1: Initial Plot
 
 
 **Start with the `twinData_cleaned` data frame**
@@ -157,7 +157,7 @@ ggplot(data = twinData_cleaned,
 <img src="01_intro_files/figure-html/twin-1-1.png" width="70%" />
 
 
-## tab 2
+#### tab 2
 
 Start with the `twinData_cleaned` data frame, map twin 1's height to the x-axis, and **and map twin 2's height to the y-axis.**
 
@@ -195,6 +195,8 @@ ggplot(data = twinData_cleaned,
 <img src="01_intro_files/figure-html/twin-4-1.png" width="70%" />
 
 Start with the `twinData_cleaned` data frame, map twin 1's height to the x-axis, and and map twin 2's height to the y-axis. Represent each observation with a point, and map zygosity to the color of each point. **Title the plot "Height Comparison between Twins"**
+
+### {-}
 
 
 ``` r

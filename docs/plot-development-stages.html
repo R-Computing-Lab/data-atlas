@@ -156,8 +156,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
-<link rel="stylesheet" href="assets/style.css" type="text/css" />
 </head>
 
 <body>
@@ -175,11 +197,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="part"><span><b>Front Matter</b></span></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Abstract</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#how-to-use-these-notes"><i class="fa fa-check"></i>How to use these notes</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="attribution.html"><a href="attribution.html"><i class="fa fa-check"></i>Attribution</a>
 <ul>
-<li class="chapter" data-level="" data-path="attribution.html"><a href="attribution.html#how-to-use-these-notes"><i class="fa fa-check"></i>How to use these notes</a></li>
 <li class="chapter" data-level="" data-path="attribution.html"><a href="attribution.html#major-attributions"><i class="fa fa-check"></i>Major Attributions</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="license.html"><a href="license.html"><i class="fa fa-check"></i>License</a></li>
+<li class="chapter" data-level="" data-path="colophon.html"><a href="colophon.html"><i class="fa fa-check"></i>Colophon</a></li>
 <li class="part"><span><b>Introduction</b></span></li>
 <li class="chapter" data-level="1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html"><i class="fa fa-check"></i><b>1</b> Introduction to ggplot2</a>
 <ul>
@@ -246,72 +273,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="step-1-initial-plot" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> Step 1: Initial Plot<a href="plot-development-stages.html#step-1-initial-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Start with the <code>twinData_cleaned</code> data frame</strong></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="plot-development-stages.html#cb6-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> twinData_cleaned) <span class="co">#&lt;&lt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="plot-development-stages.html#cb8-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> twinData_cleaned) <span class="co">#&lt;&lt;</span></span></code></pre></div>
 <p><img src="01_intro_files/figure-html/twin-0-1.png" width="70%" /></p>
 <p>Start with the <code>twinData_cleaned</code> data frame, <strong>map twin 1’s height to the x-axis</strong></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="plot-development-stages.html#cb7-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> twinData_cleaned,</span>
-<span id="cb7-2"><a href="plot-development-stages.html#cb7-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> height_t1)) <span class="co">#&lt;&lt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="plot-development-stages.html#cb9-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> twinData_cleaned,</span>
+<span id="cb9-2"><a href="plot-development-stages.html#cb9-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> height_t1)) <span class="co">#&lt;&lt;</span></span></code></pre></div>
 <p><img src="01_intro_files/figure-html/twin-1-1.png" width="70%" /></p>
 </div>
 <div id="tab-2" class="section level2 hasAnchor" number="2.2">
 <h2><span class="header-section-number">2.2</span> tab 2<a href="plot-development-stages.html#tab-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Start with the <code>twinData_cleaned</code> data frame, map twin 1’s height to the x-axis, and <strong>and map twin 2’s height to the y-axis.</strong></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="plot-development-stages.html#cb8-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> twinData_cleaned,</span>
-<span id="cb8-2"><a href="plot-development-stages.html#cb8-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>( <span class="at">x =</span> height_t1,</span>
-<span id="cb8-3"><a href="plot-development-stages.html#cb8-3" tabindex="-1"></a>                      <span class="at">y =</span> height_t2)) <span class="co">#&lt;&lt;</span></span></code></pre></div>
-<p><img src="01_intro_files/figure-html/twin-2-1.png" width="70%" /></p>
-<p>Start with the <code>twinData_cleaned</code> data frame, map twin 1’s height to the x-axis, and and map twin 2’s height to the y-axis. <strong>Represent each observation with a point</strong></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="plot-development-stages.html#cb9-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> twinData_cleaned,</span>
-<span id="cb9-2"><a href="plot-development-stages.html#cb9-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>( <span class="at">x =</span> height_t1,</span>
-<span id="cb9-3"><a href="plot-development-stages.html#cb9-3" tabindex="-1"></a>                      <span class="at">y =</span> height_t2)) <span class="sc">+</span> </span>
-<span id="cb9-4"><a href="plot-development-stages.html#cb9-4" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="co">#&lt;&lt;</span></span></code></pre></div>
-<p><img src="01_intro_files/figure-html/twin-3-1.png" width="70%" />
-Start with the <code>twinData_cleaned</code> data frame, map twin 1’s height to the x-axis, and and map twin 2’s height to the y-axis. Represent each observation with a point, <strong>and map zygosity to the color of each point.</strong></p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="plot-development-stages.html#cb10-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> twinData_cleaned,</span>
 <span id="cb10-2"><a href="plot-development-stages.html#cb10-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>( <span class="at">x =</span> height_t1,</span>
-<span id="cb10-3"><a href="plot-development-stages.html#cb10-3" tabindex="-1"></a>                      <span class="at">y =</span> height_t2,</span>
-<span id="cb10-4"><a href="plot-development-stages.html#cb10-4" tabindex="-1"></a>                      <span class="at">color =</span> zyg)) <span class="sc">+</span> <span class="co">#&lt;&lt;</span></span>
-<span id="cb10-5"><a href="plot-development-stages.html#cb10-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span></code></pre></div>
-<p><img src="01_intro_files/figure-html/twin-4-1.png" width="70%" /></p>
-<p>Start with the <code>twinData_cleaned</code> data frame, map twin 1’s height to the x-axis, and and map twin 2’s height to the y-axis. Represent each observation with a point, and map zygosity to the color of each point. <strong>Title the plot “Height Comparison between Twins”</strong></p>
+<span id="cb10-3"><a href="plot-development-stages.html#cb10-3" tabindex="-1"></a>                      <span class="at">y =</span> height_t2)) <span class="co">#&lt;&lt;</span></span></code></pre></div>
+<p><img src="01_intro_files/figure-html/twin-2-1.png" width="70%" /></p>
+<p>Start with the <code>twinData_cleaned</code> data frame, map twin 1’s height to the x-axis, and and map twin 2’s height to the y-axis. <strong>Represent each observation with a point</strong></p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="plot-development-stages.html#cb11-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> twinData_cleaned,</span>
 <span id="cb11-2"><a href="plot-development-stages.html#cb11-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>( <span class="at">x =</span> height_t1,</span>
-<span id="cb11-3"><a href="plot-development-stages.html#cb11-3" tabindex="-1"></a>                      <span class="at">y =</span> height_t2,</span>
-<span id="cb11-4"><a href="plot-development-stages.html#cb11-4" tabindex="-1"></a>                      <span class="at">color =</span> zyg)) <span class="sc">+</span></span>
-<span id="cb11-5"><a href="plot-development-stages.html#cb11-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb11-6"><a href="plot-development-stages.html#cb11-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Height Comparison between Twins&quot;</span>) <span class="co">#&lt;&lt;</span></span></code></pre></div>
-<p><img src="01_intro_files/figure-html/twin-5-1.png" width="70%" /></p>
-<p>Start with the <code>twinData_cleaned</code> data frame, map twin 1’s height to the x-axis, and and map twin 2’s height to the y-axis. Represent each observation with a point, and map zygosity to the color of each point. Title the plot “Height Comparison between Twins”, <strong>add the subtitle “by zygosity”</strong></p>
+<span id="cb11-3"><a href="plot-development-stages.html#cb11-3" tabindex="-1"></a>                      <span class="at">y =</span> height_t2)) <span class="sc">+</span> </span>
+<span id="cb11-4"><a href="plot-development-stages.html#cb11-4" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="co">#&lt;&lt;</span></span></code></pre></div>
+<p><img src="01_intro_files/figure-html/twin-3-1.png" width="70%" />
+Start with the <code>twinData_cleaned</code> data frame, map twin 1’s height to the x-axis, and and map twin 2’s height to the y-axis. Represent each observation with a point, <strong>and map zygosity to the color of each point.</strong></p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="plot-development-stages.html#cb12-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> twinData_cleaned,</span>
 <span id="cb12-2"><a href="plot-development-stages.html#cb12-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>( <span class="at">x =</span> height_t1,</span>
 <span id="cb12-3"><a href="plot-development-stages.html#cb12-3" tabindex="-1"></a>                      <span class="at">y =</span> height_t2,</span>
-<span id="cb12-4"><a href="plot-development-stages.html#cb12-4" tabindex="-1"></a>                      <span class="at">color =</span> zyg)) <span class="sc">+</span></span>
-<span id="cb12-5"><a href="plot-development-stages.html#cb12-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb12-6"><a href="plot-development-stages.html#cb12-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Height Comparison between Twins&quot;</span>,</span>
-<span id="cb12-7"><a href="plot-development-stages.html#cb12-7" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&quot;by zygosity&quot;</span>) <span class="co">#&lt;&lt;</span></span></code></pre></div>
-<p><img src="01_intro_files/figure-html/twin-6-1.png" width="70%" /></p>
-<p>Start with the <code>twinData_cleaned</code> data frame, map twin 1’s height to the x-axis, and and map twin 2’s height to the y-axis. Represent each observation with a point, and map zygosity to the color of each point. Title the plot “Height Comparison between Twins”, add the subtitle “by zygosity”, <strong>label the x and y axes as “Height of Twin 1 (m)” and “Height of Twin 2 (m)”, respectively</strong></p>
+<span id="cb12-4"><a href="plot-development-stages.html#cb12-4" tabindex="-1"></a>                      <span class="at">color =</span> zyg)) <span class="sc">+</span> <span class="co">#&lt;&lt;</span></span>
+<span id="cb12-5"><a href="plot-development-stages.html#cb12-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span></code></pre></div>
+<p><img src="01_intro_files/figure-html/twin-4-1.png" width="70%" /></p>
+<p>Start with the <code>twinData_cleaned</code> data frame, map twin 1’s height to the x-axis, and and map twin 2’s height to the y-axis. Represent each observation with a point, and map zygosity to the color of each point. <strong>Title the plot “Height Comparison between Twins”</strong></p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="plot-development-stages.html#cb13-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> twinData_cleaned,</span>
 <span id="cb13-2"><a href="plot-development-stages.html#cb13-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>( <span class="at">x =</span> height_t1,</span>
 <span id="cb13-3"><a href="plot-development-stages.html#cb13-3" tabindex="-1"></a>                      <span class="at">y =</span> height_t2,</span>
 <span id="cb13-4"><a href="plot-development-stages.html#cb13-4" tabindex="-1"></a>                      <span class="at">color =</span> zyg)) <span class="sc">+</span></span>
 <span id="cb13-5"><a href="plot-development-stages.html#cb13-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb13-6"><a href="plot-development-stages.html#cb13-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Height Comparison between Twins&quot;</span>,</span>
-<span id="cb13-7"><a href="plot-development-stages.html#cb13-7" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&quot;by zygosity&quot;</span>,</span>
-<span id="cb13-8"><a href="plot-development-stages.html#cb13-8" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Height of Twin 1 (m)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Height of Twin 2 (m)&quot;</span>) <span class="co">#&lt;&lt;</span></span></code></pre></div>
-<p><img src="01_intro_files/figure-html/twin-7-1.png" width="70%" /></p>
-<p>Start with the <code>twinData_cleaned</code> data frame, map twin 1’s height to the x-axis, and and map twin 2’s height to the y-axis. Represent each observation with a point, and map zygosity to the color of each point. Title the plot “Height Comparison between Twins”, add the subtitle “by zygosity”, label the x and y axes as “Height of Twin 1 (m)” and “Height of Twin 2 (m)”, respectively , <strong>label the legend “Zygosity”</strong></p>
+<span id="cb13-6"><a href="plot-development-stages.html#cb13-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Height Comparison between Twins&quot;</span>) <span class="co">#&lt;&lt;</span></span></code></pre></div>
+<p><img src="01_intro_files/figure-html/twin-5-1.png" width="70%" /></p>
+<p>Start with the <code>twinData_cleaned</code> data frame, map twin 1’s height to the x-axis, and and map twin 2’s height to the y-axis. Represent each observation with a point, and map zygosity to the color of each point. Title the plot “Height Comparison between Twins”, <strong>add the subtitle “by zygosity”</strong></p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="plot-development-stages.html#cb14-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> twinData_cleaned,</span>
 <span id="cb14-2"><a href="plot-development-stages.html#cb14-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>( <span class="at">x =</span> height_t1,</span>
 <span id="cb14-3"><a href="plot-development-stages.html#cb14-3" tabindex="-1"></a>                      <span class="at">y =</span> height_t2,</span>
 <span id="cb14-4"><a href="plot-development-stages.html#cb14-4" tabindex="-1"></a>                      <span class="at">color =</span> zyg)) <span class="sc">+</span></span>
 <span id="cb14-5"><a href="plot-development-stages.html#cb14-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb14-6"><a href="plot-development-stages.html#cb14-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Height Comparison between Twins&quot;</span>,</span>
-<span id="cb14-7"><a href="plot-development-stages.html#cb14-7" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&quot;by zygosity&quot;</span>,</span>
-<span id="cb14-8"><a href="plot-development-stages.html#cb14-8" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Height of Twin 1 (m)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Height of Twin 2 (m)&quot;</span>,</span>
-<span id="cb14-9"><a href="plot-development-stages.html#cb14-9" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">&quot;Zygosity&quot;</span>) <span class="co">#&lt;&lt;</span></span></code></pre></div>
-<p><img src="01_intro_files/figure-html/twin-8-1.png" width="70%" /></p>
-<p>Start with the <code>twinData_cleaned</code> data frame, map twin 1’s height to the x-axis, and and map twin 2’s height to the y-axis. Represent each observation with a point, and map zygosity to the color of each point. Title the plot “Height Comparison between Twins”, add the subtitle “by zygosity”, label the x and y axes as “Height of Twin 1 (m)” and “Height of Twin 2 (m)”, respectively , label the legend “Zygosity”, and add a caption for the data source.</p>
+<span id="cb14-7"><a href="plot-development-stages.html#cb14-7" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&quot;by zygosity&quot;</span>) <span class="co">#&lt;&lt;</span></span></code></pre></div>
+<p><img src="01_intro_files/figure-html/twin-6-1.png" width="70%" /></p>
+<p>Start with the <code>twinData_cleaned</code> data frame, map twin 1’s height to the x-axis, and and map twin 2’s height to the y-axis. Represent each observation with a point, and map zygosity to the color of each point. Title the plot “Height Comparison between Twins”, add the subtitle “by zygosity”, <strong>label the x and y axes as “Height of Twin 1 (m)” and “Height of Twin 2 (m)”, respectively</strong></p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="plot-development-stages.html#cb15-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> twinData_cleaned,</span>
 <span id="cb15-2"><a href="plot-development-stages.html#cb15-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>( <span class="at">x =</span> height_t1,</span>
 <span id="cb15-3"><a href="plot-development-stages.html#cb15-3" tabindex="-1"></a>                      <span class="at">y =</span> height_t2,</span>
@@ -319,9 +325,30 @@ Start with the <code>twinData_cleaned</code> data frame, map twin 1’s height t
 <span id="cb15-5"><a href="plot-development-stages.html#cb15-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb15-6"><a href="plot-development-stages.html#cb15-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Height Comparison between Twins&quot;</span>,</span>
 <span id="cb15-7"><a href="plot-development-stages.html#cb15-7" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&quot;by zygosity&quot;</span>,</span>
-<span id="cb15-8"><a href="plot-development-stages.html#cb15-8" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Height of Twin 1 (m)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Height of Twin 2 (m)&quot;</span>,</span>
-<span id="cb15-9"><a href="plot-development-stages.html#cb15-9" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">&quot;Zygosity&quot;</span>,</span>
-<span id="cb15-10"><a href="plot-development-stages.html#cb15-10" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&quot;Source: Australian National Health and Medical Research Council Twin Registry / OpenMx package&quot;</span>) <span class="co">#&lt;&lt;</span></span></code></pre></div>
+<span id="cb15-8"><a href="plot-development-stages.html#cb15-8" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Height of Twin 1 (m)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Height of Twin 2 (m)&quot;</span>) <span class="co">#&lt;&lt;</span></span></code></pre></div>
+<p><img src="01_intro_files/figure-html/twin-7-1.png" width="70%" /></p>
+<p>Start with the <code>twinData_cleaned</code> data frame, map twin 1’s height to the x-axis, and and map twin 2’s height to the y-axis. Represent each observation with a point, and map zygosity to the color of each point. Title the plot “Height Comparison between Twins”, add the subtitle “by zygosity”, label the x and y axes as “Height of Twin 1 (m)” and “Height of Twin 2 (m)”, respectively , <strong>label the legend “Zygosity”</strong></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="plot-development-stages.html#cb16-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> twinData_cleaned,</span>
+<span id="cb16-2"><a href="plot-development-stages.html#cb16-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>( <span class="at">x =</span> height_t1,</span>
+<span id="cb16-3"><a href="plot-development-stages.html#cb16-3" tabindex="-1"></a>                      <span class="at">y =</span> height_t2,</span>
+<span id="cb16-4"><a href="plot-development-stages.html#cb16-4" tabindex="-1"></a>                      <span class="at">color =</span> zyg)) <span class="sc">+</span></span>
+<span id="cb16-5"><a href="plot-development-stages.html#cb16-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb16-6"><a href="plot-development-stages.html#cb16-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Height Comparison between Twins&quot;</span>,</span>
+<span id="cb16-7"><a href="plot-development-stages.html#cb16-7" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&quot;by zygosity&quot;</span>,</span>
+<span id="cb16-8"><a href="plot-development-stages.html#cb16-8" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Height of Twin 1 (m)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Height of Twin 2 (m)&quot;</span>,</span>
+<span id="cb16-9"><a href="plot-development-stages.html#cb16-9" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">&quot;Zygosity&quot;</span>) <span class="co">#&lt;&lt;</span></span></code></pre></div>
+<p><img src="01_intro_files/figure-html/twin-8-1.png" width="70%" /></p>
+<p>Start with the <code>twinData_cleaned</code> data frame, map twin 1’s height to the x-axis, and and map twin 2’s height to the y-axis. Represent each observation with a point, and map zygosity to the color of each point. Title the plot “Height Comparison between Twins”, add the subtitle “by zygosity”, label the x and y axes as “Height of Twin 1 (m)” and “Height of Twin 2 (m)”, respectively , label the legend “Zygosity”, and add a caption for the data source.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="plot-development-stages.html#cb17-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> twinData_cleaned,</span>
+<span id="cb17-2"><a href="plot-development-stages.html#cb17-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>( <span class="at">x =</span> height_t1,</span>
+<span id="cb17-3"><a href="plot-development-stages.html#cb17-3" tabindex="-1"></a>                      <span class="at">y =</span> height_t2,</span>
+<span id="cb17-4"><a href="plot-development-stages.html#cb17-4" tabindex="-1"></a>                      <span class="at">color =</span> zyg)) <span class="sc">+</span></span>
+<span id="cb17-5"><a href="plot-development-stages.html#cb17-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb17-6"><a href="plot-development-stages.html#cb17-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Height Comparison between Twins&quot;</span>,</span>
+<span id="cb17-7"><a href="plot-development-stages.html#cb17-7" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&quot;by zygosity&quot;</span>,</span>
+<span id="cb17-8"><a href="plot-development-stages.html#cb17-8" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Height of Twin 1 (m)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Height of Twin 2 (m)&quot;</span>,</span>
+<span id="cb17-9"><a href="plot-development-stages.html#cb17-9" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">&quot;Zygosity&quot;</span>,</span>
+<span id="cb17-10"><a href="plot-development-stages.html#cb17-10" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&quot;Source: Australian National Health and Medical Research Council Twin Registry / OpenMx package&quot;</span>) <span class="co">#&lt;&lt;</span></span></code></pre></div>
 <p><img src="01_intro_files/figure-html/twin-9-1.png" width="70%" /></p>
 
 </div>
