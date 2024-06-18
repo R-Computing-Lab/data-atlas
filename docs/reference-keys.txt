@@ -1,5 +1,10 @@
-intro
-abstract
+introduction-to-ggplot2
+understanding-ggplot2s-grammar-of-graphics
+case-study-visualizing-twin-data
+breaking-down-the-code
+enhancing-the-plot
+welcome-to-ggplot
+math-example
 descriptives-wide
 import-data
 data-structure
@@ -8,9 +13,10 @@ numeric-variables
 frequency-tables
 plots
 correlation-matrix
-methods
-math-example
 applications
 example-one
 example-two
 final-words
+plot-development-stages
+tab-2
+step-1-initial-plot

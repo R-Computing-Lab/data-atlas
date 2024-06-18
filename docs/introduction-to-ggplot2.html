@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1 Introduction to ggplot2 | Data Atlas</title>
+  <meta name="description" content="1 Introduction to ggplot2 | Data Atlas" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1 Introduction to ggplot2 | Data Atlas" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://R-Computing-Lab/data-atlas/assets/logo.png" />
+  <meta property="og:description" content="1 Introduction to ggplot2 | Data Atlas" />
+  <meta name="github-repo" content="R-Computing-Lab/data-atlas" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 Introduction to ggplot2 | Data Atlas" />
+  <meta name="twitter:site" content="@smasongarrison" />
+  <meta name="twitter:description" content="1 Introduction to ggplot2 | Data Atlas" />
+  <meta name="twitter:image" content="https://R-Computing-Lab/data-atlas/assets/logo.png" />
+
+<meta name="author" content="S. Mason Garrison" />
+
+
+<meta name="date" content="2024-06-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="attribution.html"/>
+<link rel="next" href="plot-development-stages.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.33/datatables.js"></script>
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+<link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="libs/selectize-0.12.0/selectize.min.js"></script>
+<link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<html>
+
+  <head>
+  <script src="anchor-links.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GL8GKDDW8C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GL8GKDDW8C');
+</script>
+
+</head>
+
+</html>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="assets/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="assets/logo.png" style="border-radius: 00%;" ></a></li>
+
+<li class="divider"></li>
+<li class="part"><span><b>Front Matter</b></span></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Abstract</a></li>
+<li class="chapter" data-level="" data-path="attribution.html"><a href="attribution.html"><i class="fa fa-check"></i>Attribution</a>
+<ul>
+<li class="chapter" data-level="" data-path="attribution.html"><a href="attribution.html#how-to-use-these-notes"><i class="fa fa-check"></i>How to use these notes</a></li>
+<li class="chapter" data-level="" data-path="attribution.html"><a href="attribution.html#major-attributions"><i class="fa fa-check"></i>Major Attributions</a></li>
+</ul></li>
+<li class="part"><span><b>Introduction</b></span></li>
+<li class="chapter" data-level="1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html"><i class="fa fa-check"></i><b>1</b> Introduction to ggplot2</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#understanding-ggplot2s-grammar-of-graphics"><i class="fa fa-check"></i><b>1.1</b> Understanding ggplot2’s Grammar of Graphics</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#case-study-visualizing-twin-data"><i class="fa fa-check"></i><b>1.2</b> Case Study: Visualizing Twin Data</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="plot-development-stages.html"><a href="plot-development-stages.html"><i class="fa fa-check"></i><b>2</b> Plot Development Stages</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="plot-development-stages.html"><a href="plot-development-stages.html#step-1-initial-plot"><i class="fa fa-check"></i><b>2.1</b> Step 1: Initial Plot</a></li>
+<li class="chapter" data-level="2.2" data-path="plot-development-stages.html"><a href="plot-development-stages.html#tab-2"><i class="fa fa-check"></i><b>2.2</b> tab 2</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="welcome-to-ggplot.html"><a href="welcome-to-ggplot.html"><i class="fa fa-check"></i><b>3</b> Welcome to ggplot</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="welcome-to-ggplot.html"><a href="welcome-to-ggplot.html#math-example"><i class="fa fa-check"></i><b>3.1</b> math example</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="descriptives-wide.html"><a href="descriptives-wide.html"><i class="fa fa-check"></i><b>4</b> Descriptives (Wide)</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="descriptives-wide.html"><a href="descriptives-wide.html#import-data"><i class="fa fa-check"></i><b>4.1</b> Import Data</a></li>
+<li class="chapter" data-level="4.2" data-path="descriptives-wide.html"><a href="descriptives-wide.html#data-structure"><i class="fa fa-check"></i><b>4.2</b> Data Structure</a></li>
+<li class="chapter" data-level="4.3" data-path="descriptives-wide.html"><a href="descriptives-wide.html#summary-statistics"><i class="fa fa-check"></i><b>4.3</b> Summary Statistics</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="descriptives-wide.html"><a href="descriptives-wide.html#numeric-variables"><i class="fa fa-check"></i><b>4.3.1</b> Numeric Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="descriptives-wide.html"><a href="descriptives-wide.html#frequency-tables"><i class="fa fa-check"></i><b>4.4</b> Frequency Tables</a></li>
+<li class="chapter" data-level="4.5" data-path="descriptives-wide.html"><a href="descriptives-wide.html#plots"><i class="fa fa-check"></i><b>4.5</b> Plots</a></li>
+<li class="chapter" data-level="4.6" data-path="descriptives-wide.html"><a href="descriptives-wide.html#correlation-matrix"><i class="fa fa-check"></i><b>4.6</b> Correlation Matrix</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
+<li class="chapter" data-level="5.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><center>
+  <a rel="license" href="./license.html">
+    License: CC-BY-SA<br>
+    <i class = "fab fa-creative-commons fa-2x"></i>
+    <i class = "fab fa-creative-commons-by fa-2x"></i>
+    <i class = "fab fa-creative-commons-sa fa-2x"></i>
+  </a>
+</center></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Atlas</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introduction-to-ggplot2" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1</span> Introduction to ggplot2<a href="introduction-to-ggplot2.html#introduction-to-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In this chapter, we explore the power of <code>ggplot2</code> within the tidyverse package suite for creating compelling visual representations of twin studies in behavior genetics. <code>ggplot2</code>’s layer-oriented approach to building data visualizations allows researchers to intuitively map out the complexities inherent in twin data, providing insights that are crucial for both hypothesis testing and exploratory data analysis.</p>
+<div id="understanding-ggplot2s-grammar-of-graphics" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Understanding ggplot2’s Grammar of Graphics<a href="introduction-to-ggplot2.html#understanding-ggplot2s-grammar-of-graphics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><code>ggplot2</code> is a powerful data visualization package in R that is part of the tidyverse suite of packages. It is based on the grammar of graphics, a coherent system for describing and building visualizations. The grammar of graphics is based on the idea that a plot can be decomposed into a set of independent components, such as data, aesthetics, and geoms (geometric objects). By combining these components, ggplot2 allows for the creation of complex and informative visualizations that can be easily customized and extended.</p>
+<p>The structure of the code for plots can be summarized as follows:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="introduction-to-ggplot2.html#cb1-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> [[dataset]],</span>
+<span id="cb1-2"><a href="introduction-to-ggplot2.html#cb1-2" tabindex="-1"></a>     <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> [[x<span class="sc">-</span>variable]],</span>
+<span id="cb1-3"><a href="introduction-to-ggplot2.html#cb1-3" tabindex="-1"></a>                   <span class="at">y =</span> [[y<span class="sc">-</span>variable]])) <span class="sc">+</span></span>
+<span id="cb1-4"><a href="introduction-to-ggplot2.html#cb1-4" tabindex="-1"></a>   <span class="fu">geom_xxx</span>() <span class="sc">+</span></span>
+<span id="cb1-5"><a href="introduction-to-ggplot2.html#cb1-5" tabindex="-1"></a>   other options</span></code></pre></div>
+<p>Each component of the plot is added in layers. The <code>ggplot()</code> function initializes the plot, <code>aes()</code> specifies the aesthetic mappings (how variables are mapped to visual properties), and <code>geom_xxx()</code> adds a geometric object (points, lines, bars, etc.) to the plot. Additional layers can be added to further customize the plot, such as labels, titles, and themes. We’ll dive into these soon enough, but first, let’s walk through a simple example to illustrate the basic structure of a ggplot2 plot.</p>
+</div>
+<div id="case-study-visualizing-twin-data" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Case Study: Visualizing Twin Data<a href="introduction-to-ggplot2.html#case-study-visualizing-twin-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To make this more concrete, let’s consider an example using twin data on height from the <code>OpenMX</code> package, which is in the <code>twinData</code> data. These 3,808 pairs of twins are from the Australian National Health and Medical Research Council Twin Registry. The dataset contains information on the height, weight, and body mass index (BMI) of twins, along with their zygosity and other demographic information.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="introduction-to-ggplot2.html#cb2-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="co"># Load the tidyverse packages</span></span>
+<span id="cb2-2"><a href="introduction-to-ggplot2.html#cb2-2" tabindex="-1"></a><span class="fu">library</span>(OpenMx)    <span class="co"># Load the OpenMx package</span></span>
+<span id="cb2-3"><a href="introduction-to-ggplot2.html#cb2-3" tabindex="-1"></a><span class="fu">library</span>(BGmisc) <span class="co"># Load the BGmisc package</span></span>
+<span id="cb2-4"><a href="introduction-to-ggplot2.html#cb2-4" tabindex="-1"></a><span class="fu">library</span>(conflicted) <span class="co"># to handle conflicts</span></span>
+<span id="cb2-5"><a href="introduction-to-ggplot2.html#cb2-5" tabindex="-1"></a>conflicted<span class="sc">::</span><span class="fu">conflicts_prefer</span>(OpenMx<span class="sc">::</span>vech,dplyr<span class="sc">::</span>filter) <span class="co"># Resolve conflicts</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="introduction-to-ggplot2.html#cb3-1" tabindex="-1"></a><span class="fu">data</span>(twinData)</span>
+<span id="cb3-2"><a href="introduction-to-ggplot2.html#cb3-2" tabindex="-1"></a><span class="fu">glimpse</span>(twinData)</span>
+<span id="cb3-3"><a href="introduction-to-ggplot2.html#cb3-3" tabindex="-1"></a><span class="co">#&gt; Rows: 3,808</span></span>
+<span id="cb3-4"><a href="introduction-to-ggplot2.html#cb3-4" tabindex="-1"></a><span class="co">#&gt; Columns: 16</span></span>
+<span id="cb3-5"><a href="introduction-to-ggplot2.html#cb3-5" tabindex="-1"></a><span class="co">#&gt; $ fam      &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18…</span></span>
+<span id="cb3-6"><a href="introduction-to-ggplot2.html#cb3-6" tabindex="-1"></a><span class="co">#&gt; $ age      &lt;int&gt; 21, 24, 21, 21, 19, 26, 23, 29, 24, 28, 29, 19, 23, 22, 23, 2…</span></span>
+<span id="cb3-7"><a href="introduction-to-ggplot2.html#cb3-7" tabindex="-1"></a><span class="co">#&gt; $ zyg      &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…</span></span>
+<span id="cb3-8"><a href="introduction-to-ggplot2.html#cb3-8" tabindex="-1"></a><span class="co">#&gt; $ part     &lt;int&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2…</span></span>
+<span id="cb3-9"><a href="introduction-to-ggplot2.html#cb3-9" tabindex="-1"></a><span class="co">#&gt; $ wt1      &lt;int&gt; 58, 54, 55, 66, 50, 60, 65, 40, 60, 76, 48, 70, 51, 53, 58, 4…</span></span>
+<span id="cb3-10"><a href="introduction-to-ggplot2.html#cb3-10" tabindex="-1"></a><span class="co">#&gt; $ wt2      &lt;int&gt; 57, 53, 50, 76, 48, 60, 65, 39, 57, 64, 51, 67, 51, 55, 57, 5…</span></span>
+<span id="cb3-11"><a href="introduction-to-ggplot2.html#cb3-11" tabindex="-1"></a><span class="co">#&gt; $ ht1      &lt;dbl&gt; 1.70, 1.63, 1.65, 1.57, 1.61, 1.60, 1.75, 1.56, 1.76, 1.70, 1…</span></span>
+<span id="cb3-12"><a href="introduction-to-ggplot2.html#cb3-12" tabindex="-1"></a><span class="co">#&gt; $ ht2      &lt;dbl&gt; 1.70, 1.63, 1.68, 1.65, 1.63, 1.57, 1.77, 1.53, 1.77, 1.73, 1…</span></span>
+<span id="cb3-13"><a href="introduction-to-ggplot2.html#cb3-13" tabindex="-1"></a><span class="co">#&gt; $ htwt1    &lt;dbl&gt; 20.1, 20.3, 20.2, 26.8, 19.3, 23.4, 21.2, 16.4, 19.4, 26.3, 2…</span></span>
+<span id="cb3-14"><a href="introduction-to-ggplot2.html#cb3-14" tabindex="-1"></a><span class="co">#&gt; $ htwt2    &lt;dbl&gt; 19.7, 19.9, 17.7, 27.9, 18.1, 24.3, 20.7, 16.7, 18.2, 21.4, 2…</span></span>
+<span id="cb3-15"><a href="introduction-to-ggplot2.html#cb3-15" tabindex="-1"></a><span class="co">#&gt; $ bmi1     &lt;dbl&gt; 21.0, 21.1, 21.0, 23.0, 20.7, 22.1, 21.4, 19.6, 20.7, 22.9, 2…</span></span>
+<span id="cb3-16"><a href="introduction-to-ggplot2.html#cb3-16" tabindex="-1"></a><span class="co">#&gt; $ bmi2     &lt;dbl&gt; 20.9, 21.0, 20.1, 23.3, 20.3, 22.3, 21.2, 19.7, 20.3, 21.4, 2…</span></span>
+<span id="cb3-17"><a href="introduction-to-ggplot2.html#cb3-17" tabindex="-1"></a><span class="co">#&gt; $ cohort   &lt;chr&gt; &quot;younger&quot;, &quot;younger&quot;, &quot;younger&quot;, &quot;younger&quot;, &quot;younger&quot;, &quot;young…</span></span>
+<span id="cb3-18"><a href="introduction-to-ggplot2.html#cb3-18" tabindex="-1"></a><span class="co">#&gt; $ zygosity &lt;fct&gt; MZFF, MZFF, MZFF, MZFF, MZFF, MZFF, MZFF, MZFF, MZFF, MZFF, M…</span></span>
+<span id="cb3-19"><a href="introduction-to-ggplot2.html#cb3-19" tabindex="-1"></a><span class="co">#&gt; $ age1     &lt;int&gt; 21, 24, 21, 21, 19, 26, 23, 29, 24, 28, 29, 19, 23, 22, 23, 2…</span></span>
+<span id="cb3-20"><a href="introduction-to-ggplot2.html#cb3-20" tabindex="-1"></a><span class="co">#&gt; $ age2     &lt;int&gt; 21, 24, 21, 21, 19, 26, 23, 29, 24, 28, 29, 19, 23, 22, 23, 2…</span></span></code></pre></div>
+<p>I’m going to tidy up the data a bit by renaming the columns and removing some unnecessary columns. I’ll also filter out any rows with missing values in the height columns. I’ve also added a column to represent the sex of the twins and their zygosity.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="introduction-to-ggplot2.html#cb4-1" tabindex="-1"></a>twinData_cleaned <span class="ot">&lt;-</span> twinData <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="introduction-to-ggplot2.html#cb4-2" tabindex="-1"></a>  <span class="fu">rename</span>( <span class="co"># Rename columns</span></span>
+<span id="cb4-3"><a href="introduction-to-ggplot2.html#cb4-3" tabindex="-1"></a>    <span class="at">family =</span> fam,</span>
+<span id="cb4-4"><a href="introduction-to-ggplot2.html#cb4-4" tabindex="-1"></a>    <span class="at">weight_t1 =</span> wt1,</span>
+<span id="cb4-5"><a href="introduction-to-ggplot2.html#cb4-5" tabindex="-1"></a>    <span class="at">weight_t2 =</span> wt2,</span>
+<span id="cb4-6"><a href="introduction-to-ggplot2.html#cb4-6" tabindex="-1"></a>    <span class="at">height_t1 =</span> ht1,</span>
+<span id="cb4-7"><a href="introduction-to-ggplot2.html#cb4-7" tabindex="-1"></a>    <span class="at">height_t2 =</span> ht2,</span>
+<span id="cb4-8"><a href="introduction-to-ggplot2.html#cb4-8" tabindex="-1"></a>    <span class="at">bmi_t1 =</span> bmi1,</span>
+<span id="cb4-9"><a href="introduction-to-ggplot2.html#cb4-9" tabindex="-1"></a>    <span class="at">bmi_t2 =</span> bmi2,</span>
+<span id="cb4-10"><a href="introduction-to-ggplot2.html#cb4-10" tabindex="-1"></a>    <span class="at">age_t1 =</span> age1,</span>
+<span id="cb4-11"><a href="introduction-to-ggplot2.html#cb4-11" tabindex="-1"></a>    <span class="at">age_t2 =</span> age2,</span>
+<span id="cb4-12"><a href="introduction-to-ggplot2.html#cb4-12" tabindex="-1"></a>    <span class="at">heightweight_t1 =</span> htwt1,</span>
+<span id="cb4-13"><a href="introduction-to-ggplot2.html#cb4-13" tabindex="-1"></a>    <span class="at">heightweight_t2 =</span> htwt2) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-14"><a href="introduction-to-ggplot2.html#cb4-14" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="co"># Remove unnecessary columns</span></span>
+<span id="cb4-15"><a href="introduction-to-ggplot2.html#cb4-15" tabindex="-1"></a>    part,</span>
+<span id="cb4-16"><a href="introduction-to-ggplot2.html#cb4-16" tabindex="-1"></a>    zyg,</span>
+<span id="cb4-17"><a href="introduction-to-ggplot2.html#cb4-17" tabindex="-1"></a>    age_t1,</span>
+<span id="cb4-18"><a href="introduction-to-ggplot2.html#cb4-18" tabindex="-1"></a>    age_t2)) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-19"><a href="introduction-to-ggplot2.html#cb4-19" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="co"># Remove rows with missing values</span></span>
+<span id="cb4-20"><a href="introduction-to-ggplot2.html#cb4-20" tabindex="-1"></a>    <span class="sc">!</span><span class="fu">is.na</span>(height_t1),</span>
+<span id="cb4-21"><a href="introduction-to-ggplot2.html#cb4-21" tabindex="-1"></a>    <span class="sc">!</span><span class="fu">is.na</span>(height_t2)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-22"><a href="introduction-to-ggplot2.html#cb4-22" tabindex="-1"></a>  <span class="fu">mutate</span>( <span class="co"># Create new columns</span></span>
+<span id="cb4-23"><a href="introduction-to-ggplot2.html#cb4-23" tabindex="-1"></a>    <span class="at">sex =</span> <span class="fu">case_when</span>(zygosity <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;MZFF&quot;</span>,<span class="st">&quot;DZFF&quot;</span>) <span class="sc">~</span> <span class="st">&quot;F&quot;</span>, </span>
+<span id="cb4-24"><a href="introduction-to-ggplot2.html#cb4-24" tabindex="-1"></a>                                zygosity <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;MZMM&quot;</span>,<span class="st">&quot;DZMM&quot;</span>) <span class="sc">~</span> <span class="st">&quot;M&quot;</span>,</span>
+<span id="cb4-25"><a href="introduction-to-ggplot2.html#cb4-25" tabindex="-1"></a>                                <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;OS&quot;</span>),</span>
+<span id="cb4-26"><a href="introduction-to-ggplot2.html#cb4-26" tabindex="-1"></a>                    <span class="at">zyg =</span> <span class="fu">case_when</span>(zygosity <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;MZFF&quot;</span>,<span class="st">&quot;MZMM&quot;</span>) <span class="sc">~</span> <span class="st">&quot;MZ&quot;</span>, </span>
+<span id="cb4-27"><a href="introduction-to-ggplot2.html#cb4-27" tabindex="-1"></a>                                    zygosity <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;DZFF&quot;</span>,<span class="st">&quot;DZMM&quot;</span>,<span class="st">&quot;DZOS&quot;</span>) <span class="sc">~</span> <span class="st">&quot;DZ&quot;</span>,</span>
+<span id="cb4-28"><a href="introduction-to-ggplot2.html#cb4-28" tabindex="-1"></a>                                <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_character_</span> ))</span>
+<span id="cb4-29"><a href="introduction-to-ggplot2.html#cb4-29" tabindex="-1"></a></span>
+<span id="cb4-30"><a href="introduction-to-ggplot2.html#cb4-30" tabindex="-1"></a><span class="fu">glimpse</span>(twinData_cleaned)</span>
+<span id="cb4-31"><a href="introduction-to-ggplot2.html#cb4-31" tabindex="-1"></a><span class="co">#&gt; Rows: 3,667</span></span>
+<span id="cb4-32"><a href="introduction-to-ggplot2.html#cb4-32" tabindex="-1"></a><span class="co">#&gt; Columns: 14</span></span>
+<span id="cb4-33"><a href="introduction-to-ggplot2.html#cb4-33" tabindex="-1"></a><span class="co">#&gt; $ family          &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,…</span></span>
+<span id="cb4-34"><a href="introduction-to-ggplot2.html#cb4-34" tabindex="-1"></a><span class="co">#&gt; $ age             &lt;int&gt; 21, 24, 21, 21, 19, 26, 23, 29, 24, 28, 29, 19, 23, 22…</span></span>
+<span id="cb4-35"><a href="introduction-to-ggplot2.html#cb4-35" tabindex="-1"></a><span class="co">#&gt; $ weight_t1       &lt;int&gt; 58, 54, 55, 66, 50, 60, 65, 40, 60, 76, 48, 70, 51, 53…</span></span>
+<span id="cb4-36"><a href="introduction-to-ggplot2.html#cb4-36" tabindex="-1"></a><span class="co">#&gt; $ weight_t2       &lt;int&gt; 57, 53, 50, 76, 48, 60, 65, 39, 57, 64, 51, 67, 51, 55…</span></span>
+<span id="cb4-37"><a href="introduction-to-ggplot2.html#cb4-37" tabindex="-1"></a><span class="co">#&gt; $ height_t1       &lt;dbl&gt; 1.70, 1.63, 1.65, 1.57, 1.61, 1.60, 1.75, 1.56, 1.76, …</span></span>
+<span id="cb4-38"><a href="introduction-to-ggplot2.html#cb4-38" tabindex="-1"></a><span class="co">#&gt; $ height_t2       &lt;dbl&gt; 1.70, 1.63, 1.68, 1.65, 1.63, 1.57, 1.77, 1.53, 1.77, …</span></span>
+<span id="cb4-39"><a href="introduction-to-ggplot2.html#cb4-39" tabindex="-1"></a><span class="co">#&gt; $ heightweight_t1 &lt;dbl&gt; 20.1, 20.3, 20.2, 26.8, 19.3, 23.4, 21.2, 16.4, 19.4, …</span></span>
+<span id="cb4-40"><a href="introduction-to-ggplot2.html#cb4-40" tabindex="-1"></a><span class="co">#&gt; $ heightweight_t2 &lt;dbl&gt; 19.7, 19.9, 17.7, 27.9, 18.1, 24.3, 20.7, 16.7, 18.2, …</span></span>
+<span id="cb4-41"><a href="introduction-to-ggplot2.html#cb4-41" tabindex="-1"></a><span class="co">#&gt; $ bmi_t1          &lt;dbl&gt; 21.0, 21.1, 21.0, 23.0, 20.7, 22.1, 21.4, 19.6, 20.7, …</span></span>
+<span id="cb4-42"><a href="introduction-to-ggplot2.html#cb4-42" tabindex="-1"></a><span class="co">#&gt; $ bmi_t2          &lt;dbl&gt; 20.9, 21.0, 20.1, 23.3, 20.3, 22.3, 21.2, 19.7, 20.3, …</span></span>
+<span id="cb4-43"><a href="introduction-to-ggplot2.html#cb4-43" tabindex="-1"></a><span class="co">#&gt; $ cohort          &lt;chr&gt; &quot;younger&quot;, &quot;younger&quot;, &quot;younger&quot;, &quot;younger&quot;, &quot;younger&quot;,…</span></span>
+<span id="cb4-44"><a href="introduction-to-ggplot2.html#cb4-44" tabindex="-1"></a><span class="co">#&gt; $ zygosity        &lt;fct&gt; MZFF, MZFF, MZFF, MZFF, MZFF, MZFF, MZFF, MZFF, MZFF, …</span></span>
+<span id="cb4-45"><a href="introduction-to-ggplot2.html#cb4-45" tabindex="-1"></a><span class="co">#&gt; $ sex             &lt;chr&gt; &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;, &quot;F&quot;,…</span></span>
+<span id="cb4-46"><a href="introduction-to-ggplot2.html#cb4-46" tabindex="-1"></a><span class="co">#&gt; $ zyg             &lt;chr&gt; &quot;MZ&quot;, &quot;MZ&quot;, &quot;MZ&quot;, &quot;MZ&quot;, &quot;MZ&quot;, &quot;MZ&quot;, &quot;MZ&quot;, &quot;MZ&quot;, &quot;MZ&quot;, …</span></span></code></pre></div>
+<p>The code structure for our plot would look like this:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="introduction-to-ggplot2.html#cb5-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> twinData_cleaned, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> height_t1, </span>
+<span id="cb5-2"><a href="introduction-to-ggplot2.html#cb5-2" tabindex="-1"></a>                                              <span class="at">y =</span> height_t2)) <span class="sc">+</span></span>
+<span id="cb5-3"><a href="introduction-to-ggplot2.html#cb5-3" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb5-4"><a href="introduction-to-ggplot2.html#cb5-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Height Comparison between Twins&quot;</span>)</span></code></pre></div>
+<p>It would produce a scatter plot comparing the height of twins with the height of twin 1 on the x-axis and the height of twin 2 on the y-axis.</p>
+<p><img src="01_intro_files/figure-html/unnamed-chunk-6-1.png" width="70%" /></p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="attribution.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="plot-development-stages.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/R-Computing-Lab/data-atlas/edit/main/01_intro.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["https://github.com/R-Computing-Lab/data-atlas/raw/main/01_intro.Rmd"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
