@@ -23,7 +23,7 @@
 <meta name="author" content="S. Mason Garrison" />
 
 
-<meta name="date" content="2024-06-18" />
+<meta name="date" content="2024-06-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -209,18 +209,21 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="license.html"><a href="license.html"><i class="fa fa-check"></i>License</a></li>
 <li class="chapter" data-level="" data-path="colophon.html"><a href="colophon.html"><i class="fa fa-check"></i>Colophon</a></li>
 <li class="part"><span><b>Introduction</b></span></li>
-<li class="chapter" data-level="1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html"><i class="fa fa-check"></i><b>1</b> Introduction to ggplot2</a>
+<li class="chapter" data-level="1" data-path="crash-course-on-the-tidyverse.html"><a href="crash-course-on-the-tidyverse.html"><i class="fa fa-check"></i><b>1</b> Crash Course on the Tidyverse</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#understanding-ggplot2s-grammar-of-graphics"><i class="fa fa-check"></i><b>1.1</b> Understanding ggplot2’s Grammar of Graphics</a></li>
-<li class="chapter" data-level="1.2" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#case-study-visualizing-twin-data"><i class="fa fa-check"></i><b>1.2</b> Case Study: Visualizing Twin Data</a>
+<li class="chapter" data-level="1.1" data-path="crash-course-on-the-tidyverse.html"><a href="crash-course-on-the-tidyverse.html#what-is-the-tidyverse"><i class="fa fa-check"></i><b>1.1</b> What is the Tidyverse?</a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="introduction-to-ggplot2.html"><a href="introduction-to-ggplot2.html#plot-development-stages"><i class="fa fa-check"></i><b>1.2.1</b> Plot Development Stages</a></li>
+<li class="chapter" data-level="1.1.1" data-path="crash-course-on-the-tidyverse.html"><a href="crash-course-on-the-tidyverse.html#tidy-data"><i class="fa fa-check"></i><b>1.1.1</b> Tidy data</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="crash-course-on-the-tidyverse.html"><a href="crash-course-on-the-tidyverse.html#whats-the-difference-between-base-r-and-the-tidyverse"><i class="fa fa-check"></i><b>1.2</b> What’s the Difference between Base R and the Tidyverse?</a></li>
+<li class="chapter" data-level="1.3" data-path="crash-course-on-the-tidyverse.html"><a href="crash-course-on-the-tidyverse.html#introduction-to-ggplot2"><i class="fa fa-check"></i><b>1.3</b> Introduction to ggplot2</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="crash-course-on-the-tidyverse.html"><a href="crash-course-on-the-tidyverse.html#understanding-ggplot2s-grammar-of-graphics"><i class="fa fa-check"></i><b>1.3.1</b> Understanding ggplot2’s Grammar of Graphics</a></li>
+<li class="chapter" data-level="1.3.2" data-path="crash-course-on-the-tidyverse.html"><a href="crash-course-on-the-tidyverse.html#case-study-visualizing-twin-data"><i class="fa fa-check"></i><b>1.3.2</b> Case Study: Visualizing Twin Data</a></li>
+<li class="chapter" data-level="1.3.3" data-path="crash-course-on-the-tidyverse.html"><a href="crash-course-on-the-tidyverse.html#plot-development-stages"><i class="fa fa-check"></i><b>1.3.3</b> Plot Development Stages</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="welcome-to-ggplot.html"><a href="welcome-to-ggplot.html"><i class="fa fa-check"></i><b>2</b> Welcome to ggplot</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="welcome-to-ggplot.html"><a href="welcome-to-ggplot.html#math-example"><i class="fa fa-check"></i><b>2.1</b> math example</a></li>
-</ul></li>
+<li class="chapter" data-level="2" data-path="tidyverse-crash-course.html"><a href="tidyverse-crash-course.html"><i class="fa fa-check"></i><b>2</b> Tidyverse Crash Course</a></li>
 <li class="chapter" data-level="3" data-path="descriptives-wide.html"><a href="descriptives-wide.html"><i class="fa fa-check"></i><b>3</b> Descriptives (Wide)</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="descriptives-wide.html"><a href="descriptives-wide.html#import-data"><i class="fa fa-check"></i><b>3.1</b> Import Data</a></li>
@@ -270,7 +273,7 @@ div.csl-indent {
 <div id="header">
 <h1 class="title">Data Atlas</h1>
 <p class="author"><em>S. Mason Garrison</em></p>
-<p class="date"><em>2024-06-18</em></p>
+<p class="date"><em>2024-06-19</em></p>
 </div>
 <div id="abstract" class="section level1 unnumbered hasAnchor">
 <h1>Abstract<a href="index.html#abstract" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -336,20 +339,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

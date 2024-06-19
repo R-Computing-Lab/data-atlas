@@ -96,13 +96,16 @@ df <- df %>% mutate(sex =
 
 ### Numeric Variables
 
+
 ``` r
-# Calculate summary statistics
+# Calculate summary statistics for numeric variables across the full sample
 summary_stats <- df %>%
   summarise(across(where(is.numeric), list(
     mean = ~mean(., na.rm = TRUE),
     sd = ~sd(., na.rm = TRUE),
     median = ~median(., na.rm = TRUE),
+    min = ~min(., na.rm = TRUE),
+    max = ~max(., na.rm = TRUE),
     IQR = ~IQR(., na.rm = TRUE)
   ), .names = "{col}_{fn}")) %>%
   pivot_longer(
@@ -119,23 +122,24 @@ summary_stats
 ```
 
 ```
-## # A tibble: 13 × 5
-##    variable    mean        sd  median      IQR
-##    <chr>      <dbl>     <dbl>   <dbl>    <dbl>
-##  1 fam      1904.   1099.     1904.   1904.   
-##  2 age        34.5    14.2      30      19    
-##  3 part        1.93    0.265     2       0    
-##  4 wt1        62.2    10.9      60      15    
-##  5 wt2        65.6    12.2      65      16    
-##  6 ht1         1.66    0.0896    1.65    0.130
-##  7 ht2         1.69    0.0990    1.7     0.140
-##  8 htwt1      22.5     3.16     21.9     3.84 
-##  9 htwt2      22.8     3.19     22.3     3.78 
-## 10 bmi1       21.7     0.940    21.6     1.21 
-## 11 bmi2       21.8     0.939    21.7     1.18 
-## 12 age1       34.5    14.2      30      19    
-## 13 age2       34.5    14.2      30      19
+## # A tibble: 13 × 7
+##    variable    mean        sd  median   min     max      IQR
+##    <chr>      <dbl>     <dbl>   <dbl> <dbl>   <dbl>    <dbl>
+##  1 fam      1904.   1099.     1904.    1    3808    1904.   
+##  2 age        34.5    14.2      30    17      88      19    
+##  3 part        1.93    0.265     2     0       2       0    
+##  4 wt1        62.2    10.9      60    34     111      15    
+##  5 wt2        65.6    12.2      65    35     127      16    
+##  6 ht1         1.66    0.0896    1.65  1.34    1.98    0.130
+##  7 ht2         1.69    0.0990    1.7   1.40    1.99    0.140
+##  8 htwt1      22.5     3.16     21.9  13.3    41.9     3.84 
+##  9 htwt2      22.8     3.19     22.3  14.2    46.2     3.78 
+## 10 bmi1       21.7     0.940    21.6  18.1    26.1     1.21 
+## 11 bmi2       21.8     0.939    21.7  18.6    26.8     1.18 
+## 12 age1       34.5    14.2      30    17      88      19    
+## 13 age2       34.5    14.2      30    17      88      19
 ```
+
 
 ## Frequency Tables
 
@@ -284,6 +288,7 @@ df_summary  %>% mutate(variable = factor(variable, levels = variable_order)) %>%
 ## 10 MZ    M     age        34.4   14.1    31    18 
 ## # ℹ 55 more rows
 ```
+
 ## Plots
 
 Histograms and scatter plots to visualize distributions and relationships.

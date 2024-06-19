@@ -1,4 +1,7 @@
-# Descriptives (Wide)
+# (PART\*) Descriptive Statistics {-}
+
+
+# Wide Fom
 
 ## Import Data
 
@@ -38,14 +41,17 @@ df <- df %>% mutate(sex =
 ## Summary Statistics
 
 ### Numeric Variables
+
 ```{r summary-stats}
 
-# Calculate summary statistics
+# Calculate summary statistics for numeric variables across the full sample
 summary_stats <- df %>%
   summarise(across(where(is.numeric), list(
     mean = ~mean(., na.rm = TRUE),
     sd = ~sd(., na.rm = TRUE),
     median = ~median(., na.rm = TRUE),
+    min = ~min(., na.rm = TRUE),
+    max = ~max(., na.rm = TRUE),
     IQR = ~IQR(., na.rm = TRUE)
   ), .names = "{col}_{fn}")) %>%
   pivot_longer(
@@ -61,10 +67,10 @@ summary_stats <- df %>%
 summary_stats
 ```
 
+
 ## Frequency Tables
 
 ```{r frequency-tables}
-
 
 # Counting 'zygosity' and calculating percentages
 zygosity_summary <- df %>%
@@ -160,6 +166,7 @@ df_summary  %>% mutate(variable = factor(variable, levels = variable_order)) %>%
     arrange(variable,zyg,sex)
 
 ```
+
 ## Plots
 
 Histograms and scatter plots to visualize distributions and relationships.

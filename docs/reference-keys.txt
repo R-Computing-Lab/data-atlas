@@ -1,9 +1,12 @@
+crash-course-on-the-tidyverse
+what-is-the-tidyverse
+tidy-data
+whats-the-difference-between-base-r-and-the-tidyverse
 introduction-to-ggplot2
 understanding-ggplot2s-grammar-of-graphics
 case-study-visualizing-twin-data
 plot-development-stages
-welcome-to-ggplot
-math-example
+tidyverse-crash-course
 descriptives-wide
 import-data
 data-structure
