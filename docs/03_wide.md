@@ -1,4 +1,10 @@
-# Descriptives (Wide)
+# (PART\*) Descriptive Statistics {-}
+
+
+# Wide Form Data
+
+
+Wide form data is a common way to store data, especially when it comes from family data. surveys or experiments where each family has multiple members (twins, siblings etc) In this form, each row represents a family, and each column represents a variable or measurement for a specific family member. This format is easy to understand and work with, but it can be challenging for certain types of analyses or visualizations. In this section, demonstrate straightforward ways to import, summarize, and visualize wide form data using the `twinData` dataset from the `OpenMx` package.
 
 ## Import Data
 
@@ -47,6 +53,8 @@ df <- twinData
 
 ## Data Structure
 
+Let's take a look at the structure of the dataset using the `class` and `glimpse` functions. 
+
 
 ``` r
 class(df)
@@ -80,6 +88,10 @@ glimpse(df)
 ## $ age1     <int> 21, 24, 21, 21, 19, 26, 23, 29, 24, 28, 29, 19, 23, 22, 23, 2…
 ## $ age2     <int> 21, 24, 21, 21, 19, 26, 23, 29, 24, 28, 29, 19, 23, 22, 23, 2…
 ```
+As we can see, the dataset contains 3808 observations of 16 variables. Most of these variables include two entries, one for twin 1 and one for twin 2. The `zygosity` variable indicates the zygosity of the twins, while other variables represent different measurements or characteristics of the twins, and denote which twin they refer to by the suffixes `1` and `2`.
+
+We can also see that the dataset contains a mix of numeric and character variables. To improve the readability of the dataset, we are going to split the information from the zygosity variable into two separate variables: `sex` and `zyg`. This will make it easier to analyze and visualize the data later on.
+
 
 
 ``` r
@@ -92,9 +104,65 @@ df <- df %>% mutate(sex =
                                 TRUE ~ NA_character_ ))
 ```
 
+### Annotated explainaton for the code snippet above:
+
+The provided R code uses the `tidyverse` package's `dplyr` library to manipulate a data frame named `df`. The `mutate` function is used to create new variables or modify existing ones within the data frame. (In this case it is creating `sex` and over writing `zyg`. Here's an annotation of what each part of the code is doing:
+
+1. Data Frame Assignment: `df <- df %>%`
+
+  - This line indicates that we are taking the existing data frame `df` and using the `%>%` operator (pipe) to pass it through additional functions. The result will be stored back into the `df`.
+
+2. Mutate Function: `mutate(sex = ..., zyg = ...)`
+
+  - The `mutate` function is used to add new columns to the data frame or change existing ones. In this case, one new column  `sex` is being added and the existing column `zyg` is being modified.
+
+- Creating `sex` Column:
+
+- `sex = case_when(...)`
+
+This creates a new column named sex based on conditions applied to the zygosity column. The case_when function is similar to a series of if-else statements. For each row, it checks the conditions in order and assigns a value to sex based on the first matching condition.
+
+- Conditions for `sex` Column:
+
+  - `zygosity %in% c("MZFF","DZFF") ~ "F"`
+
+This condition checks if the `zygosity` value is either "MZFF" or "DZFF". If `true`, "F" (Female) is assigned to the sex column.
+
+- `zygosity %in% c("MZMM","DZMM") ~ "M"`
+
+This checks if the zygosity value is either "MZMM" or "DZMM". If true, "M" (Male) is assigned to the sex column.
+
+- `TRUE ~ "OS"`
+
+This is a catch-all condition that assigns "OS" (Other or Unknown sex) if none of the above conditions are met.
+
+- Creating `zyg` Column:
+
+  - `zyg = case_when(...)`
+
+Similar to the sex column, this line overwrites an old column `zyg` that categorizes zygosity into broader categories.
+
+- Conditions for `zyg` Column:
+
+- `zygosity %in% c("MZFF","MZMM") ~ "MZ"`
+
+Checks if zygosity is either "MZFF" or "MZMM" and assigns "MZ" (Monozygotic) indicating identical twins.
+
+- `zygosity %in% c("DZFF","DZMM","DZOS") ~ "DZ"`
+
+  - Checks if zygosity falls into any of "DZFF", "DZMM", or "DZOS", assigning "DZ" (Dizygotic) indicating fraternal twins.
+
+- `TRUE ~ NA_character_`
+
+  - Assigns a missing value (`NA`) if none of the above conditions are met, possibly used to handle cases where zygosity data is not clearly defined or is missing.
+
+This code effectively categorizes individuals in the dataset based on zygosity into more generalizable groups for sex and twin status, which could be crucial for genetic or behavioral studies.
+
 ## Summary Statistics
 
 ### Numeric Variables
+
+Calculate summary statistics for numeric variables across the full sample. This helps provide a quick overview of central tendencies and variability.
 
 
 ``` r
@@ -142,6 +210,9 @@ summary_stats
 
 
 ## Frequency Tables
+
+Create frequency tables for categorical variables like zygosity and sex, providing a clear picture of the distribution of these categories within the dataset.
+
 
 
 ``` r
@@ -228,7 +299,7 @@ df_summary  %>% mutate(variable = factor(variable, levels = variable_order)) %>%
 ```
 
 
-What about descriptives by zygosity and sex?
+What about descriptive statistics by zygosity and sex?
 
 
 ``` r
@@ -291,8 +362,14 @@ df_summary  %>% mutate(variable = factor(variable, levels = variable_order)) %>%
 
 ## Plots
 
-Histograms and scatter plots to visualize distributions and relationships.
 
+
+
+
+
+### Histograms and Scatter Plots
+
+Visualizing distributions and relationships through histograms and scatter plots can reveal patterns or anomalies in the data that are pertinent for twin studies, especially in examining the concordance and discordance in twin weights.
 
 
 ``` r
@@ -510,9 +587,23 @@ p3
 <img src="03_wide_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 
 
-## Correlation Matrix
+## Correlation Matries and Correlograms
 
 
 ``` r
 # Calculate the correlation matrix
+
+library(ggcorrplot)
+data(mtcars)
+corr <- round(cor(mtcars), 1)
+ggcorrplot(corr, hc.order = TRUE, 
+           type = "lower", 
+           lab = TRUE, 
+           lab_size = 3, 
+           method="circle", 
+           colors = c("tomato2", "white", "springgreen3"), 
+           title="Correlogram of mtcars", 
+           ggtheme=theme_bw)
 ```
+
+<img src="03_wide_files/figure-html/correlation-matrix-1.png" width="672" />

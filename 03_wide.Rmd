@@ -1,19 +1,27 @@
 # (PART\*) Descriptive Statistics {-}
 
 
-# Wide Fom
+# Wide Form Data
+
+
+Wide form data is a common way to store data, especially when it comes from family data. surveys or experiments where each family has multiple members (twins, siblings etc) In this form, each row represents a family, and each column represents a variable or measurement for a specific family member. This format is easy to understand and work with, but it can be challenging for certain types of analyses or visualizations. In this section, demonstrate straightforward ways to import, summarize, and visualize wide form data using the `twinData` dataset from the `OpenMx` package.
 
 ## Import Data
 
 We're going to use the `twinData` dataset from the `OpenMx` package. This dataset contains 3,808 pairs of Australian twins on the 12 variables.
 
+```{r warning=FALSE, include=FALSE, messages=FALSE, ref.label="library"}
+```
 
-```{r libraries}
+```{r library, eval = FALSE}
 library(tidyverse)
 library(NlsyLinks)
 library(discord)
 library(BGmisc)
 library(OpenMx)
+library(conflicted) # to handle conflicts
+conflicted::conflicts_prefer(OpenMx::vech,dplyr::filter) # Resolve conflicts
+
 
 data(twinData)
 
@@ -22,10 +30,16 @@ df <- twinData
 
 ## Data Structure
 
+Let's take a look at the structure of the dataset using the `class` and `glimpse` functions. 
+
 ```{r data-structure}
 class(df)
 glimpse(df)
 ```
+As we can see, the dataset contains 3808 observations of 16 variables. Most of these variables include two entries, one for twin 1 and one for twin 2. The `zygosity` variable indicates the zygosity of the twins, while other variables represent different measurements or characteristics of the twins, and denote which twin they refer to by the suffixes `1` and `2`.
+
+We can also see that the dataset contains a mix of numeric and character variables. To improve the readability of the dataset, we are going to split the information from the zygosity variable into two separate variables: `sex` and `zyg`. This will make it easier to analyze and visualize the data later on.
+
 
 ```{r addsex}
 
@@ -38,9 +52,51 @@ df <- df %>% mutate(sex =
                                 TRUE ~ NA_character_ ))
 ```
 
-## Summary Statistics
+### Annotated explainaton for the code snippet above:
+
+The provided R code uses the `tidyverse` package's `dplyr` library to manipulate a data frame named `df`. The `mutate` function is used to create new variables or modify existing ones within the data frame. (In this case it is creating `sex` and over writing `zyg`. Here's an annotation of what each part of the code is doing:
+
+1. Data Frame Assignment: `df <- df %>%`
+
+  - This line indicates that we are taking the existing data frame `df` and using the `%>%` operator (pipe) to pass it through additional functions. The result will be stored back into the `df`.
+
+2. Mutate Function: `mutate(sex = ..., zyg = ...)`
+
+  - The `mutate` function is used to add new columns to the data frame or change existing ones. In this case, one new column  `sex` is being added and the existing column `zyg` is being modified.
+
+3. Creating `sex` Column:
+
+- `sex = case_when(...)` creates a new column named sex based on conditions applied to the zygosity column. The case_when function is similar to a series of if-else statements. For each row, it checks the conditions in order and assigns a value to sex based on the first matching condition.
+
+4. Conditions for `sex` Column:
+
+  - `zygosity %in% c("MZFF","DZFF") ~ "F"` condition checks if the `zygosity` value is either "MZFF" or "DZFF". If `true`, "F" (Female) is assigned to the sex column.
+
+  - `zygosity %in% c("MZMM","DZMM") ~ "M"` checks if the zygosity value is either "MZMM" or "DZMM". If true, "M" (Male) is assigned to the sex column.
+
+  - `TRUE ~ "OS"` is a catch-all condition that assigns "OS" (Other or Unknown sex) if none of the above conditions are met.
+
+5. Creating `zyg` Column:
+
+  - Similar to the sex column, `zyg = case_when(...)` overwrites an old column `zyg` that categorizes zygosity into broader categories.
+
+6. Conditions for `zyg` Column:
+
+  - `zygosity %in% c("MZFF","MZMM") ~ "MZ"` checks if zygosity is either "MZFF" or "MZMM" and assigns "MZ" (Monozygotic) indicating identical twins.
+
+  - `zygosity %in% c("DZFF","DZMM","DZOS") ~ "DZ"` checks if zygosity falls into any of "DZFF", "DZMM", or "DZOS", assigning "DZ" (Dizygotic) indicating fraternal twins.
+
+  - `TRUE ~ NA_character_` assigns a missing value (`NA`) if none of the above conditions are met, possibly used to handle cases where zygosity data is not clearly defined or is missing.
+
+This code effectively categorizes individuals in the dataset based on zygosity into more workable groups for sex and twin status, which can (and will) be useful for further analysis and visualization.
+
+## Summary Statistics (Wide Form)
+
+Let's calculate summary statistics for numeric variables across the full sample. This will provide a quick overview of central tendencies and variability in the dataset. When working with wide form data, it is often helpful to start with summarizing by the data structure you already have. In this case, we will calculate summary statistics by specific twin (twin 1 or twin 2).
 
 ### Numeric Variables
+
+Calculate summary statistics for numeric variables across the full sample. This helps provide a quick overview of central tendencies and variability.
 
 ```{r summary-stats}
 
@@ -66,9 +122,12 @@ summary_stats <- df %>%
 
 summary_stats
 ```
+As you can see in the table above, the summary statistics provide a quick overview of the central tendencies and variability in the dataset for numeric variables. The table includes the mean, standard deviation, median, minimum, maximum, and interquartile range (IQR) for each numeric variable. But they do so by the twin number, which is useful for our purposes, but... isn't the only descriptive information we'll need. We will need to calculate these statistics for the full sample, not by twin number. But we'll still going to start with the twin number, and then we'll calculate the summary statistics for the full sample.
 
+### Frequency Tables
 
-## Frequency Tables
+Create frequency tables for categorical variables like zygosity and sex, providing a clear picture of the distribution of these categories within the dataset. These numbers are easier to calculation when data are wide like this because we're actually interested in the dyad, not the individual.
+
 
 ```{r frequency-tables}
 
@@ -93,8 +152,9 @@ combined_summary <- bind_rows(zygosity_summary, sex_summary) %>%
 combined_summary
 
 ```
+As you can see in the table above, the frequency tables provide a clear picture of the distribution of categories within the dataset for the zygosity and sex. Interestingly, there are many more same sex female twins, which make up 1983/3808 (52%) of the dataset. 
 
-What if you want to examine effects by cohort? You can use the `group_by` function to group the data by cohort and then calculate the summary statistics for each cohort.
+What if you want to examine these wideform by cohort? You can use the `group_by` function to group the data by cohort and then calculate the summary statistics for each cohort.
 
 ```{r summary-stats-cohort}
 
@@ -129,9 +189,9 @@ df_summary  %>% mutate(variable = factor(variable, levels = variable_order)) %>%
     arrange(variable, cohort)
 
 ```
+As you can see from the table, the summary statistics are calculated for each cohort across the numeric variables. This provides a quick overview of the central tendencies and variability in the dataset for each cohort. Now, these data are still in wide form, but we can easily convert them to long form if needed.
 
-
-What about descriptives by zygosity and sex?
+What about descriptive statistics by zygosity and sex?
 
 ```{r summary-stats-zyg}
 
@@ -152,6 +212,7 @@ df_summary <- df %>%
         names_to = c("variable", "statistic"),
         names_sep = "_"
     )
+
 # lock in the variable order
 variable_order <- unique(df_summary$variable)
 
@@ -167,10 +228,21 @@ df_summary  %>% mutate(variable = factor(variable, levels = variable_order)) %>%
 
 ```
 
+As you can see from the table, the summary statistics are calculated for each zygosity and sex across the 
+numeric variables. 
+
+# Wide Form Data Visualization
+
 ## Plots
 
-Histograms and scatter plots to visualize distributions and relationships.
 
+
+
+
+
+### Histograms and Scatter Plots
+
+Visualizing distributions and relationships through histograms and scatter plots can reveal patterns or anomalies in the data that are pertinent for twin studies, especially in examining the concordance and discordance in twin weights.
 
 ```{r data-viz, fig.width=8, fig.height=4}
 ggplot(df, aes(x = wt1)) +
@@ -247,10 +319,22 @@ p3
 ```
 
 
-## Correlation Matrix
+## Correlation Matries and Correlograms
 
 ```{r correlation-matrix}
 
 # Calculate the correlation matrix
+
+library(ggcorrplot)
+data(mtcars)
+corr <- round(cor(mtcars), 1)
+ggcorrplot(corr, hc.order = TRUE, 
+           type = "lower", 
+           lab = TRUE, 
+           lab_size = 3, 
+           method="circle", 
+           colors = c("tomato2", "white", "springgreen3"), 
+           title="Correlogram of mtcars", 
+           ggtheme=theme_bw)
 
 ```
