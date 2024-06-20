@@ -3,7 +3,6 @@
 
 # Wide Form Data
 
-
 Wide form data is a common way to store data, especially when it comes from family data. surveys or experiments where each family has multiple members (twins, siblings etc) In this form, each row represents a family, and each column represents a variable or measurement for a specific family member. This format is easy to understand and work with, but it can be challenging for certain types of analyses or visualizations. In this section, demonstrate straightforward ways to import, summarize, and visualize wide form data using the `twinData` dataset from the `OpenMx` package.
 
 ## Import Data

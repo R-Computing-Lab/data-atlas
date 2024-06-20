@@ -1,9 +1,24 @@
-# Long Form
+# Long Form Data
 
-## Import Data
 
-Some _significant_ applications are demonstrated in this chapter.
+In contrast to wide form data, long form data, also known as "tidy data," structures datasets where each row represents a single observation, and each column represents a variable. This format is highly beneficial for statistical modeling and data analysis because it simplifies the application of various data manipulation and analysis functions. As before, we'll use the `twinData` dataset from the `OpenMx` package, but we'll convert it to long form to illustrate handling and analyzing data in this format.
 
-## Example one
 
-## Example two
+## Converting from Wide to Long Form
+```{r warning=FALSE, include=FALSE, messages=FALSE, ref.label="library"}
+```
+
+```{r library, eval = FALSE}
+library(tidyverse)
+library(NlsyLinks)
+library(discord)
+library(BGmisc)
+library(OpenMx)
+library(conflicted) # to handle conflicts
+conflicted::conflicts_prefer(OpenMx::vech,dplyr::filter) # Resolve conflicts
+
+
+data(twinData)
+
+df <- twinData
+```
