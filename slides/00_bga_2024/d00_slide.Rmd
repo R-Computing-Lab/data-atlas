@@ -103,12 +103,13 @@ That's extremely promising for making much better pedigrees plots...
 
 But... well... It's not what I'm going to do today.
 
+--
+
+But I decided to focus on the history of data visualization in behavior genetics. I'll show you some of the cool visualizations I've made in the workshop.
+
 ---
 
-, but I decided to focus on the history of data visualization in behavior genetics. I'll show you some of the cool visualizations I've made in the workshop.
-
----
-
+class: middle
 # Historical Context
 
 ---
@@ -136,7 +137,7 @@ But... well... It's not what I'm going to do today.
 - Wright's adaptive landscape diagram was a groundbreaking visualization of evolutionary processes.
 - Depicted the relationship between genetic variation and fitness.
 - Provided a visual representation of natural selection and evolutionary dynamics.
-.footnote[asd]
+.footnote[CITE HERE]
 ]
 
 .pull-right-wide[
@@ -170,6 +171,31 @@ knitr::include_graphics("img/responses towright.png")
 # Modern Techniques
 
 
+## Modern Path Diagrams
+
+- Modern path diagrams are used in structural equation modeling (SEM).
+
+- Visualize complex relationships between variables in a statistical model.
+
+- Help researchers understand the direct and indirect effects of variables on each other.
+
+---
+
+# Classic path diagrams can start to resemble the wiring of a computer or a military aircraft.
+
+# Bomber
+
+```{r, echo=FALSE, out.width="70%", fig.align='center'}
+#knitr::include_graphics("path_diagram_image_url")
+```   
+
+# Cute little path diagram
+
+```{r, echo=FALSE, out.width="70%", fig.align='center'}
+knitr::include_graphics("img/cutepath/png")
+```
+---
+
 ```{r, echo=FALSE, out.width="70%", fig.align='center'}
 #knitr::include_graphics("manhattan_plot_image_url")
 ```
@@ -187,12 +213,13 @@ knitr::include_graphics("img/responses towright.png")
 <!-- Script: Moving to modern times, the Manhattan Plot has become a staple in genetic research, particularly for genome-wide association studies (GWAS). These plots help researchers identify significant genetic variants by visualizing p-values across the genome, making it easier to spot areas of interest. -->
 
 ---
+
 # Importance of Good Graphs for Science Communication
 
 ## Case Study: Misinterpretation of Genetic Data
 .pull-left[
 - A figure in a high-profile Nature paper raised concerns about reinforcing racist beliefs.
-- The chart aimed to show genetic diversity but was misinterpreted as supporting genetic essentialism.
+- The UMAP generated figure aimed to show genetic diversity but was misinterpreted as supporting genetic essentialism.
 - Highlights the need for careful design and interpretation of scientific figures.
 ]
 
@@ -202,6 +229,9 @@ knitr::include_graphics("img/responses towright.png")
 knitr::include_graphics("img/Genomic data in the All of Us Research Program.jpg")
 ```
 ]
+
+
+<!-- But a problem with using UMAP, Pritchard wrote, is that it can exaggerate the distinctiveness of populations and fail to represent their intermixing properly. -->
 ---
 
 ## Lessons Learned
