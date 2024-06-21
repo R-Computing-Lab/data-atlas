@@ -3,7 +3,6 @@
 
 # Wide Form Data
 
-
 Wide form data is a common way to store data, especially when it comes from family data. surveys or experiments where each family has multiple members (twins, siblings etc) In this form, each row represents a family, and each column represents a variable or measurement for a specific family member. This format is easy to understand and work with, but it can be challenging for certain types of analyses or visualizations. In this section, demonstrate straightforward ways to import, summarize, and visualize wide form data using the `twinData` dataset from the `OpenMx` package.
 
 ## Import Data
@@ -12,43 +11,20 @@ We're going to use the `twinData` dataset from the `OpenMx` package. This datase
 
 
 
+
 ``` r
 library(tidyverse)
-```
-
-```
-## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-## ✔ dplyr     1.1.4     ✔ readr     2.1.5
-## ✔ forcats   1.0.0     ✔ stringr   1.5.1
-## ✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-## ✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-## ✔ purrr     1.0.2     
-## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()
-## ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-```
-
-``` r
 library(NlsyLinks)
 library(discord)
 library(BGmisc)
 library(OpenMx)
-```
+library(conflicted) # to handle conflicts
+conflicted::conflicts_prefer(OpenMx::vech,dplyr::filter) # Resolve conflicts
 
-```
-## 
-## Attaching package: 'OpenMx'
-## 
-## The following object is masked from 'package:BGmisc':
-## 
-##     vech
-```
 
-``` r
 data(twinData)
 
-df <- twinData
+df_wide <- twinData
 ```
 
 ## Data Structure
@@ -57,7 +33,7 @@ Let's take a look at the structure of the dataset using the `class` and `glimpse
 
 
 ``` r
-class(df)
+class(df_wide)
 ```
 
 ```
@@ -65,7 +41,7 @@ class(df)
 ```
 
 ``` r
-glimpse(df)
+glimpse(df_wide)
 ```
 
 ```
@@ -95,7 +71,7 @@ We can also see that the dataset contains a mix of numeric and character variabl
 
 
 ``` r
-df <- df %>% mutate(sex = 
+df_wide <- df_wide %>% mutate(sex = 
                       case_when(zygosity %in% c("MZFF","DZFF") ~ "F", 
                                 zygosity %in% c("MZMM","DZMM") ~ "M",
                                 TRUE ~ "OS"),
@@ -106,59 +82,45 @@ df <- df %>% mutate(sex =
 
 ### Annotated explainaton for the code snippet above:
 
-The provided R code uses the `tidyverse` package's `dplyr` library to manipulate a data frame named `df`. The `mutate` function is used to create new variables or modify existing ones within the data frame. (In this case it is creating `sex` and over writing `zyg`. Here's an annotation of what each part of the code is doing:
+The provided R code uses the `tidyverse` package's `dplyr` library to manipulate a data frame named `df_wide`. The `mutate` function is used to create new variables or modify existing ones within the data frame. (In this case it is creating `sex` and over writing `zyg`. Here's an annotation of what each part of the code is doing:
 
-1. Data Frame Assignment: `df <- df %>%`
+1. Data Frame Assignment: `df_wide <- df_wide %>%`
 
-  - This line indicates that we are taking the existing data frame `df` and using the `%>%` operator (pipe) to pass it through additional functions. The result will be stored back into the `df`.
+  - This line indicates that we are taking the existing data frame `df_wide` and using the `%>%` operator (pipe) to pass it through additional functions. The result will be stored back into the `df_wide`.
 
 2. Mutate Function: `mutate(sex = ..., zyg = ...)`
 
   - The `mutate` function is used to add new columns to the data frame or change existing ones. In this case, one new column  `sex` is being added and the existing column `zyg` is being modified.
 
-- Creating `sex` Column:
+3. Creating `sex` Column:
 
-- `sex = case_when(...)`
+- `sex = case_when(...)` creates a new column named sex based on conditions applied to the zygosity column. The case_when function is similar to a series of if-else statements. For each row, it checks the conditions in order and assigns a value to sex based on the first matching condition.
 
-This creates a new column named sex based on conditions applied to the zygosity column. The case_when function is similar to a series of if-else statements. For each row, it checks the conditions in order and assigns a value to sex based on the first matching condition.
+4. Conditions for `sex` Column:
 
-- Conditions for `sex` Column:
+  - `zygosity %in% c("MZFF","DZFF") ~ "F"` condition checks if the `zygosity` value is either "MZFF" or "DZFF". If `true`, "F" (Female) is assigned to the sex column.
 
-  - `zygosity %in% c("MZFF","DZFF") ~ "F"`
+  - `zygosity %in% c("MZMM","DZMM") ~ "M"` checks if the zygosity value is either "MZMM" or "DZMM". If true, "M" (Male) is assigned to the sex column.
 
-This condition checks if the `zygosity` value is either "MZFF" or "DZFF". If `true`, "F" (Female) is assigned to the sex column.
+  - `TRUE ~ "OS"` is a catch-all condition that assigns "OS" (Other or Unknown sex) if none of the above conditions are met.
 
-- `zygosity %in% c("MZMM","DZMM") ~ "M"`
+5. Creating `zyg` Column:
 
-This checks if the zygosity value is either "MZMM" or "DZMM". If true, "M" (Male) is assigned to the sex column.
+  - Similar to the sex column, `zyg = case_when(...)` overwrites an old column `zyg` that categorizes zygosity into broader categories.
 
-- `TRUE ~ "OS"`
+6. Conditions for `zyg` Column:
 
-This is a catch-all condition that assigns "OS" (Other or Unknown sex) if none of the above conditions are met.
+  - `zygosity %in% c("MZFF","MZMM") ~ "MZ"` checks if zygosity is either "MZFF" or "MZMM" and assigns "MZ" (Monozygotic) indicating identical twins.
 
-- Creating `zyg` Column:
+  - `zygosity %in% c("DZFF","DZMM","DZOS") ~ "DZ"` checks if zygosity falls into any of "DZFF", "DZMM", or "DZOS", assigning "DZ" (Dizygotic) indicating fraternal twins.
 
-  - `zyg = case_when(...)`
+  - `TRUE ~ NA_character_` assigns a missing value (`NA`) if none of the above conditions are met, possibly used to handle cases where zygosity data is not clearly defined or is missing.
 
-Similar to the sex column, this line overwrites an old column `zyg` that categorizes zygosity into broader categories.
+This code effectively categorizes individuals in the dataset based on zygosity into more workable groups for sex and twin status, which can (and will) be useful for further analysis and visualization.
 
-- Conditions for `zyg` Column:
+## Summary Statistics (Wide Form)
 
-- `zygosity %in% c("MZFF","MZMM") ~ "MZ"`
-
-Checks if zygosity is either "MZFF" or "MZMM" and assigns "MZ" (Monozygotic) indicating identical twins.
-
-- `zygosity %in% c("DZFF","DZMM","DZOS") ~ "DZ"`
-
-  - Checks if zygosity falls into any of "DZFF", "DZMM", or "DZOS", assigning "DZ" (Dizygotic) indicating fraternal twins.
-
-- `TRUE ~ NA_character_`
-
-  - Assigns a missing value (`NA`) if none of the above conditions are met, possibly used to handle cases where zygosity data is not clearly defined or is missing.
-
-This code effectively categorizes individuals in the dataset based on zygosity into more generalizable groups for sex and twin status, which could be crucial for genetic or behavioral studies.
-
-## Summary Statistics
+Let's calculate summary statistics for numeric variables across the full sample. This will provide a quick overview of central tendencies and variability in the dataset. When working with wide form data, it is often helpful to start with summarizing by the data structure you already have. In this case, we will calculate summary statistics by specific twin (twin 1 or twin 2).
 
 ### Numeric Variables
 
@@ -167,7 +129,7 @@ Calculate summary statistics for numeric variables across the full sample. This 
 
 ``` r
 # Calculate summary statistics for numeric variables across the full sample
-summary_stats <- df %>%
+summary_stats <- df_wide %>%
   summarise(across(where(is.numeric), list(
     mean = ~mean(., na.rm = TRUE),
     sd = ~sd(., na.rm = TRUE),
@@ -207,24 +169,24 @@ summary_stats
 ## 12 age1       34.5    14.2      30    17      88      19    
 ## 13 age2       34.5    14.2      30    17      88      19
 ```
+As you can see in the table above, the summary statistics provide a quick overview of the central tendencies and variability in the dataset for numeric variables. The table includes the mean, standard deviation, median, minimum, maximum, and interquartile range (IQR) for each numeric variable. But they do so by the twin number, which is useful for our purposes, but... isn't the only descriptive information we'll need. We will need to calculate these statistics for the full sample, not by twin number. But we'll still going to start with the twin number, and then we'll calculate the summary statistics for the full sample.
 
+### Frequency Tables
 
-## Frequency Tables
-
-Create frequency tables for categorical variables like zygosity and sex, providing a clear picture of the distribution of these categories within the dataset.
+Create frequency tables for categorical variables like zygosity and sex, providing a clear picture of the distribution of these categories within the dataset. These numbers are easier to calculation when data are wide like this because we're actually interested in the dyad, not the individual.
 
 
 
 ``` r
 # Counting 'zygosity' and calculating percentages
-zygosity_summary <- df %>%
+zygosity_summary <- df_wide %>%
   count(zyg, name = "count") %>%
   mutate(percentage = count / sum(count) * 100) %>%
   rename(category = zyg) %>%  # Renaming the column for clarity
   mutate(variable = "zygosity")  # Adding a descriptor column for the variable
 
 # Counting 'sex' and calculating percentages
-sex_summary <- df %>%
+sex_summary <- df_wide %>%
   count(sex, name = "count") %>%
   mutate(percentage = count / sum(count) * 100) %>%
   rename(category = sex) %>%  # Renaming the column for clarity
@@ -245,15 +207,16 @@ combined_summary
 ## 4      sex        M   919   24.13340
 ## 5      sex       OS   906   23.79202
 ```
+As you can see in the table above, the frequency tables provide a clear picture of the distribution of categories within the dataset for the zygosity and sex. Interestingly, there are many more same sex female twins, which make up 1983/3808 (52%) of the dataset. 
 
-What if you want to examine effects by cohort? You can use the `group_by` function to group the data by cohort and then calculate the summary statistics for each cohort.
+What if you want to examine these wideform by cohort? You can use the `group_by` function to group the data by cohort and then calculate the summary statistics for each cohort.
 
 
 ``` r
 library(tidyverse)
 
 # Grouping by 'cohort' and calculating summary statistics for each group across values that are numeric
-df_summary <- df %>%
+df_summary <- df_wide %>%
     group_by(cohort) %>%
     summarise(across(where(is.numeric), list(
         mean = ~mean(., na.rm = TRUE),
@@ -297,7 +260,7 @@ df_summary  %>% mutate(variable = factor(variable, levels = variable_order)) %>%
 ## 10 younger wt2        64.1   11.6       64    17
 ## # ℹ 16 more rows
 ```
-
+As you can see from the table, the summary statistics are calculated for each cohort across the numeric variables. This provides a quick overview of the central tendencies and variability in the dataset for each cohort. Now, these data are still in wide form, but we can easily convert them to long form if needed.
 
 What about descriptive statistics by zygosity and sex?
 
@@ -306,7 +269,7 @@ What about descriptive statistics by zygosity and sex?
 library(tidyverse)
 
 # Grouping by 'zyg,sex' and calculating summary statistics for each group
-df_summary <- df %>%
+df_summary <- df_wide %>%
     group_by(zyg,sex) %>%
     summarise(across(where(is.numeric), list(
         mean = ~mean(., na.rm = TRUE),
@@ -360,6 +323,11 @@ df_summary  %>% mutate(variable = factor(variable, levels = variable_order)) %>%
 ## # ℹ 55 more rows
 ```
 
+As you can see from the table, the summary statistics are calculated for each zygosity and sex across the 
+numeric variables. 
+
+# Wide Form Data Visualization
+
 ## Plots
 
 
@@ -373,7 +341,7 @@ Visualizing distributions and relationships through histograms and scatter plots
 
 
 ``` r
-ggplot(df, aes(x = wt1)) +
+ggplot(df_wide, aes(x = wt1)) +
   geom_histogram(bins=30, fill="blue", color="black") +
   labs(x="weight", y="Frequency", title="Distribution of weight for Twin 1") +
   theme_minimal()
@@ -388,7 +356,7 @@ ggplot(df, aes(x = wt1)) +
 
 ``` r
 # Basic Scatter Plot of weight of Twin 1 vs. weight of Twin 2
-p <- ggplot(df, aes(x=wt1, y=wt2, color=zyg)) +
+p <- ggplot(df_wide, aes(x=wt1, y=wt2, color=zyg)) +
   geom_point(alpha=.5) +
   labs(x = "Weight of Twin 1", 
        y = "Weight of Twin 2", 
@@ -410,7 +378,7 @@ p
 ## (`geom_point()`).
 ```
 
-<img src="03_wide_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+<img src="03_wide_files/figure-html/unnamed-chunk-2-1.png" width="672" />
 
 Adding a regression line to the scatter plot.
 
@@ -438,7 +406,7 @@ p + geom_smooth(method = "lm", se = FALSE)
 ## (`geom_point()`).
 ```
 
-<img src="03_wide_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+<img src="03_wide_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 
 
 ``` r
@@ -447,7 +415,7 @@ library(ggExtra)
 
 
 # Create marginal density plots for x and y axes
-p_x <- ggplot(df, aes(x = wt1, fill = zyg)) +
+p_x <- ggplot(df_wide, aes(x = wt1, fill = zyg)) +
   geom_density(alpha = 0.5) +
   theme_minimal() +
   scale_fill_viridis_d(option = "viridis", begin = 0.1, end = 0.85) +
@@ -463,10 +431,10 @@ p_x
 ## (`stat_density()`).
 ```
 
-<img src="03_wide_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+<img src="03_wide_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 
 ``` r
-p_y <- ggplot(df, aes(x = wt2, fill = zyg)) +
+p_y <- ggplot(df_wide, aes(x = wt2, fill = zyg)) +
   geom_density(alpha = 0.5) +
   scale_fill_viridis_d(option = "viridis", begin = 0.1, end = 0.85) +
   coord_flip() +
@@ -517,7 +485,7 @@ p1 <- ggMarginal(p, type="histogram")
 p1
 ```
 
-<img src="03_wide_files/figure-html/unnamed-chunk-3-2.png" width="672" />
+<img src="03_wide_files/figure-html/unnamed-chunk-4-2.png" width="672" />
 
 ``` r
 # marginal density
@@ -550,7 +518,7 @@ p2 <- ggMarginal(p, type="density")
 p2
 ```
 
-<img src="03_wide_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<img src="03_wide_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 
 
 ``` r
@@ -584,7 +552,7 @@ p3 <- ggMarginal(p, type="boxplot")
 p3
 ```
 
-<img src="03_wide_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+<img src="03_wide_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 
 
 ## Correlation Matries and Correlograms

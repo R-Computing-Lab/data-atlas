@@ -156,6 +156,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="assets/style.css" type="text/css" />
 </head>
@@ -175,11 +198,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="part"><span><b>Front Matter</b></span></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Abstract</a></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html#how-to-use-these-notes"><i class="fa fa-check"></i>How to use these notes</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="attribution.html"><a href="attribution.html"><i class="fa fa-check"></i>Attribution</a>
 <ul>
-<li class="chapter" data-level="" data-path="attribution.html"><a href="attribution.html#how-to-use-these-notes"><i class="fa fa-check"></i>How to use these notes</a></li>
 <li class="chapter" data-level="" data-path="attribution.html"><a href="attribution.html#major-attributions"><i class="fa fa-check"></i>Major Attributions</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="license.html"><a href="license.html"><i class="fa fa-check"></i>License</a></li>
+<li class="chapter" data-level="" data-path="colophon.html"><a href="colophon.html"><i class="fa fa-check"></i>Colophon</a></li>
 <li class="part"><span><b>Introduction</b></span></li>
 <li class="chapter" data-level="1" data-path="crash-course-on-the-tidyverse.html"><a href="crash-course-on-the-tidyverse.html"><i class="fa fa-check"></i><b>1</b> Crash Course on the Tidyverse</a>
 <ul>
@@ -203,24 +231,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="wide-form-data.html"><a href="wide-form-data.html#annotated-explainaton-for-the-code-snippet-above"><i class="fa fa-check"></i><b>3.2.1</b> Annotated explainaton for the code snippet above:</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="wide-form-data.html"><a href="wide-form-data.html#summary-statistics"><i class="fa fa-check"></i><b>3.3</b> Summary Statistics</a>
+<li class="chapter" data-level="3.3" data-path="wide-form-data.html"><a href="wide-form-data.html#summary-statistics-wide-form"><i class="fa fa-check"></i><b>3.3</b> Summary Statistics (Wide Form)</a>
 <ul>
 <li class="chapter" data-level="3.3.1" data-path="wide-form-data.html"><a href="wide-form-data.html#numeric-variables"><i class="fa fa-check"></i><b>3.3.1</b> Numeric Variables</a></li>
+<li class="chapter" data-level="3.3.2" data-path="wide-form-data.html"><a href="wide-form-data.html#frequency-tables"><i class="fa fa-check"></i><b>3.3.2</b> Frequency Tables</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="wide-form-data.html"><a href="wide-form-data.html#frequency-tables"><i class="fa fa-check"></i><b>3.4</b> Frequency Tables</a></li>
-<li class="chapter" data-level="3.5" data-path="wide-form-data.html"><a href="wide-form-data.html#plots"><i class="fa fa-check"></i><b>3.5</b> Plots</a>
+</ul></li>
+<li class="chapter" data-level="4" data-path="wide-form-data-visualization.html"><a href="wide-form-data-visualization.html"><i class="fa fa-check"></i><b>4</b> Wide Form Data Visualization</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="wide-form-data.html"><a href="wide-form-data.html#histograms-and-scatter-plots"><i class="fa fa-check"></i><b>3.5.1</b> Histograms and Scatter Plots</a></li>
-</ul></li>
-<li class="chapter" data-level="3.6" data-path="wide-form-data.html"><a href="wide-form-data.html#correlation-matries-and-correlograms"><i class="fa fa-check"></i><b>3.6</b> Correlation Matries and Correlograms</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="long-form.html"><a href="long-form.html"><i class="fa fa-check"></i><b>4</b> Long Form</a>
+<li class="chapter" data-level="4.1" data-path="wide-form-data-visualization.html"><a href="wide-form-data-visualization.html#plots"><i class="fa fa-check"></i><b>4.1</b> Plots</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="long-form.html"><a href="long-form.html#import-data-1"><i class="fa fa-check"></i><b>4.1</b> Import Data</a></li>
-<li class="chapter" data-level="4.2" data-path="long-form.html"><a href="long-form.html#example-one"><i class="fa fa-check"></i><b>4.2</b> Example one</a></li>
-<li class="chapter" data-level="4.3" data-path="long-form.html"><a href="long-form.html#example-two"><i class="fa fa-check"></i><b>4.3</b> Example two</a></li>
+<li class="chapter" data-level="4.1.1" data-path="wide-form-data-visualization.html"><a href="wide-form-data-visualization.html#histograms-and-scatter-plots"><i class="fa fa-check"></i><b>4.1.1</b> Histograms and Scatter Plots</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
+<li class="chapter" data-level="4.2" data-path="wide-form-data-visualization.html"><a href="wide-form-data-visualization.html#correlation-matries-and-correlograms"><i class="fa fa-check"></i><b>4.2</b> Correlation Matries and Correlograms</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="long-form-data.html"><a href="long-form-data.html"><i class="fa fa-check"></i><b>5</b> Long Form Data</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="long-form-data.html"><a href="long-form-data.html#converting-from-wide-to-long-form"><i class="fa fa-check"></i><b>5.1</b> Converting from Wide to Long Form</a></li>
+<li class="chapter" data-level="5.2" data-path="long-form-data.html"><a href="long-form-data.html#data-structure-1"><i class="fa fa-check"></i><b>5.2</b> Data Structure</a></li>
+<li class="chapter" data-level="5.3" data-path="long-form-data.html"><a href="long-form-data.html#adding-sex-and-zyg"><i class="fa fa-check"></i><b>5.3</b> Adding <code>sex</code> and <code>zyg</code></a></li>
+<li class="chapter" data-level="5.4" data-path="long-form-data.html"><a href="long-form-data.html#summary-statistics-long-form"><i class="fa fa-check"></i><b>5.4</b> Summary Statistics (Long Form)</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><center>
