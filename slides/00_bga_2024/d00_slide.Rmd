@@ -192,7 +192,7 @@ knitr::include_graphics("img/responses towright.png")
 # Cute little path diagram
 
 ```{r, echo=FALSE, out.width="70%", fig.align='center'}
-knitr::include_graphics("img/cutepath/png")
+knitr::include_graphics("img/cutepath.png")
 ```
 ---
 

@@ -1,0 +1,83 @@
+
+## Add titles and labels
+
+.midi[
+> Start with the `twinData_cleaned` data frame,
+> map height of Twin 1 to the x-axis,
+> and map height of Twin 2 to the y-axis.
+> Represent each observation with a point,
+> and map zygosity to the color of each point.
+> **Title the plot 'Height Comparison between Twins',**
+> **add subtitles and label axes.**
+]
+
+.pull-left[
+```{r twin-5, fig.show = "hide", warning=FALSE}
+ggplot(data = twinData_cleaned, mapping = aes(x = height_t1, y = height_t2, color = zyg)) +
+  geom_point() +
+  labs(title = "Height Comparison between Twins", subtitle = "Visualized by Zygosity",
+       x = "Height of Twin 1 (cm)", y = "Height of Twin 2 (cm)", color = "Zygosity") #<<
+```
+]
+.pull-right[
+```{r ref.label = "twin-5", echo = FALSE, warning = FALSE, out.width = "100%", fig.width 8}
+```
+]
+
+## Add a caption for the data source
+
+.midi[
+> Start with the `twinData_cleaned` data frame,
+> map height of Twin 1 to the x-axis,
+> and map height of Twin 2 to the y-axis.
+> Represent each observation with a point,
+> and map zygosity to the color of each point.
+> Title the plot "Height Comparison between Twins",
+> add the subtitle "Visualized by Zygosity",
+> label the x and y axes,
+> **and add a caption for the data source.**
+]
+
+.pull-left[
+```{r twin-6, fig.show = "hide", warning=FALSE}
+ggplot(data = twinData_cleaned, mapping = aes(x = height_t1, y = height_t2, color = zyg)) +
+  geom_point() +
+  labs(title = "Height Comparison between Twins", subtitle = "Visualized by Zygosity",
+       x = "Height of Twin 1 (cm)", y = "Height of Twin 2 (cm)", color = "Zygosity",
+       caption = "Source: Australian National Health and Medical Research Council Twin Registry") #<<
+```
+]
+.pull-right[
+```{r ref.label = "twin-6", echo = FALSE, warning = FALSE, out.width = "100%", fig.width 8}
+```
+]
+
+## Use a discrete color scale for color blindness
+
+.midi[
+> Start with the `twinData_cleaned` data frame,
+> map height of Twin 1 to the x-axis,
+> and map height of Twin 2 to the y-axis.
+> Represent each observation with a point,
+> and map zygosity to the color of each point.
+> Title the plot "Height Comparison between Twins",
+> add the subtitle "Visualized by Zygosity",
+> label the x and y axes,
+> add a caption for the data source,
+> **and use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness.**
+]
+
+.pull-left[
+```{r twin-7, fig.show = "hide", warning=FALSE}
+ggplot(data = twinData_cleaned, mapping = aes(x = height_t1, y = height_t2, color = zyg)) +
+  geom_point() +
+  labs(title = "Height Comparison between Twins", subtitle = "Visualized by Zygosity",
+       x = "Height of Twin 1 (cm)", y = "Height of Twin 2 (cm)", color = "Zygosity",
+       caption = "Source: Australian National Health and Medical Research Council Twin Registry") +
+  scale_color_viridis_d() #<<
+```
+]
+.pull-right[
+```{r ref.label = "twin-7", echo = FALSE, warning = FALSE, out.width = "100%", fig.width 8}
+```
+]
