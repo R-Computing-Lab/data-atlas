@@ -1,11 +1,9 @@
 ---
 title: "Visualizing data with ggplot2<br> `r emo::ji('palette')`"
 author: "S. Mason Garrison"
-knit: (function(input, encoding) {
-      rmarkdown::render(input,
-                        output_dir = "E:/.../docs")})
 output:
   xaringan::moon_reader:
+    self_contained: true
     css: "../slides.css"
     lib_dir: libs
     nature:
@@ -14,7 +12,6 @@ output:
       highlightStyle: solarized-light
       countIncrementalSlides: false
       slideNumberFormat: ""
-      self_contained: true
 ---
 
 ```{r child = "../setup.Rmd"}
