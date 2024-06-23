@@ -401,7 +401,72 @@ p3
 
 
 ```{r correlation-matrix, fig.width=8, fig.height=8,warning=FALSE}
+
 library(ggcorrplot)
-corr <- round(cor(df_wide %>% select(where(is.numeric))), 2)
-ggcorrplot(corr, type = "lower", lab = TRUE, lab_size = 3, method = "circle", 
-           colors = c("tomato2", "white", "springgreen3"), title = "Correlation Matrix of Twin Data", ggtheme = theme_bw)
+# select only the variables of interest
+
+df_cor <- df_wide %>% select(wt1, wt2, ht1, ht2)
+
+# Compute correlation matrix
+corr <- cor(df_cor ,use="pairwise.complete") %>% round(2)
+
+ggcorrplot(corr, type = "lower", lab = TRUE, 
+           lab_size = 3, 
+           method = "circle", 
+           colors = c("tomato2", "white", "springgreen3"), 
+           title = "Correlation Matrix of Twin Data", 
+           ggtheme = theme_bw)
+```
+
+#### By zygosity
+
+Making a correlation matrix for each zygosity group is a tad more complicated, but still doable. We can use group_by() and summarise() from dplyr to compute the correlation matrix for each group. Then we can arrange the correlations in a long format and plot them using ggplot2. I've placed the MZ twins in the lower triangle and the DZ twins in the upper triangle.
+
+```{r correlation-matrix-zyg, fig.width=8, fig.height=8,warning=FALSE}
+
+# Load necessary libraries
+library(dplyr)  # for data manipulation
+library(purrr)  # for functional programming tools
+
+corr_zyg <- df_wide %>% 
+  # Group the data by 'zyg'
+  group_by(zyg) %>% 
+  # Compute the correlation matrix for each group
+  summarise(
+    cor_wt1_wt2 = cor(wt1, wt2, use = "pairwise.complete"),
+    cor_wt1_ht1 = cor(wt1, ht1, use = "pairwise.complete"),
+    cor_wt1_ht2 = cor(wt1, ht2, use = "pairwise.complete"),
+    cor_wt2_ht1 = cor(wt2, ht1, use = "pairwise.complete"),
+    cor_wt2_ht2 = cor(wt2, ht2, use = "pairwise.complete"),
+    cor_ht1_ht2 = cor(ht1, ht2, use = "pairwise.complete")
+  ) %>%
+  pivot_longer(-zyg, names_to = "pairs", values_to = "correlation") %>%
+  unite("pairs", pairs, zyg, sep = "_") %>%
+  pivot_wider(names_from = pairs, values_from = correlation)
+
+# Display the results
+combined_matrix <- matrix(1, nrow = 4, ncol = 4)
+rownames(combined_matrix) <- colnames(combined_matrix) <- c("wt1", "wt2", "ht1", "ht2")
+
+# Fill the lower triangle with MZ correlations
+combined_matrix[lower.tri(combined_matrix)] <- c(
+  corr_zyg$cor_wt1_wt2_MZ, corr_zyg$cor_wt1_ht1_MZ, corr_zyg$cor_wt1_ht2_MZ,
+  corr_zyg$cor_wt2_ht1_MZ, corr_zyg$cor_wt2_ht2_MZ,
+  corr_zyg$cor_ht1_ht2_MZ
+)
+
+# Fill the upper triangle with DZ correlations
+combined_matrix[upper.tri(combined_matrix)] <- c(
+  corr_zyg$cor_wt1_wt2_DZ, corr_zyg$cor_wt1_ht1_DZ, corr_zyg$cor_wt1_ht2_DZ,
+  corr_zyg$cor_wt2_ht1_DZ, corr_zyg$cor_wt2_ht2_DZ,
+  corr_zyg$cor_ht1_ht2_DZ
+)
+
+# Plot the correlation matrix
+ggcorrplot(combined_matrix, show.diag = TRUE, lab = TRUE, 
+           lab_size = 3, method = "circle", 
+           colors = c("tomato2", "white", "springgreen3"), 
+           title = "Correlation Matrix of Twin Data by Zygosity",
+          # subtitle = "MZ correlations in the lower triangle, DZ correlations in the upper triangle",
+           ggtheme = theme_bw) + labs(caption = "MZ correlations in the lower triangle,\nDZ correlations in the upper triangle")
+```

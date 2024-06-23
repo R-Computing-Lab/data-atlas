@@ -4,26 +4,26 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 Long Form Data | DataAtlas</title>
-  <meta name="description" content="Data Atlas" />
+  <title>5 Long Form Data | Data Atlas</title>
+  <meta name="description" content="5 Long Form Data | Data Atlas" />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 Long Form Data | DataAtlas" />
+  <meta property="og:title" content="5 Long Form Data | Data Atlas" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://R-Computing-Lab/data-atlas/assets/logo.png" />
-  <meta property="og:description" content="Data Atlas" />
+  <meta property="og:description" content="5 Long Form Data | Data Atlas" />
   <meta name="github-repo" content="R-Computing-Lab/data-atlas" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 Long Form Data | DataAtlas" />
+  <meta name="twitter:title" content="5 Long Form Data | Data Atlas" />
   <meta name="twitter:site" content="@smasongarrison" />
-  <meta name="twitter:description" content="Data Atlas" />
+  <meta name="twitter:description" content="5 Long Form Data | Data Atlas" />
   <meta name="twitter:image" content="https://R-Computing-Lab/data-atlas/assets/logo.png" />
 
 <meta name="author" content="S. Mason Garrison" />
 
 
-<meta name="date" content="2024-06-22" />
+<meta name="date" content="2024-06-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -67,6 +67,9 @@
 <script src="libs/selectize-0.12.0/selectize.min.js"></script>
 <link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<script src="libs/viz-1.8.2/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-1.0.11/grViz.js"></script>
 <html>
 
   <head>
@@ -265,7 +268,20 @@ div.csl-indent {
 <li class="chapter" data-level="5.4" data-path="long-form-data.html"><a href="long-form-data.html#summary-statistics-long-form"><i class="fa fa-check"></i><b>5.4</b> Summary Statistics (Long Form)</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="long-form-data-plots.html"><a href="long-form-data-plots.html"><i class="fa fa-check"></i><b>6</b> Long Form Data Plots</a></li>
-<li class="chapter" data-level="7" data-path="path-diagrams.html"><a href="path-diagrams.html"><i class="fa fa-check"></i><b>7</b> Path Diagrams</a></li>
+<li class="chapter" data-level="7" data-path="introduction-to-path-diagrams.html"><a href="introduction-to-path-diagrams.html"><i class="fa fa-check"></i><b>7</b> Introduction to Path Diagrams</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="introduction-to-path-diagrams.html"><a href="introduction-to-path-diagrams.html#constructing-a-simple-path-diagram"><i class="fa fa-check"></i><b>7.1</b> Constructing a Simple Path Diagram</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="introduction-to-path-diagrams.html"><a href="introduction-to-path-diagrams.html#understanding-the-components"><i class="fa fa-check"></i><b>7.1.1</b> Understanding the Components</a></li>
+<li class="chapter" data-level="7.1.2" data-path="introduction-to-path-diagrams.html"><a href="introduction-to-path-diagrams.html#step-by-step-construction"><i class="fa fa-check"></i><b>7.1.2</b> Step-by-Step Construction</a></li>
+<li class="chapter" data-level="7.1.3" data-path="introduction-to-path-diagrams.html"><a href="introduction-to-path-diagrams.html#ace-model-example"><i class="fa fa-check"></i><b>7.1.3</b> ACE Model Example</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="introduction-to-path-diagrams.html"><a href="introduction-to-path-diagrams.html#pre-existing-software"><i class="fa fa-check"></i><b>7.2</b> Pre-existing software</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="introduction-to-path-diagrams.html"><a href="introduction-to-path-diagrams.html#creating-a-path-diagram-with-omxgraphviz"><i class="fa fa-check"></i><b>7.2.1</b> Creating a Path Diagram with <code>omxGraphviz</code></a></li>
+<li class="chapter" data-level="7.2.2" data-path="introduction-to-path-diagrams.html"><a href="introduction-to-path-diagrams.html#creating-a-path-diagram-for-an-ace-model-using-the-umx-package"><i class="fa fa-check"></i><b>7.2.2</b> Creating a Path Diagram for an ACE Model Using the <code>umx</code> Package</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="8" data-path="tables.html"><a href="tables.html"><i class="fa fa-check"></i><b>8</b> Tables</a></li>
 <li class="chapter" data-level="9" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>9</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -288,7 +304,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">DataAtlas</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Atlas</a>
           </h1>
         </div>
 
@@ -301,33 +317,33 @@ div.csl-indent {
 <p>In contrast to wide form data, long form data, also known as “tidy data,” structures datasets where each row represents a single observation, and each column represents a variable. This format is highly beneficial for statistical modeling and data analysis because it simplifies the application of various data manipulation and analysis functions. As before, we’ll use the <code>twinData</code> dataset from the <code>OpenMx</code> package, but we’ll convert it to long form to illustrate handling and analyzing data in this format.</p>
 <div id="converting-from-wide-to-long-form" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> Converting from Wide to Long Form<a href="long-form-data.html#converting-from-wide-to-long-form" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="long-form-data.html#cb54-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb54-2"><a href="long-form-data.html#cb54-2" tabindex="-1"></a><span class="fu">library</span>(NlsyLinks)</span>
-<span id="cb54-3"><a href="long-form-data.html#cb54-3" tabindex="-1"></a><span class="fu">library</span>(discord)</span>
-<span id="cb54-4"><a href="long-form-data.html#cb54-4" tabindex="-1"></a><span class="fu">library</span>(BGmisc)</span>
-<span id="cb54-5"><a href="long-form-data.html#cb54-5" tabindex="-1"></a><span class="fu">library</span>(OpenMx)</span>
-<span id="cb54-6"><a href="long-form-data.html#cb54-6" tabindex="-1"></a><span class="fu">library</span>(conflicted) <span class="co"># to handle conflicts</span></span>
-<span id="cb54-7"><a href="long-form-data.html#cb54-7" tabindex="-1"></a>conflicted<span class="sc">::</span><span class="fu">conflicts_prefer</span>(OpenMx<span class="sc">::</span>vech,dplyr<span class="sc">::</span>filter) <span class="co"># Resolve conflicts</span></span>
-<span id="cb54-8"><a href="long-form-data.html#cb54-8" tabindex="-1"></a></span>
-<span id="cb54-9"><a href="long-form-data.html#cb54-9" tabindex="-1"></a></span>
-<span id="cb54-10"><a href="long-form-data.html#cb54-10" tabindex="-1"></a><span class="fu">data</span>(twinData)</span>
-<span id="cb54-11"><a href="long-form-data.html#cb54-11" tabindex="-1"></a></span>
-<span id="cb54-12"><a href="long-form-data.html#cb54-12" tabindex="-1"></a>df_long <span class="ot">&lt;-</span> twinData <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>age)</span></code></pre></div>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="long-form-data.html#cb55-1" tabindex="-1"></a><span class="co"># Convert wide data to long form</span></span>
-<span id="cb55-2"><a href="long-form-data.html#cb55-2" tabindex="-1"></a>df_long <span class="ot">&lt;-</span> df_long <span class="sc">%&gt;%</span></span>
-<span id="cb55-3"><a href="long-form-data.html#cb55-3" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb55-4"><a href="long-form-data.html#cb55-4" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">matches</span>(<span class="st">&#39;1$|2$&#39;</span>), <span class="co"># Select columns ending in &#39;1&#39; or &#39;2&#39;</span></span>
-<span id="cb55-5"><a href="long-form-data.html#cb55-5" tabindex="-1"></a>     <span class="at">cols_vary =</span> <span class="st">&quot;slowest&quot;</span>, <span class="co"># Specify that the columns are in the same order for each twin</span></span>
-<span id="cb55-6"><a href="long-form-data.html#cb55-6" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">&quot;.value&quot;</span>, <span class="st">&quot;twin&quot;</span>), <span class="co"># Split the column names into variable and twin number</span></span>
-<span id="cb55-7"><a href="long-form-data.html#cb55-7" tabindex="-1"></a>    <span class="at">names_pattern =</span> <span class="st">&quot;(.*)(1|2)&quot;</span> <span class="co"># Capture the variable and twin number</span></span>
-<span id="cb55-8"><a href="long-form-data.html#cb55-8" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="long-form-data.html#cb55-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb55-2"><a href="long-form-data.html#cb55-2" tabindex="-1"></a><span class="fu">library</span>(NlsyLinks)</span>
+<span id="cb55-3"><a href="long-form-data.html#cb55-3" tabindex="-1"></a><span class="fu">library</span>(discord)</span>
+<span id="cb55-4"><a href="long-form-data.html#cb55-4" tabindex="-1"></a><span class="fu">library</span>(BGmisc)</span>
+<span id="cb55-5"><a href="long-form-data.html#cb55-5" tabindex="-1"></a><span class="fu">library</span>(OpenMx)</span>
+<span id="cb55-6"><a href="long-form-data.html#cb55-6" tabindex="-1"></a><span class="fu">library</span>(conflicted) <span class="co"># to handle conflicts</span></span>
+<span id="cb55-7"><a href="long-form-data.html#cb55-7" tabindex="-1"></a>conflicted<span class="sc">::</span><span class="fu">conflicts_prefer</span>(OpenMx<span class="sc">::</span>vech,dplyr<span class="sc">::</span>filter) <span class="co"># Resolve conflicts</span></span>
+<span id="cb55-8"><a href="long-form-data.html#cb55-8" tabindex="-1"></a></span>
+<span id="cb55-9"><a href="long-form-data.html#cb55-9" tabindex="-1"></a></span>
+<span id="cb55-10"><a href="long-form-data.html#cb55-10" tabindex="-1"></a><span class="fu">data</span>(twinData)</span>
+<span id="cb55-11"><a href="long-form-data.html#cb55-11" tabindex="-1"></a></span>
+<span id="cb55-12"><a href="long-form-data.html#cb55-12" tabindex="-1"></a>df_long <span class="ot">&lt;-</span> twinData <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>age)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="long-form-data.html#cb56-1" tabindex="-1"></a><span class="co"># Convert wide data to long form</span></span>
+<span id="cb56-2"><a href="long-form-data.html#cb56-2" tabindex="-1"></a>df_long <span class="ot">&lt;-</span> df_long <span class="sc">%&gt;%</span></span>
+<span id="cb56-3"><a href="long-form-data.html#cb56-3" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb56-4"><a href="long-form-data.html#cb56-4" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">matches</span>(<span class="st">&#39;1$|2$&#39;</span>), <span class="co"># Select columns ending in &#39;1&#39; or &#39;2&#39;</span></span>
+<span id="cb56-5"><a href="long-form-data.html#cb56-5" tabindex="-1"></a>     <span class="at">cols_vary =</span> <span class="st">&quot;slowest&quot;</span>, <span class="co"># Specify that the columns are in the same order for each twin</span></span>
+<span id="cb56-6"><a href="long-form-data.html#cb56-6" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">&quot;.value&quot;</span>, <span class="st">&quot;twin&quot;</span>), <span class="co"># Split the column names into variable and twin number</span></span>
+<span id="cb56-7"><a href="long-form-data.html#cb56-7" tabindex="-1"></a>    <span class="at">names_pattern =</span> <span class="st">&quot;(.*)(1|2)&quot;</span> <span class="co"># Capture the variable and twin number</span></span>
+<span id="cb56-8"><a href="long-form-data.html#cb56-8" tabindex="-1"></a>  )</span></code></pre></div>
 </div>
 <div id="data-structure-1" class="section level2 hasAnchor" number="5.2">
 <h2><span class="header-section-number">5.2</span> Data Structure<a href="long-form-data.html#data-structure-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Let’s take a look at the structure of the dataset now that it’s in long form.</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="long-form-data.html#cb56-1" tabindex="-1"></a><span class="fu">class</span>(df_long)</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="long-form-data.html#cb57-1" tabindex="-1"></a><span class="fu">class</span>(df_long)</span></code></pre></div>
 <pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="long-form-data.html#cb58-1" tabindex="-1"></a><span class="fu">glimpse</span>(df_long)</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="long-form-data.html#cb59-1" tabindex="-1"></a><span class="fu">glimpse</span>(df_long)</span></code></pre></div>
 <pre><code>## Rows: 7,616
 ## Columns: 11
 ## $ fam      &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18…
@@ -346,18 +362,18 @@ div.csl-indent {
 <div id="adding-sex-and-zyg" class="section level2 hasAnchor" number="5.3">
 <h2><span class="header-section-number">5.3</span> Adding <code>sex</code> and <code>zyg</code><a href="long-form-data.html#adding-sex-and-zyg" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To facilitate analyses that depend on sex or zygosity type, we’ll add these as new columns derived from zygosity.</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="long-form-data.html#cb60-1" tabindex="-1"></a><span class="co"># Add &#39;sex&#39; and &#39;zyg&#39; columns based on &#39;zygosity&#39;</span></span>
-<span id="cb60-2"><a href="long-form-data.html#cb60-2" tabindex="-1"></a>df_long <span class="ot">&lt;-</span> df_long <span class="sc">%&gt;%</span></span>
-<span id="cb60-3"><a href="long-form-data.html#cb60-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">case_when</span>(</span>
-<span id="cb60-4"><a href="long-form-data.html#cb60-4" tabindex="-1"></a>    zygosity <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;MZFF&quot;</span>, <span class="st">&quot;DZFF&quot;</span>) <span class="sc">~</span> <span class="st">&quot;F&quot;</span>,</span>
-<span id="cb60-5"><a href="long-form-data.html#cb60-5" tabindex="-1"></a>    zygosity <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;MZMM&quot;</span>, <span class="st">&quot;DZMM&quot;</span>) <span class="sc">~</span> <span class="st">&quot;M&quot;</span>,</span>
-<span id="cb60-6"><a href="long-form-data.html#cb60-6" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;OS&quot;</span></span>
-<span id="cb60-7"><a href="long-form-data.html#cb60-7" tabindex="-1"></a>  ),</span>
-<span id="cb60-8"><a href="long-form-data.html#cb60-8" tabindex="-1"></a>  <span class="at">zyg =</span> <span class="fu">case_when</span>(</span>
-<span id="cb60-9"><a href="long-form-data.html#cb60-9" tabindex="-1"></a>    zygosity <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;MZFF&quot;</span>, <span class="st">&quot;MZMM&quot;</span>) <span class="sc">~</span> <span class="st">&quot;MZ&quot;</span>,</span>
-<span id="cb60-10"><a href="long-form-data.html#cb60-10" tabindex="-1"></a>    zygosity <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;DZFF&quot;</span>, <span class="st">&quot;DZMM&quot;</span>, <span class="st">&quot;DZOS&quot;</span>) <span class="sc">~</span> <span class="st">&quot;DZ&quot;</span>,</span>
-<span id="cb60-11"><a href="long-form-data.html#cb60-11" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_character_</span></span>
-<span id="cb60-12"><a href="long-form-data.html#cb60-12" tabindex="-1"></a>  ))</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="long-form-data.html#cb61-1" tabindex="-1"></a><span class="co"># Add &#39;sex&#39; and &#39;zyg&#39; columns based on &#39;zygosity&#39;</span></span>
+<span id="cb61-2"><a href="long-form-data.html#cb61-2" tabindex="-1"></a>df_long <span class="ot">&lt;-</span> df_long <span class="sc">%&gt;%</span></span>
+<span id="cb61-3"><a href="long-form-data.html#cb61-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">case_when</span>(</span>
+<span id="cb61-4"><a href="long-form-data.html#cb61-4" tabindex="-1"></a>    zygosity <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;MZFF&quot;</span>, <span class="st">&quot;DZFF&quot;</span>) <span class="sc">~</span> <span class="st">&quot;F&quot;</span>,</span>
+<span id="cb61-5"><a href="long-form-data.html#cb61-5" tabindex="-1"></a>    zygosity <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;MZMM&quot;</span>, <span class="st">&quot;DZMM&quot;</span>) <span class="sc">~</span> <span class="st">&quot;M&quot;</span>,</span>
+<span id="cb61-6"><a href="long-form-data.html#cb61-6" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;OS&quot;</span></span>
+<span id="cb61-7"><a href="long-form-data.html#cb61-7" tabindex="-1"></a>  ),</span>
+<span id="cb61-8"><a href="long-form-data.html#cb61-8" tabindex="-1"></a>  <span class="at">zyg =</span> <span class="fu">case_when</span>(</span>
+<span id="cb61-9"><a href="long-form-data.html#cb61-9" tabindex="-1"></a>    zygosity <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;MZFF&quot;</span>, <span class="st">&quot;MZMM&quot;</span>) <span class="sc">~</span> <span class="st">&quot;MZ&quot;</span>,</span>
+<span id="cb61-10"><a href="long-form-data.html#cb61-10" tabindex="-1"></a>    zygosity <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;DZFF&quot;</span>, <span class="st">&quot;DZMM&quot;</span>, <span class="st">&quot;DZOS&quot;</span>) <span class="sc">~</span> <span class="st">&quot;DZ&quot;</span>,</span>
+<span id="cb61-11"><a href="long-form-data.html#cb61-11" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_character_</span></span>
+<span id="cb61-12"><a href="long-form-data.html#cb61-12" tabindex="-1"></a>  ))</span></code></pre></div>
 <p>Unfortunately, the data do not contain the information for the gender for each twin, so we will just have to settle for noting that the data is missing.</p>
 </div>
 <div id="summary-statistics-long-form" class="section level2 hasAnchor" number="5.4">
@@ -365,27 +381,27 @@ div.csl-indent {
 <p>Once again, let’s calculate summary statistics for numeric variables across the full sample. This will provide a quick overview of central tendencies and variability in the dataset. When working with long form data, it is often helpful to start with summarizing by the data structure you already have. In this case, we will calculate summary statistics by specific measurement across all twins.</p>
 <p>Data Structure and Summary Statistics
 Examine the transformed data and calculate summary statistics similar to those performed in the wide form.</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="long-form-data.html#cb61-1" tabindex="-1"></a>summary_stats_long <span class="ot">&lt;-</span> df_long <span class="sc">%&gt;%</span></span>
-<span id="cb61-2"><a href="long-form-data.html#cb61-2" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), <span class="fu">list</span>(</span>
-<span id="cb61-3"><a href="long-form-data.html#cb61-3" tabindex="-1"></a>    <span class="at">mean =</span> <span class="sc">~</span><span class="fu">mean</span>(., <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb61-4"><a href="long-form-data.html#cb61-4" tabindex="-1"></a>    <span class="at">sd =</span> <span class="sc">~</span><span class="fu">sd</span>(., <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb61-5"><a href="long-form-data.html#cb61-5" tabindex="-1"></a>    <span class="at">median =</span> <span class="sc">~</span><span class="fu">median</span>(., <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb61-6"><a href="long-form-data.html#cb61-6" tabindex="-1"></a>    <span class="at">min =</span> <span class="sc">~</span><span class="fu">min</span>(., <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb61-7"><a href="long-form-data.html#cb61-7" tabindex="-1"></a>    <span class="at">max =</span> <span class="sc">~</span><span class="fu">max</span>(., <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb61-8"><a href="long-form-data.html#cb61-8" tabindex="-1"></a>    <span class="at">IQR =</span> <span class="sc">~</span><span class="fu">IQR</span>(., <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb61-9"><a href="long-form-data.html#cb61-9" tabindex="-1"></a>  ), <span class="at">.names =</span> <span class="st">&quot;{col}_{fn}&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb61-10"><a href="long-form-data.html#cb61-10" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb61-11"><a href="long-form-data.html#cb61-11" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">everything</span>(),</span>
-<span id="cb61-12"><a href="long-form-data.html#cb61-12" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">&quot;variable&quot;</span>, <span class="st">&quot;statistic&quot;</span>),</span>
-<span id="cb61-13"><a href="long-form-data.html#cb61-13" tabindex="-1"></a>    <span class="at">names_sep =</span> <span class="st">&quot;_&quot;</span></span>
-<span id="cb61-14"><a href="long-form-data.html#cb61-14" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb61-15"><a href="long-form-data.html#cb61-15" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
-<span id="cb61-16"><a href="long-form-data.html#cb61-16" tabindex="-1"></a>    <span class="at">names_from =</span> statistic,</span>
-<span id="cb61-17"><a href="long-form-data.html#cb61-17" tabindex="-1"></a>    <span class="at">values_from =</span> value</span>
-<span id="cb61-18"><a href="long-form-data.html#cb61-18" tabindex="-1"></a>  )</span>
-<span id="cb61-19"><a href="long-form-data.html#cb61-19" tabindex="-1"></a></span>
-<span id="cb61-20"><a href="long-form-data.html#cb61-20" tabindex="-1"></a>summary_stats_long <span class="sc">%&gt;%</span> </span>
-<span id="cb61-21"><a href="long-form-data.html#cb61-21" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">15</span>) <span class="co"># to see more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="long-form-data.html#cb62-1" tabindex="-1"></a>summary_stats_long <span class="ot">&lt;-</span> df_long <span class="sc">%&gt;%</span></span>
+<span id="cb62-2"><a href="long-form-data.html#cb62-2" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), <span class="fu">list</span>(</span>
+<span id="cb62-3"><a href="long-form-data.html#cb62-3" tabindex="-1"></a>    <span class="at">mean =</span> <span class="sc">~</span><span class="fu">mean</span>(., <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb62-4"><a href="long-form-data.html#cb62-4" tabindex="-1"></a>    <span class="at">sd =</span> <span class="sc">~</span><span class="fu">sd</span>(., <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb62-5"><a href="long-form-data.html#cb62-5" tabindex="-1"></a>    <span class="at">median =</span> <span class="sc">~</span><span class="fu">median</span>(., <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb62-6"><a href="long-form-data.html#cb62-6" tabindex="-1"></a>    <span class="at">min =</span> <span class="sc">~</span><span class="fu">min</span>(., <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb62-7"><a href="long-form-data.html#cb62-7" tabindex="-1"></a>    <span class="at">max =</span> <span class="sc">~</span><span class="fu">max</span>(., <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb62-8"><a href="long-form-data.html#cb62-8" tabindex="-1"></a>    <span class="at">IQR =</span> <span class="sc">~</span><span class="fu">IQR</span>(., <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb62-9"><a href="long-form-data.html#cb62-9" tabindex="-1"></a>  ), <span class="at">.names =</span> <span class="st">&quot;{col}_{fn}&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb62-10"><a href="long-form-data.html#cb62-10" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb62-11"><a href="long-form-data.html#cb62-11" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">everything</span>(),</span>
+<span id="cb62-12"><a href="long-form-data.html#cb62-12" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">&quot;variable&quot;</span>, <span class="st">&quot;statistic&quot;</span>),</span>
+<span id="cb62-13"><a href="long-form-data.html#cb62-13" tabindex="-1"></a>    <span class="at">names_sep =</span> <span class="st">&quot;_&quot;</span></span>
+<span id="cb62-14"><a href="long-form-data.html#cb62-14" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb62-15"><a href="long-form-data.html#cb62-15" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb62-16"><a href="long-form-data.html#cb62-16" tabindex="-1"></a>    <span class="at">names_from =</span> statistic,</span>
+<span id="cb62-17"><a href="long-form-data.html#cb62-17" tabindex="-1"></a>    <span class="at">values_from =</span> value</span>
+<span id="cb62-18"><a href="long-form-data.html#cb62-18" tabindex="-1"></a>  )</span>
+<span id="cb62-19"><a href="long-form-data.html#cb62-19" tabindex="-1"></a></span>
+<span id="cb62-20"><a href="long-form-data.html#cb62-20" tabindex="-1"></a>summary_stats_long <span class="sc">%&gt;%</span> </span>
+<span id="cb62-21"><a href="long-form-data.html#cb62-21" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">15</span>) <span class="co"># to see more rows</span></span></code></pre></div>
 <pre><code>## # A tibble: 7 × 7
 ##   variable    mean        sd  median   min     max      IQR
 ##   &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
@@ -399,25 +415,25 @@ Examine the transformed data and calculate summary statistics similar to those p
 <p>Generate frequency tables for sex and zyg, paralleling the wide form analysis.
 # Frequency Tables</p>
 <p>Paralleling the wide form analysis, let us create frequency tables for categorical variables like zygosity and sex. These tables should provide a clear picture of the distribution of these categories within the dataset. In some ways, these calculations are simpler in long form data because each row is already an individual observation.</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="long-form-data.html#cb63-1" tabindex="-1"></a><span class="co"># Counting &#39;zygosity&#39; and calculating percentages</span></span>
-<span id="cb63-2"><a href="long-form-data.html#cb63-2" tabindex="-1"></a>zygosity_summary_long <span class="ot">&lt;-</span> df_long <span class="sc">%&gt;%</span></span>
-<span id="cb63-3"><a href="long-form-data.html#cb63-3" tabindex="-1"></a>  <span class="fu">count</span>(zyg, <span class="at">name =</span> <span class="st">&quot;count&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb63-4"><a href="long-form-data.html#cb63-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">percentage =</span> count <span class="sc">/</span> <span class="fu">sum</span>(count) <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb63-5"><a href="long-form-data.html#cb63-5" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">category =</span> zyg) <span class="sc">%&gt;%</span>  <span class="co"># Renaming the column for clarity</span></span>
-<span id="cb63-6"><a href="long-form-data.html#cb63-6" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">variable =</span> <span class="st">&quot;zygosity&quot;</span>)  <span class="co"># Adding a descriptor column for the variable</span></span>
-<span id="cb63-7"><a href="long-form-data.html#cb63-7" tabindex="-1"></a></span>
-<span id="cb63-8"><a href="long-form-data.html#cb63-8" tabindex="-1"></a><span class="co"># Counting &#39;sex&#39; and calculating percentages</span></span>
-<span id="cb63-9"><a href="long-form-data.html#cb63-9" tabindex="-1"></a>sex_summary_long <span class="ot">&lt;-</span> df_long <span class="sc">%&gt;%</span></span>
-<span id="cb63-10"><a href="long-form-data.html#cb63-10" tabindex="-1"></a>  <span class="fu">count</span>(sex, <span class="at">name =</span> <span class="st">&quot;count&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb63-11"><a href="long-form-data.html#cb63-11" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">percentage =</span> count <span class="sc">/</span> <span class="fu">sum</span>(count) <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb63-12"><a href="long-form-data.html#cb63-12" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">category =</span> sex) <span class="sc">%&gt;%</span>  <span class="co"># Renaming the column for clarity</span></span>
-<span id="cb63-13"><a href="long-form-data.html#cb63-13" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">variable =</span> <span class="st">&quot;sex&quot;</span>)  <span class="co"># Adding a descriptor column for the variable</span></span>
-<span id="cb63-14"><a href="long-form-data.html#cb63-14" tabindex="-1"></a></span>
-<span id="cb63-15"><a href="long-form-data.html#cb63-15" tabindex="-1"></a><span class="co"># Combining both summaries into a single dataframe</span></span>
-<span id="cb63-16"><a href="long-form-data.html#cb63-16" tabindex="-1"></a>combined_summary_long <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(zygosity_summary_long, sex_summary_long) <span class="sc">%&gt;%</span></span>
-<span id="cb63-17"><a href="long-form-data.html#cb63-17" tabindex="-1"></a>  <span class="fu">select</span>(variable, category, <span class="fu">everything</span>())  <span class="co"># Reordering columns for clarity</span></span>
-<span id="cb63-18"><a href="long-form-data.html#cb63-18" tabindex="-1"></a></span>
-<span id="cb63-19"><a href="long-form-data.html#cb63-19" tabindex="-1"></a>combined_summary_long</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="long-form-data.html#cb64-1" tabindex="-1"></a><span class="co"># Counting &#39;zygosity&#39; and calculating percentages</span></span>
+<span id="cb64-2"><a href="long-form-data.html#cb64-2" tabindex="-1"></a>zygosity_summary_long <span class="ot">&lt;-</span> df_long <span class="sc">%&gt;%</span></span>
+<span id="cb64-3"><a href="long-form-data.html#cb64-3" tabindex="-1"></a>  <span class="fu">count</span>(zyg, <span class="at">name =</span> <span class="st">&quot;count&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb64-4"><a href="long-form-data.html#cb64-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">percentage =</span> count <span class="sc">/</span> <span class="fu">sum</span>(count) <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb64-5"><a href="long-form-data.html#cb64-5" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">category =</span> zyg) <span class="sc">%&gt;%</span>  <span class="co"># Renaming the column for clarity</span></span>
+<span id="cb64-6"><a href="long-form-data.html#cb64-6" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">variable =</span> <span class="st">&quot;zygosity&quot;</span>)  <span class="co"># Adding a descriptor column for the variable</span></span>
+<span id="cb64-7"><a href="long-form-data.html#cb64-7" tabindex="-1"></a></span>
+<span id="cb64-8"><a href="long-form-data.html#cb64-8" tabindex="-1"></a><span class="co"># Counting &#39;sex&#39; and calculating percentages</span></span>
+<span id="cb64-9"><a href="long-form-data.html#cb64-9" tabindex="-1"></a>sex_summary_long <span class="ot">&lt;-</span> df_long <span class="sc">%&gt;%</span></span>
+<span id="cb64-10"><a href="long-form-data.html#cb64-10" tabindex="-1"></a>  <span class="fu">count</span>(sex, <span class="at">name =</span> <span class="st">&quot;count&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb64-11"><a href="long-form-data.html#cb64-11" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">percentage =</span> count <span class="sc">/</span> <span class="fu">sum</span>(count) <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb64-12"><a href="long-form-data.html#cb64-12" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">category =</span> sex) <span class="sc">%&gt;%</span>  <span class="co"># Renaming the column for clarity</span></span>
+<span id="cb64-13"><a href="long-form-data.html#cb64-13" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">variable =</span> <span class="st">&quot;sex&quot;</span>)  <span class="co"># Adding a descriptor column for the variable</span></span>
+<span id="cb64-14"><a href="long-form-data.html#cb64-14" tabindex="-1"></a></span>
+<span id="cb64-15"><a href="long-form-data.html#cb64-15" tabindex="-1"></a><span class="co"># Combining both summaries into a single dataframe</span></span>
+<span id="cb64-16"><a href="long-form-data.html#cb64-16" tabindex="-1"></a>combined_summary_long <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(zygosity_summary_long, sex_summary_long) <span class="sc">%&gt;%</span></span>
+<span id="cb64-17"><a href="long-form-data.html#cb64-17" tabindex="-1"></a>  <span class="fu">select</span>(variable, category, <span class="fu">everything</span>())  <span class="co"># Reordering columns for clarity</span></span>
+<span id="cb64-18"><a href="long-form-data.html#cb64-18" tabindex="-1"></a></span>
+<span id="cb64-19"><a href="long-form-data.html#cb64-19" tabindex="-1"></a>combined_summary_long</span></code></pre></div>
 <pre><code>## # A tibble: 5 × 4
 ##   variable category count percentage
 ##   &lt;chr&gt;    &lt;chr&gt;    &lt;int&gt;      &lt;dbl&gt;

@@ -1,7 +1,6 @@
 <!-- front page -->
 
 ```{r include = FALSE}
-
 library(tidyverse)
 library(devtools)
 library(DT)

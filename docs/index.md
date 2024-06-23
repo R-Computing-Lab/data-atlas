@@ -1,8 +1,8 @@
 --- 
-title: "DataAtlas"
+title: "Data Atlas"
 author: 
 - S. Mason Garrison
-date: "2024-06-22"
+date: "2024-06-23"
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
 url: 'https\://R-Computing-Lab/data-atlas'
