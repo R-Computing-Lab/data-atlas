@@ -18,102 +18,9 @@ output:
 
 ```{r packages, echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
-library(palmerpenguins)
-conflicts_prefer(palmerpenguins::penguins)
 # Remember to compile
 #xaringan::inf_mr(cast_from = "..")
 ```
-
-class: middle
-
-# ggplot2 `r emo::ji("heart")` `r emo::ji("penguin")`
-
----
-
-## ggplot2 $\in$ tidyverse
-
-.pull-left-narrow[
-```{r echo=FALSE}
-knitr::include_graphics("img/ggplot2-part-of-tidyverse.png")
-```
-] 
-
-<!-- markdownlint-disable error -->
-.pull-right-wide[ 
-- **ggplot2** is tidyverse's data visualization package 
-- Structure of the code for plots can be summarized as
-
-```{r eval = FALSE}
-ggplot(data = [[dataset]],
-     mapping = aes(x = [[x-variable]],
-                   y = [[y-variable]])) +
-   geom_xxx() +
-   other options
-```
-]
-<!-- markdownlint-enable -->
-
----
-
-## Data: Palmer Penguins
-
-Measurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex.
-
-
-.pull-left[
-```{r echo=FALSE, out.width="80%"}
-knitr::include_graphics("img/penguins.png")
-```
-]
-
----
-
-## Data: Palmer Penguins
-
-Measurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex.
-
-
-```{r}
-library(palmerpenguins)
-glimpse(penguins)
-```
-
-
----
-
-# Plot
-
-```{r ref.label = "penguins", echo = FALSE, warning = FALSE, out.width = "70%", fig.width = 8}
-```
-
-
----
-
-# Code
-
-```{r penguins, fig.show = "hide", out.width="80%"}
-ggplot(data = penguins,
-       mapping = aes(x = bill_depth_mm, y = bill_length_mm,
-                     color = species)) +
-  geom_point() +
-  labs(title = "Bill depth and length",
-       subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
-       x = "Bill depth (mm)", y = "Bill length (mm)",
-       color = "Species")
-```
-
----
-class: middle
-
-# Wrapping Up...
-
----
-class: middle
-
-# Coding out loud
-
----
-
 ```{r,warning=FALSE, include=FALSE, messages=FALSE}
 library(tidyverse)  # Load the tidyverse packages
 library(OpenMx)    # Load the OpenMx package
@@ -151,6 +58,108 @@ twinData_cleaned <- twinData %>%
                                 TRUE ~ NA_character_ ))
 
 ```
+class: middle
+
+# ggplot2 `r emo::ji("heart")` `r emo::ji("twins")`
+
+---
+
+## ggplot2 $\in$ tidyverse
+
+.pull-left-narrow[
+```{r echo=FALSE}
+knitr::include_graphics("img/ggplot2-part-of-tidyverse.png")
+```
+] 
+
+<!-- markdownlint-disable error -->
+.pull-right-wide[ 
+- **ggplot2** is tidyverse's data visualization package 
+- Structure of the code for plots can be summarized as
+
+```{r eval = FALSE}
+ggplot(data = [[dataset]],
+     mapping = aes(x = [[x-variable]],
+                   y = [[y-variable]])) +
+   geom_xxx() +
+   other options
+```
+]
+<!-- markdownlint-enable -->
+
+---
+
+## Data: Australian National Health and Medical Research Council Twin Registry
+
+Measurements for 3,808 Australian twin pairs with lots of biometric data (e.g., body mass index (BMI))
+
+<br>
+.pull-left[
+```{r echo=FALSE, out.width="65%"}
+knitr::include_graphics("img/cartoony image of Australian twins.png")
+```
+]
+
+.pull-right[
+```{r echo=FALSE, out.width="65%"}
+knitr::include_graphics("img/cartoony image of Australian twins_v2.png")
+```
+]
+
+.footnote[This is what DALL-E thinks "cartoony Austrialian twins" look like]
+---
+
+## Australian National Health and Medical Research Council Twin Registry
+
+Measurements for 3,808 Australian twin pairs with lots of biometric data (e.g., body mass index (BMI))
+
+
+
+```{r}
+glimpse(twinData)
+```
+
+.footnote[This is what Austrialian twins actually look like]
+
+---
+
+# Plot
+
+```{r ref.label = "twins", echo = FALSE, warning = FALSE, out.width = "70%", fig.width = 8}
+```
+
+
+---
+
+# Code
+
+```{r twins, fig.show = "hide", out.width="80%"}
+ggplot(data = twinData_cleaned,
+       mapping = aes( x = height_t1,
+                      y = height_t2,
+                      color = zyg)) +
+  geom_point() +
+  labs(title = "Height Comparison between Twins",
+       subtitle = "by zygosity",
+       x = "Height of Twin 1 (m)", y = "Height of Twin 2 (m)",
+       color = "Zygosity",
+       caption = "Source: Australian National Health and Medical Research Council Twin Registry / OpenMx package") +
+  scale_color_viridis_d()
+```
+
+---
+class: middle
+
+# Wrapping Up...
+
+---
+class: middle
+
+# Coding out loud
+
+---
+
+
 
 .midi[
 > **Start with the `twinData_cleaned` data frame**
@@ -200,7 +209,7 @@ ggplot(data = twinData_cleaned,
 ```
 ]
 .pull-right[
-```{r ref.label = "twin-2", echo = FALSE, warning = FALSE, out.width = "100%", fig.width 8}
+```{r ref.label = "twin-2", echo = FALSE, warning = FALSE, out.width = "100%", fig.width = 8}
 ```
 ]
 
@@ -222,7 +231,7 @@ ggplot(data = twinData_cleaned,
 ```
 ]
 .pull-right[
-```{r ref.label = "twin-3", echo = FALSE, warning = FALSE, out.width = "100%", fig.width 8}
+```{r ref.label = "twin-3", echo = FALSE, warning = FALSE, out.width = "100%", fig.width = 8}
 ```
 ]
 
@@ -246,7 +255,7 @@ ggplot(data = twinData_cleaned,
 ```
 ]
 .pull-right[
-```{r ref.label = "twin-4", echo = FALSE, warning = FALSE, out.width = "100%", fig.width 8}
+```{r ref.label = "twin-4", echo = FALSE, warning = FALSE, out.width = "100%", fig.width = 8}
 ```
 ]
 
@@ -537,10 +546,10 @@ Commonly used characteristics of plotting characters that can be **mapped to a s
 
 .pull-left[
 ```{r color, fig.show = "hide", warning = FALSE}
-ggplot(penguins,
-       aes(x = bill_depth_mm, 
-           y = bill_length_mm,
-           color = species)) + #<<
+ggplot(twinData_cleaned,
+       aes(x = height_t1, 
+           y = height_t2,
+           color = zyg)) + #<<
   geom_point() +
   scale_color_viridis_d()
 ```
@@ -557,18 +566,18 @@ ggplot(penguins,
 Mapped to a different variable than `color`
 
 .pull-left[
-```{r shape-island, fig.show = "hide", warning = FALSE}
-ggplot(penguins,
-       aes(x = bill_depth_mm, 
-           y = bill_length_mm,
-           color = species,
-           shape = island)) + #<<
+```{r shape-cohort, fig.show = "hide", warning = FALSE}
+ggplot(twinData_cleaned,
+       aes(x = height_t1, 
+           y = height_t2,
+           color = zyg,
+           shape = cohort)) + #<<
   geom_point() +
   scale_color_viridis_d()
 ```
 ]
 .pull-right[
-```{r ref.label = "shape-island", echo = FALSE, warning = FALSE, out.width = "100%"}
+```{r ref.label = "shape-cohort", echo = FALSE, warning = FALSE, out.width = "100%"}
 ```
 ]
 
@@ -579,18 +588,18 @@ ggplot(penguins,
 Mapped to same variable as `color`
 
 .pull-left[
-```{r shape-species, fig.show = "hide", warning = FALSE}
-ggplot(penguins,
-       aes(x = bill_depth_mm, 
-           y = bill_length_mm,
-           color = species,
-           shape = species)) + #<<
+```{r shape-zyg, fig.show = "hide", warning = FALSE}
+ggplot(twinData_cleaned,
+       aes(x = height_t1, 
+           y = height_t2,
+           color = zyg,
+           shape = zyg)) + #<<
   geom_point() +
   scale_color_viridis_d()
 ```
 ]
 .pull-right[
-```{r ref.label = "shape-species", echo = FALSE, warning = FALSE, out.width = "100%"}
+```{r ref.label = "shape-zyg", echo = FALSE, warning = FALSE, out.width = "100%"}
 ```
 ]
 
@@ -600,12 +609,12 @@ ggplot(penguins,
 
 .pull-left[
 ```{r size, fig.show = "hide", warning = FALSE}
-ggplot(penguins,
-       aes(x = bill_depth_mm, 
-           y = bill_length_mm,
-           color = species,
-           shape = species,
-           size = body_mass_g)) + #<<
+ggplot(twinData_cleaned,
+       aes(x = height_t1, 
+           y = height_t2,
+           color = zyg,
+           shape = zyg,
+           size = age)) + #<<
   geom_point() +
   scale_color_viridis_d()
 ```
@@ -621,13 +630,13 @@ ggplot(penguins,
 
 .pull-left[
 ```{r alpha, fig.show = "hide", warning = FALSE}
-ggplot(penguins,
-       aes(x = bill_depth_mm, 
-           y = bill_length_mm,
-           color = species,
-           shape = species,
-           size = body_mass_g,
-           alpha = flipper_length_mm)) + #<<
+ggplot(twinData_cleaned,
+       aes(x = height_t1, 
+           y = height_t2,
+           color = zyg,
+           shape = zyg,
+           size = age,
+           alpha = family)) + #<<
   geom_point() +
   scale_color_viridis_d()
 ```
@@ -643,11 +652,11 @@ ggplot(penguins,
 **Mapping**
 
 ```{r warning = FALSE, out.width = "100%"}
-ggplot(penguins,
-       aes(x = bill_depth_mm,
-           y = bill_length_mm,
-           size = body_mass_g, #<<
-           alpha = flipper_length_mm)) + #<<
+ggplot(twinData_cleaned,
+       aes(x = height_t1,
+           y = height_t2,
+           size = age, #<<
+           alpha = family)) + #<<
   geom_point()
 ```
 ]
@@ -655,9 +664,9 @@ ggplot(penguins,
 **Setting**
 
 ```{r warning = FALSE, out.width = "100%"}
-ggplot(penguins,
-       aes(x = bill_depth_mm,
-           y = bill_length_mm)) + 
+ggplot(twinData_cleaned,
+       aes(x = height_t1,
+           y = height_t2)) + 
   geom_point(size = 2, alpha = 0.5) #<<
 ```
 ]
@@ -697,9 +706,9 @@ class: middle
 ### Code
 
 ```{r facet, fig.show = "hide"}
-ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + 
+ggplot(twinData_cleaned, aes(x = height_t1, y = height_t2)) + 
   geom_point() +
-  facet_grid(species ~ island) #<<
+  facet_grid(cohort ~ zyg) #<<
 ```
 
 ---
@@ -717,41 +726,41 @@ But you should always label your plots!
 ---
 
 ```{r warning = FALSE}
-ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + 
+ggplot(twinData_cleaned, aes(x = height_t1, y = height_t2)) + 
   geom_point() +
-  facet_grid(species ~ sex) #<<
+  facet_grid(cohort ~ sex) #<<
 ```
 
 ---
 
 ```{r warning = FALSE}
-ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + 
+ggplot(twinData_cleaned, aes(x = height_t1, y = height_t2)) + 
   geom_point() +
-  facet_grid(sex ~ species) #<<
+  facet_grid(sex ~ cohort) #<<
 ```
 
 ---
 
 ```{r warning = FALSE, fig.asp = 0.5}
-ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + 
+ggplot(twinData_cleaned, aes(x = height_t1, y = height_t2)) + 
   geom_point() +
-  facet_wrap(~ species) #<<
+  facet_wrap(~ cohort) #<<
 ```
 
 ---
 
 ```{r warning = FALSE, fig.asp = 0.5}
-ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + 
+ggplot(twinData_cleaned, aes(x = height_t1, y = height_t2)) + 
   geom_point() +
-  facet_grid(. ~ species) #<<
+  facet_grid(. ~ cohort) #<<
 ```
 
 ---
 
 ```{r warning = FALSE}
-ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + 
+ggplot(twinData_cleaned, aes(x = height_t1, y = height_t2)) + 
   geom_point() +
-  facet_wrap(~ species, ncol = 2) #<<
+  facet_wrap(~ cohort, ncol = 2) #<<
 ```
 
 ---
@@ -771,12 +780,12 @@ ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) +
 .pull-left-narrow[
 ```{r facet-color-legend, fig.show = "hide", warning = FALSE}
 ggplot(
-  penguins, 
-  aes(x = bill_depth_mm, 
-      y = bill_length_mm, 
-      color = species)) + #<<
+  twinData_cleaned, 
+  aes(x = height_t1, 
+      y = height_t2, 
+      color = zyg)) + #<<
   geom_point() +
-  facet_grid(species ~ sex) +
+  facet_grid(cohort ~ sex) +
   scale_color_viridis_d() #<<
 ```
 ]
@@ -792,12 +801,12 @@ ggplot(
 .pull-left-narrow[
 ```{r facet-color-no-legend, fig.show = "hide", warning = FALSE}
 ggplot(
-  penguins, 
-  aes(x = bill_depth_mm, 
-      y = bill_length_mm, 
-      color = species)) +
+  twinData_cleaned, 
+  aes(x = height_t1, 
+      y = height_t2, 
+      color = zyg)) +
   geom_point() +
-  facet_grid(species ~ sex) +
+  facet_grid(cohort ~ sex) +
   scale_color_viridis_d() +
   guides(color = FALSE) #<<
 ```

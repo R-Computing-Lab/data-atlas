@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Data Atlas</title>
+  <meta name="description" content="Data Atlas" />
+  <meta name="generator" content="bookdown #bookdown:version# and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Data Atlas" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://R-Computing-Lab/data-atlas/assets/logo.png" />
+  <meta property="og:description" content="Data Atlas" />
+  <meta name="github-repo" content="R-Computing-Lab/data-atlas" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Data Atlas" />
+  <meta name="twitter:site" content="@smasongarrison" />
+  <meta name="twitter:description" content="Data Atlas" />
+  <meta name="twitter:image" content="https://R-Computing-Lab/data-atlas/assets/logo.png" />
+
+<meta name="author" content="S. Mason Garrison" />
+
+
+<meta name="date" content="2024-06-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+<!--bookdown:link_prev-->
+<!--bookdown:link_next-->
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.33/datatables.js"></script>
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+<link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="libs/selectize-0.12.0/selectize.min.js"></script>
+<link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<html>
+
+  <head>
+  <script src="anchor-links.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GL8GKDDW8C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GL8GKDDW8C');
+</script>
+
+</head>
+
+</html>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="assets/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+<!--bookdown:title:start-->
+<div id="header">
+<h1 class="title">Data Atlas</h1>
+<p class="author"><em>S. Mason Garrison</em></p>
+<p class="date"><em>2024-06-22</em></p>
+</div>
+<!--bookdown:title:end-->
+
+<!--bookdown:toc:start-->
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+<!--bookdown:toc2:start-->
+<ul>
+<li><a href="#part-front-matter" id="toc-part-front-matter">(PART*) Front Matter</a></li>
+<li><a href="#abstract" id="toc-abstract">Abstract</a></li>
+<li><a href="#attribution" id="toc-attribution">Attribution</a>
+<ul>
+<li><a href="#how-to-use-these-notes" id="toc-how-to-use-these-notes">How to use these notes</a></li>
+<li><a href="#major-attributions" id="toc-major-attributions">Major Attributions</a></li>
+</ul></li>
+<li><a href="#part-introduction" id="toc-part-introduction">(PART*) Introduction</a></li>
+<li><a href="#crash-course-on-the-tidyverse" id="toc-crash-course-on-the-tidyverse"><span class="toc-section-number">1</span> Crash Course on the Tidyverse</a>
+<ul>
+<li><a href="#what-is-the-tidyverse" id="toc-what-is-the-tidyverse"><span class="toc-section-number">1.1</span> What is the Tidyverse?</a>
+<ul>
+<li><a href="#tidy-data" id="toc-tidy-data"><span class="toc-section-number">1.1.1</span> Tidy data</a></li>
+</ul></li>
+<li><a href="#whats-the-difference-between-base-r-and-the-tidyverse" id="toc-whats-the-difference-between-base-r-and-the-tidyverse"><span class="toc-section-number">1.2</span> What’s the Difference between Base R and the Tidyverse?</a></li>
+<li><a href="#introduction-to-ggplot2" id="toc-introduction-to-ggplot2"><span class="toc-section-number">1.3</span> Introduction to ggplot2</a>
+<ul>
+<li><a href="#understanding-ggplot2s-grammar-of-graphics" id="toc-understanding-ggplot2s-grammar-of-graphics"><span class="toc-section-number">1.3.1</span> Understanding ggplot2’s Grammar of Graphics</a></li>
+<li><a href="#case-study-visualizing-twin-data" id="toc-case-study-visualizing-twin-data"><span class="toc-section-number">1.3.2</span> Case Study: Visualizing Twin Data</a></li>
+<li><a href="#key-components-of-a-ggplot2-plot" id="toc-key-components-of-a-ggplot2-plot"><span class="toc-section-number">1.3.3</span> Key Components of a ggplot2 Plot</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#tidyverse-crash-course" id="toc-tidyverse-crash-course"><span class="toc-section-number">2</span> Tidyverse Crash Course</a></li>
+<li><a href="#part-descriptive-statistics" id="toc-part-descriptive-statistics">(PART*) Descriptive Statistics</a></li>
+<li><a href="#wide-form-data" id="toc-wide-form-data"><span class="toc-section-number">3</span> Wide Form Data</a>
+<ul>
+<li><a href="#import-data" id="toc-import-data"><span class="toc-section-number">3.1</span> Import Data</a></li>
+<li><a href="#data-structure" id="toc-data-structure"><span class="toc-section-number">3.2</span> Data Structure</a>
+<ul>
+<li><a href="#annotated-explainaton-for-the-code-snippet-above" id="toc-annotated-explainaton-for-the-code-snippet-above"><span class="toc-section-number">3.2.1</span> Annotated explainaton for the code snippet above:</a></li>
+</ul></li>
+<li><a href="#summary-statistics-wide-form" id="toc-summary-statistics-wide-form"><span class="toc-section-number">3.3</span> Summary Statistics (Wide Form)</a>
+<ul>
+<li><a href="#numeric-variables" id="toc-numeric-variables"><span class="toc-section-number">3.3.1</span> Numeric Variables</a></li>
+<li><a href="#frequency-tables" id="toc-frequency-tables"><span class="toc-section-number">3.3.2</span> Frequency Tables</a></li>
+</ul></li>
+<li><a href="#plots" id="toc-plots"><span class="toc-section-number">3.4</span> Plots</a>
+<ul>
+<li><a href="#histograms-and-scatter-plots" id="toc-histograms-and-scatter-plots"><span class="toc-section-number">3.4.1</span> Histograms and Scatter Plots</a></li>
+</ul></li>
+<li><a href="#correlation-matries-and-correlograms" id="toc-correlation-matries-and-correlograms"><span class="toc-section-number">3.5</span> Correlation Matries and Correlograms</a></li>
+</ul></li>
+<li><a href="#long-form-data" id="toc-long-form-data"><span class="toc-section-number">4</span> Long Form Data</a>
+<ul>
+<li><a href="#converting-from-wide-to-long-form" id="toc-converting-from-wide-to-long-form"><span class="toc-section-number">4.1</span> Converting from Wide to Long Form</a></li>
+<li><a href="#data-structure-1" id="toc-data-structure-1"><span class="toc-section-number">4.2</span> Data Structure</a></li>
+<li><a href="#adding-sex-and-zyg" id="toc-adding-sex-and-zyg"><span class="toc-section-number">4.3</span> Adding <code>sex</code> and <code>zyg</code></a></li>
+<li><a href="#summary-statistics-long-form" id="toc-summary-statistics-long-form"><span class="toc-section-number">4.4</span> Summary Statistics (Long Form)</a></li>
+</ul></li>
+<li><a href="#long-form-data-1" id="toc-long-form-data-1"><span class="toc-section-number">5</span> Long Form Data</a>
+<ul>
+<li><a href="#converting-from-wide-to-long-form-1" id="toc-converting-from-wide-to-long-form-1"><span class="toc-section-number">5.1</span> Converting from Wide to Long Form</a></li>
+<li><a href="#data-structure-2" id="toc-data-structure-2"><span class="toc-section-number">5.2</span> Data Structure</a></li>
+<li><a href="#adding-sex-and-zyg-1" id="toc-adding-sex-and-zyg-1"><span class="toc-section-number">5.3</span> Adding <code>sex</code> and <code>zyg</code></a></li>
+<li><a href="#summary-statistics-long-form-1" id="toc-summary-statistics-long-form-1"><span class="toc-section-number">5.4</span> Summary Statistics (Long Form)</a></li>
+</ul></li>
+<li><a href="#long-form-data-2" id="toc-long-form-data-2"><span class="toc-section-number">6</span> Long Form Data</a>
+<ul>
+<li><a href="#converting-from-wide-to-long-form-2" id="toc-converting-from-wide-to-long-form-2"><span class="toc-section-number">6.1</span> Converting from Wide to Long Form</a></li>
+<li><a href="#data-structure-3" id="toc-data-structure-3"><span class="toc-section-number">6.2</span> Data Structure</a></li>
+<li><a href="#adding-sex-and-zyg-2" id="toc-adding-sex-and-zyg-2"><span class="toc-section-number">6.3</span> Adding <code>sex</code> and <code>zyg</code></a></li>
+<li><a href="#summary-statistics-long-form-2" id="toc-summary-statistics-long-form-2"><span class="toc-section-number">6.4</span> Summary Statistics (Long Form)</a></li>
+</ul></li>
+<li><a href="#final-words" id="toc-final-words"><span class="toc-section-number">7</span> Final Words</a></li>
+<li><a href="#long-form-data-3" id="toc-long-form-data-3"><span class="toc-section-number">8</span> Long Form Data</a>
+<ul>
+<li><a href="#converting-from-wide-to-long-form-3" id="toc-converting-from-wide-to-long-form-3"><span class="toc-section-number">8.1</span> Converting from Wide to Long Form</a></li>
+<li><a href="#data-structure-4" id="toc-data-structure-4"><span class="toc-section-number">8.2</span> Data Structure</a></li>
+<li><a href="#adding-sex-and-zyg-3" id="toc-adding-sex-and-zyg-3"><span class="toc-section-number">8.3</span> Adding <code>sex</code> and <code>zyg</code></a></li>
+<li><a href="#summary-statistics-long-form-3" id="toc-summary-statistics-long-form-3"><span class="toc-section-number">8.4</span> Summary Statistics (Long Form)</a></li>
+</ul></li>
+<li><a href="#references" id="toc-references">References</a></li>
+</ul>
+<!--bookdown:toc2:end-->
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Atlas</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<!--bookdown:toc:end-->
+<!--bookdown:body:start-->
+<div id="part-front-matter" class="section level1 unnumbered hasAnchor">
+<h1 class="unnumbered hasAnchor">(PART*) Front Matter<a href="#part-front-matter" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+</div>
+<div id="abstract" class="section level1 unnumbered hasAnchor">
+<h1 class="unnumbered hasAnchor">Abstract<a href="#abstract" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Placeholder</p>
+<!--chapter:end:index.Rmd-->
+</div>
+<div id="attribution" class="section level1 unnumbered hasAnchor">
+<h1 class="unnumbered hasAnchor">Attribution<a href="#attribution" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Placeholder</p>
+<div id="how-to-use-these-notes" class="section level2 unnumbered hasAnchor">
+<h2 class="unnumbered hasAnchor">How to use these notes<a href="#how-to-use-these-notes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="major-attributions" class="section level2 unnumbered hasAnchor">
+<h2 class="unnumbered hasAnchor">Major Attributions<a href="#major-attributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!--chapter:end:0000_front.Rmd-->
+</div>
+</div>
+<div id="part-introduction" class="section level1 unnumbered hasAnchor">
+<h1 class="unnumbered hasAnchor">(PART*) Introduction<a href="#part-introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+</div>
+<div id="crash-course-on-the-tidyverse" class="section level1 hasAnchor" number="1">
+<h1 class="hasAnchor"><span class="header-section-number">1</span> Crash Course on the Tidyverse<a href="#crash-course-on-the-tidyverse" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Placeholder</p>
+<div id="what-is-the-tidyverse" class="section level2 hasAnchor" number="1.1">
+<h2 class="hasAnchor"><span class="header-section-number">1.1</span> What is the Tidyverse?<a href="#what-is-the-tidyverse" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="tidy-data" class="section level3 hasAnchor" number="1.1.1">
+<h3 class="hasAnchor"><span class="header-section-number">1.1.1</span> Tidy data<a href="#tidy-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+<div id="whats-the-difference-between-base-r-and-the-tidyverse" class="section level2 hasAnchor" number="1.2">
+<h2 class="hasAnchor"><span class="header-section-number">1.2</span> What’s the Difference between Base R and the Tidyverse?<a href="#whats-the-difference-between-base-r-and-the-tidyverse" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="introduction-to-ggplot2" class="section level2 hasAnchor" number="1.3">
+<h2 class="hasAnchor"><span class="header-section-number">1.3</span> Introduction to ggplot2<a href="#introduction-to-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="understanding-ggplot2s-grammar-of-graphics" class="section level3 hasAnchor" number="1.3.1">
+<h3 class="hasAnchor"><span class="header-section-number">1.3.1</span> Understanding ggplot2’s Grammar of Graphics<a href="#understanding-ggplot2s-grammar-of-graphics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="case-study-visualizing-twin-data" class="section level3 hasAnchor" number="1.3.2">
+<h3 class="hasAnchor"><span class="header-section-number">1.3.2</span> Case Study: Visualizing Twin Data<a href="#case-study-visualizing-twin-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="key-components-of-a-ggplot2-plot" class="section level3 hasAnchor" number="1.3.3">
+<h3 class="hasAnchor"><span class="header-section-number">1.3.3</span> Key Components of a ggplot2 Plot<a href="#key-components-of-a-ggplot2-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="plot-breakdown" class="section level4 hasAnchor" number="1.3.3.1">
+<h4 class="hasAnchor"><span class="header-section-number">1.3.3.1</span> Plot Breakdown<a href="#plot-breakdown" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<!--chapter:end:01_intro.Rmd-->
+</div>
+</div>
+</div>
+</div>
+<div id="tidyverse-crash-course" class="section level1 hasAnchor" number="2">
+<h1 class="hasAnchor"><span class="header-section-number">2</span> Tidyverse Crash Course<a href="#tidyverse-crash-course" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<!--chapter:end:02_descriptives.Rmd-->
+</div>
+<div id="part-descriptive-statistics" class="section level1 unnumbered hasAnchor">
+<h1 class="unnumbered hasAnchor">(PART*) Descriptive Statistics<a href="#part-descriptive-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+</div>
+<div id="wide-form-data" class="section level1 hasAnchor" number="3">
+<h1 class="hasAnchor"><span class="header-section-number">3</span> Wide Form Data<a href="#wide-form-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Placeholder</p>
+<div id="import-data" class="section level2 hasAnchor" number="3.1">
+<h2 class="hasAnchor"><span class="header-section-number">3.1</span> Import Data<a href="#import-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="data-structure" class="section level2 hasAnchor" number="3.2">
+<h2 class="hasAnchor"><span class="header-section-number">3.2</span> Data Structure<a href="#data-structure" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="annotated-explainaton-for-the-code-snippet-above" class="section level3 hasAnchor" number="3.2.1">
+<h3 class="hasAnchor"><span class="header-section-number">3.2.1</span> Annotated explainaton for the code snippet above:<a href="#annotated-explainaton-for-the-code-snippet-above" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+<div id="summary-statistics-wide-form" class="section level2 hasAnchor" number="3.3">
+<h2 class="hasAnchor"><span class="header-section-number">3.3</span> Summary Statistics (Wide Form)<a href="#summary-statistics-wide-form" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="numeric-variables" class="section level3 hasAnchor" number="3.3.1">
+<h3 class="hasAnchor"><span class="header-section-number">3.3.1</span> Numeric Variables<a href="#numeric-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="frequency-tables" class="section level3 hasAnchor" number="3.3.2">
+<h3 class="hasAnchor"><span class="header-section-number">3.3.2</span> Frequency Tables<a href="#frequency-tables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+<div id="plots" class="section level2 hasAnchor" number="3.4">
+<h2 class="hasAnchor"><span class="header-section-number">3.4</span> Plots<a href="#plots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="histograms-and-scatter-plots" class="section level3 hasAnchor" number="3.4.1">
+<h3 class="hasAnchor"><span class="header-section-number">3.4.1</span> Histograms and Scatter Plots<a href="#histograms-and-scatter-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+<div id="correlation-matries-and-correlograms" class="section level2 hasAnchor" number="3.5">
+<h2 class="hasAnchor"><span class="header-section-number">3.5</span> Correlation Matries and Correlograms<a href="#correlation-matries-and-correlograms" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!--chapter:end:03_wide.Rmd-->
+</div>
+</div>
+<div id="long-form-data" class="section level1 hasAnchor" number="4">
+<h1 class="hasAnchor"><span class="header-section-number">4</span> Long Form Data<a href="#long-form-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Placeholder</p>
+<div id="converting-from-wide-to-long-form" class="section level2 hasAnchor" number="4.1">
+<h2 class="hasAnchor"><span class="header-section-number">4.1</span> Converting from Wide to Long Form<a href="#converting-from-wide-to-long-form" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="data-structure-1" class="section level2 hasAnchor" number="4.2">
+<h2 class="hasAnchor"><span class="header-section-number">4.2</span> Data Structure<a href="#data-structure-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="adding-sex-and-zyg" class="section level2 hasAnchor" number="4.3">
+<h2 class="hasAnchor"><span class="header-section-number">4.3</span> Adding <code>sex</code> and <code>zyg</code><a href="#adding-sex-and-zyg" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="summary-statistics-long-form" class="section level2 hasAnchor" number="4.4">
+<h2 class="hasAnchor"><span class="header-section-number">4.4</span> Summary Statistics (Long Form)<a href="#summary-statistics-long-form" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!--chapter:end:04_long.Rmd-->
+</div>
+</div>
+<div id="long-form-data-1" class="section level1 hasAnchor" number="5">
+<h1 class="hasAnchor"><span class="header-section-number">5</span> Long Form Data<a href="#long-form-data-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Placeholder</p>
+<div id="converting-from-wide-to-long-form-1" class="section level2 hasAnchor" number="5.1">
+<h2 class="hasAnchor"><span class="header-section-number">5.1</span> Converting from Wide to Long Form<a href="#converting-from-wide-to-long-form-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="data-structure-2" class="section level2 hasAnchor" number="5.2">
+<h2 class="hasAnchor"><span class="header-section-number">5.2</span> Data Structure<a href="#data-structure-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="adding-sex-and-zyg-1" class="section level2 hasAnchor" number="5.3">
+<h2 class="hasAnchor"><span class="header-section-number">5.3</span> Adding <code>sex</code> and <code>zyg</code><a href="#adding-sex-and-zyg-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="summary-statistics-long-form-1" class="section level2 hasAnchor" number="5.4">
+<h2 class="hasAnchor"><span class="header-section-number">5.4</span> Summary Statistics (Long Form)<a href="#summary-statistics-long-form-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!--chapter:end:05_descriptiveplots.Rmd-->
+</div>
+</div>
+<div id="long-form-data-2" class="section level1 hasAnchor" number="6">
+<h1 class="hasAnchor"><span class="header-section-number">6</span> Long Form Data<a href="#long-form-data-2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Placeholder</p>
+<div id="converting-from-wide-to-long-form-2" class="section level2 hasAnchor" number="6.1">
+<h2 class="hasAnchor"><span class="header-section-number">6.1</span> Converting from Wide to Long Form<a href="#converting-from-wide-to-long-form-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="data-structure-3" class="section level2 hasAnchor" number="6.2">
+<h2 class="hasAnchor"><span class="header-section-number">6.2</span> Data Structure<a href="#data-structure-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="adding-sex-and-zyg-2" class="section level2 hasAnchor" number="6.3">
+<h2 class="hasAnchor"><span class="header-section-number">6.3</span> Adding <code>sex</code> and <code>zyg</code><a href="#adding-sex-and-zyg-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="summary-statistics-long-form-2" class="section level2 hasAnchor" number="6.4">
+<h2 class="hasAnchor"><span class="header-section-number">6.4</span> Summary Statistics (Long Form)<a href="#summary-statistics-long-form-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!--chapter:end:06_pathdiagrams.Rmd-->
+</div>
+</div>
+<div id="final-words" class="section level1 hasAnchor" number="7">
+<h1 class="hasAnchor"><span class="header-section-number">7</span> Final Words<a href="#final-words" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<!-- I leaned into the cheesiness -->
+<p>Throughout this document, we have embarked on an exploration of the evolving landscape of data visualization in the field of behavior genetics. By revisiting historical methodologies and embracing modern techniques, we have uncovered a rich tapestry of visual tools that enhance our understanding and communication of genetic data. The atlas of <code>ggplot2</code> visualizations presented here not only serves as a practical guide but also as an inspiration for researchers to think creatively about how data can be visualized more effectively.</p>
+<!--chapter:end:07_summary.Rmd-->
+</div>
+<div id="long-form-data-3" class="section level1 hasAnchor" number="8">
+<h1 class="hasAnchor"><span class="header-section-number">8</span> Long Form Data<a href="#long-form-data-3" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Placeholder</p>
+<div id="converting-from-wide-to-long-form-3" class="section level2 hasAnchor" number="8.1">
+<h2 class="hasAnchor"><span class="header-section-number">8.1</span> Converting from Wide to Long Form<a href="#converting-from-wide-to-long-form-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="data-structure-4" class="section level2 hasAnchor" number="8.2">
+<h2 class="hasAnchor"><span class="header-section-number">8.2</span> Data Structure<a href="#data-structure-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="adding-sex-and-zyg-3" class="section level2 hasAnchor" number="8.3">
+<h2 class="hasAnchor"><span class="header-section-number">8.3</span> Adding <code>sex</code> and <code>zyg</code><a href="#adding-sex-and-zyg-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="summary-statistics-long-form-3" class="section level2 hasAnchor" number="8.4">
+<h2 class="hasAnchor"><span class="header-section-number">8.4</span> Summary Statistics (Long Form)<a href="#summary-statistics-long-form-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!--chapter:end:07_tables.Rmd-->
+</div>
+</div>
+<div id="references" class="section level1 unnumbered hasAnchor">
+<h1 class="unnumbered hasAnchor">References<a href="#references" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<!--chapter:end:08_references.Rmd-->
+</div>
+<!--bookdown:body:end-->
+            </section>
+
+          </div>
+        </div>
+      </div>
+<!--bookdown:link_prev-->
+<!--bookdown:link_next-->
+    </div>
+  </div>
+<!--bookdown:config-->
+
+</body>
+
+</html>

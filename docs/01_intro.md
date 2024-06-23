@@ -199,9 +199,18 @@ It would produce a scatter plot comparing the height of twins with the height of
 
 <img src="01_intro_files/figure-html/unnamed-chunk-6-1.png" width="70%" />
 
+### Key Components of a ggplot2 Plot
+
+The code above demonstrates the basic structure of a ggplot2 plot. To break down the key components of the plot you can press the left and right arrows on your keyboard to navigate through the slides below. Or if you prefer, you can click on the slide to advance to the next one. Below the slides you'll find the same content in a more traditional format.
 
 
 
+```
+#> Error in eval(expr, envir, enclos): object 'ds4p_urls' not found
+```
+
+
+#### Plot Breakdown
 **Start with the `twinData_cleaned` data frame**
 
 
@@ -359,3 +368,4 @@ ggplot(data = twinData_cleaned,
 ```
 
 <img src="01_intro_files/figure-html/twin-10-1.png" width="70%" />
+

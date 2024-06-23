@@ -40,7 +40,7 @@ layout: true
 
 class: middle
 
-# ggplot2 ❤️ 🐧
+# ggplot2 ❤️ ♊
 
 ---
 
@@ -56,7 +56,7 @@ class: middle
 - Structure of the code for plots can be summarized as
 
 
-```r
+``` r
 ggplot(data = [[dataset]],
      mapping = aes(x = [[x-variable]],
                    y = [[y-variable]])) +
@@ -68,39 +68,51 @@ ggplot(data = [[dataset]],
 
 ---
 
-## Data: Palmer Penguins
+## Data: Australian National Health and Medical Research Council Twin Registry
 
-Measurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex.
+Measurements for 3,808 Australian twin pairs with lots of biometric data (e.g., body mass index (BMI))
 
-
+&lt;br&gt;
 .pull-left[
-&lt;img src="img/penguins.png" width="80%" style="display: block; margin: auto;" /&gt;
+&lt;img src="img/cartoony image of Australian twins.png" width="65%" style="display: block; margin: auto;" /&gt;
 ]
 
+.pull-right[
+&lt;img src="img/cartoony image of Australian twins_v2.png" width="65%" style="display: block; margin: auto;" /&gt;
+]
+
+.footnote[This is what DALL-E thinks "cartoony Austrialian twins" look like]
 ---
 
-## Data: Palmer Penguins
+## Australian National Health and Medical Research Council Twin Registry
 
-Measurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex.
+Measurements for Australian twins with 3,808 observations on variety of biometric data (e.g., body mass index (BMI))
 
 
 
-```r
-library(palmerpenguins)
-glimpse(penguins)
+``` r
+glimpse(twinData)
 ```
 
 ```
-## Rows: 344
-## Columns: 8
-## $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adeli…
-## $ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torg…
-## $ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.…
-## $ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.…
-## $ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195…
-## $ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 362…
-## $ sex               &lt;fct&gt; male, female, female, NA, female, mal…
-## $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2…
+## Rows: 3,808
+## Columns: 16
+## $ fam      [3m[38;5;246m&lt;int&gt;[39m[23m 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,…
+## $ age      [3m[38;5;246m&lt;int&gt;[39m[23m 21, 24, 21, 21, 19, 26, 23, 29, 24, 28, 29, 19…
+## $ zyg      [3m[38;5;246m&lt;int&gt;[39m[23m 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
+## $ part     [3m[38;5;246m&lt;int&gt;[39m[23m 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2…
+## $ wt1      [3m[38;5;246m&lt;int&gt;[39m[23m 58, 54, 55, 66, 50, 60, 65, 40, 60, 76, 48, 70…
+## $ wt2      [3m[38;5;246m&lt;int&gt;[39m[23m 57, 53, 50, 76, 48, 60, 65, 39, 57, 64, 51, 67…
+## $ ht1      [3m[38;5;246m&lt;dbl&gt;[39m[23m 1.7000, 1.6299, 1.6499, 1.5698, 1.6099, 1.5999…
+## $ ht2      [3m[38;5;246m&lt;dbl&gt;[39m[23m 1.7000, 1.6299, 1.6799, 1.6499, 1.6299, 1.5698…
+## $ htwt1    [3m[38;5;246m&lt;dbl&gt;[39m[23m 20.0692, 20.3244, 20.2020, 26.7759, 19.2894, 2…
+## $ htwt2    [3m[38;5;246m&lt;dbl&gt;[39m[23m 19.7232, 19.9481, 17.7154, 27.9155, 18.0662, 2…
+## $ bmi1     [3m[38;5;246m&lt;dbl&gt;[39m[23m 20.9943, 21.0828, 21.0405, 23.0125, 20.7169, 2…
+## $ bmi2     [3m[38;5;246m&lt;dbl&gt;[39m[23m 20.8726, 20.9519, 20.1210, 23.3043, 20.2583, 2…
+## $ cohort   [3m[38;5;246m&lt;chr&gt;[39m[23m "younger", "younger", "younger", "younger", "y…
+## $ zygosity [3m[38;5;246m&lt;fct&gt;[39m[23m MZFF, MZFF, MZFF, MZFF, MZFF, MZFF, MZFF, MZFF…
+## $ age1     [3m[38;5;246m&lt;int&gt;[39m[23m 21, 24, 21, 21, 19, 26, 23, 29, 24, 28, 29, 19…
+## $ age2     [3m[38;5;246m&lt;int&gt;[39m[23m 21, 24, 21, 21, 19, 26, 23, 29, 24, 28, 29, 19…
 ```
 
 
@@ -108,7 +120,7 @@ glimpse(penguins)
 
 # Plot
 
-&lt;img src="d04_ggplot2_files/figure-html/unnamed-chunk-6-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+&lt;img src="00_ggplot2_files/figure-html/unnamed-chunk-8-1.png" width="70%" style="display: block; margin: auto;" /&gt;
 
 
 ---
@@ -116,20 +128,18 @@ glimpse(penguins)
 # Code
 
 
-```r
-ggplot(data = penguins,
-       mapping = aes(x = bill_depth_mm, y = bill_length_mm,
-                     color = species)) +
+``` r
+ggplot(data = twinData_cleaned,
+       mapping = aes( x = height_t1,
+                      y = height_t2,
+                      color = zyg)) +
   geom_point() +
-  labs(title = "Bill depth and length",
-       subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
-       x = "Bill depth (mm)", y = "Bill length (mm)",
-       color = "Species")
-```
-
-```
-## Warning: Removed 2 rows containing missing values or values outside the
-## scale range (`geom_point()`).
+  labs(title = "Height Comparison between Twins",
+       subtitle = "by zygosity",
+       x = "Height of Twin 1 (m)", y = "Height of Twin 2 (m)",
+       color = "Zygosity",
+       caption = "Source: Australian National Health and Medical Research Council Twin Registry / OpenMx package") +
+  scale_color_viridis_d()
 ```
 
 ---
@@ -144,318 +154,315 @@ class: middle
 
 ---
 
+
+
 .midi[
-&gt; **Start with the `penguins` data frame**
+&gt; **Start with the `twinData_cleaned` data frame**
 ]
 
 .pull-left[
 
-```r
-*ggplot(data = penguins)
+``` r
+*ggplot(data = twinData_cleaned)
 ```
 ]
 .pull-right[
-&lt;img src="d04_ggplot2_files/figure-html/unnamed-chunk-7-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="00_ggplot2_files/figure-html/unnamed-chunk-9-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
 
 .midi[
-&gt; Start with the `penguins` data frame,
-&gt; **map bill depth to the x-axis**
+&gt; Start with the `twinData_cleaned` data frame,
+&gt; **map height of Twin 1 to the x-axis**
 ]
 
 .pull-left[
 
-```r
-ggplot(data = penguins,
-*      mapping = aes(x = bill_depth_mm))
+``` r
+ggplot(data = twinData_cleaned,
+*      mapping = aes(x = height_t1))
 ```
 ]
 .pull-right[
-&lt;img src="d04_ggplot2_files/figure-html/unnamed-chunk-8-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="00_ggplot2_files/figure-html/unnamed-chunk-10-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
 
 .midi[
-&gt; Start with the `penguins` data frame,
-&gt; map bill depth to the x-axis
-&gt; **and map bill length to the y-axis.**
+&gt; Start with the `twinData_cleaned` data frame,
+&gt; map height of Twin 1 to the x-axis
+&gt; **and map height of Twin 2 to the y-axis.**
 ]
 
 .pull-left[
 
-```r
-ggplot(data = penguins,
-       mapping = aes(x = bill_depth_mm,
-*                    y = bill_length_mm))
+``` r
+ggplot(data = twinData_cleaned,
+       mapping = aes(x = height_t1, 
+*                    y = height_t2))
 ```
 ]
 .pull-right[
-&lt;img src="d04_ggplot2_files/figure-html/unnamed-chunk-9-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="00_ggplot2_files/figure-html/unnamed-chunk-11-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
 
 .midi[
-&gt; Start with the `penguins` data frame,
-&gt; map bill depth to the x-axis
-&gt; and map bill length to the y-axis. 
+&gt; Start with the `twinData_cleaned` data frame,
+&gt; map height of Twin 1 to the x-axis
+&gt; and map height of Twin 2 to the y-axis. 
 &gt; **Represent each observation with a point**
 ]
 
 .pull-left[
 
-```r
-ggplot(data = penguins,
-       mapping = aes(x = bill_depth_mm,
-                     y = bill_length_mm)) + 
+``` r
+ggplot(data = twinData_cleaned,
+       mapping = aes(x = height_t1, 
+                     y = height_t2)) + 
 * geom_point()
 ```
 ]
 .pull-right[
-&lt;img src="d04_ggplot2_files/figure-html/unnamed-chunk-10-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="00_ggplot2_files/figure-html/unnamed-chunk-12-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
 
 .midi[
-&gt; Start with the `penguins` data frame,
-&gt; map bill depth to the x-axis
-&gt; and map bill length to the y-axis. 
+&gt; Start with the `twinData_cleaned` data frame,
+&gt; map height of Twin 1 to the x-axis
+&gt; and map height of Twin 2 to the y-axis. 
 &gt; Represent each observation with a point
-&gt; **and map species to the color of each point.**
+&gt; **and map zygosity to the color of each point.**
 ]
 
 .pull-left[
 
-```r
-ggplot(data = penguins,
-       mapping = aes(x = bill_depth_mm,
-                     y = bill_length_mm,
-*                    color = species)) +
-  geom_point()
+``` r
+ggplot(data = twinData_cleaned,
+       mapping = aes( x = height_t1,
+                      y = height_t2,
+*                     color = zyg)) +
+  geom_point() 
 ```
 ]
 .pull-right[
-&lt;img src="d04_ggplot2_files/figure-html/unnamed-chunk-11-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="00_ggplot2_files/figure-html/unnamed-chunk-13-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
 
 .midi[
-&gt; Start with the `penguins` data frame,
-&gt; map bill depth to the x-axis
-&gt; and map bill length to the y-axis. 
+&gt; Start with the `twinData_cleaned` data frame,
+&gt; map height of Twin 1 to the x-axis
+&gt; and map height of Twin 2 to the y-axis. 
 &gt; Represent each observation with a point
-&gt; and map species to the color of each point.
-&gt; **Title the plot "Bill depth and length"**
+&gt; and map zygosity to the color of each point.
+&gt; **Title the plot "Height Comparison between Twins"**
 ]
 
 .pull-left[
 
-```r
-ggplot(data = penguins,
-       mapping = aes(x = bill_depth_mm,
-                     y = bill_length_mm,
-                     color = species)) +
+``` r
+ggplot(data = twinData_cleaned,
+       mapping = aes( x = height_t1,
+                      y = height_t2,
+                      color = zyg)) +
   geom_point() +
-* labs(title = "Bill depth and length")
+* labs(title = "Height Comparison between Twins")
 ```
 ]
 .pull-right[
-&lt;img src="d04_ggplot2_files/figure-html/unnamed-chunk-12-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="00_ggplot2_files/figure-html/unnamed-chunk-14-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
 
 .midi[
-&gt; Start with the `penguins` data frame,
-&gt; map bill depth to the x-axis
-&gt; and map bill length to the y-axis. 
+&gt; Start with the `twinData_cleaned` data frame,
+&gt; map height of Twin 1 to the x-axis
+&gt; and map height of Twin 2 to the y-axis. 
 &gt; Represent each observation with a point
-&gt; and map species to the color of each point.
-&gt; Title the plot "Bill depth and length", 
-&gt; **add the subtitle "Dimensions for Adelie, Chinstrap, and Gentoo Penguins"**
+&gt; and map zygosity to the color of each point.
+&gt; Title the plot "Height Comparison between Twins", 
+&gt; **add the subtitle "by zygosity"**
 ]
 
 .pull-left[
 
-```r
-ggplot(data = penguins,
-       mapping = aes(x = bill_depth_mm,
-                     y = bill_length_mm,
-                     color = species)) +
+``` r
+ggplot(data = twinData_cleaned,
+       mapping = aes( x = height_t1,
+                      y = height_t2,
+                      color = zyg)) +
   geom_point() +
-  labs(title = "Bill depth and length",
-*      subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins")
+  labs(title = "Height Comparison between Twins",
+*      subtitle = "by zygosity")
 ```
 ]
 .pull-right[
-&lt;img src="d04_ggplot2_files/figure-html/unnamed-chunk-13-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="00_ggplot2_files/figure-html/unnamed-chunk-15-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
 
 .midi[
-&gt; Start with the `penguins` data frame,
-&gt; map bill depth to the x-axis
-&gt; and map bill length to the y-axis. 
-&gt; Represent each observation with a point
-&gt; and map species to the color of each point.
-&gt; Title the plot "Bill depth and length", 
-&gt; add the subtitle "Dimensions for Adelie, Chinstrap, and Gentoo Penguins", 
-&gt; **label the x and y axes as "Bill depth (mm)" and "Bill length (mm)", respectively**
+&gt; Start with the `twinData_cleaned` data frame,
+&gt; map height of Twin 1 to the x-axis,
+&gt; and map height of Twin 2 to the y-axis.
+&gt; Represent each observation with a point,
+&gt; and map zygosity to the color of each point.
+&gt; Title the plot "Height Comparison between Twins", 
+&gt; add the subtitle "by zygosity"
+&gt; **label the x and y axes as "Height of Twin 1 (m)" and "Height of Twin 2 (m)", respectively**
 ]
 
 .pull-left[
 
-```r
-ggplot(data = penguins,
-       mapping = aes(x = bill_depth_mm,
-                     y = bill_length_mm,
-                     color = species)) +
+``` r
+ggplot(data = twinData_cleaned,
+       mapping = aes( x = height_t1,
+                      y = height_t2,
+                      color = zyg)) +
   geom_point() +
-  labs(title = "Bill depth and length",
-       subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
-*      x = "Bill depth (mm)", y = "Bill length (mm)")
+  labs(title = "Height Comparison between Twins",
+       subtitle = "by zygosity",
+*      x = "Height of Twin 1 (m)", y = "Height of Twin 2 (m)")
 ```
 ]
 .pull-right[
-&lt;img src="d04_ggplot2_files/figure-html/unnamed-chunk-14-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="00_ggplot2_files/figure-html/unnamed-chunk-16-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
 
 .midi[
-&gt; Start with the `penguins` data frame,
-&gt; map bill depth to the x-axis
-&gt; and map bill length to the y-axis. 
-&gt; Represent each observation with a point
-&gt; and map species to the color of each point.
-&gt; Title the plot "Bill depth and length", 
-&gt; add the subtitle "Dimensions for Adelie, Chinstrap, and Gentoo Penguins", 
-&gt; label the x and y axes as "Bill depth (mm)" and "Bill length (mm)", respectively,
-&gt; **label the legend "Species"**
+&gt; Start with the `twinData_cleaned` data frame,
+&gt; map height of Twin 1 to the x-axis,
+&gt; and map height of Twin 2 to the y-axis.
+&gt; Represent each observation with a point,
+&gt; and map zygosity to the color of each point.
+&gt; Title the plot "Height Comparison between Twins", 
+&gt; add the subtitle "by zygosity"
+&gt; label the x and y axes as "Height of Twin 1 (m)" and "Height of Twin 2 (m)", respectively,
+&gt; **label the legend "Zygosity"**
 ]
 
 .pull-left[
 
-```r
-ggplot(data = penguins,
-       mapping = aes(x = bill_depth_mm,
-                     y = bill_length_mm,
-                     color = species)) +
+``` r
+ggplot(data = twinData_cleaned,
+       mapping = aes( x = height_t1,
+                      y = height_t2,
+                      color = zyg)) +
   geom_point() +
-  labs(title = "Bill depth and length",
-       subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
-       x = "Bill depth (mm)", y = "Bill length (mm)",
-*      color = "Species")
+  labs(title = "Height Comparison between Twins",
+       subtitle = "by zygosity",
+       x = "Height of Twin 1 (m)", y = "Height of Twin 2 (m)",
+*      color = "Zygosity")
 ```
 ]
 .pull-right[
-&lt;img src="d04_ggplot2_files/figure-html/unnamed-chunk-15-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="00_ggplot2_files/figure-html/unnamed-chunk-17-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
 
 .midi[
-&gt; Start with the `penguins` data frame,
-&gt; map bill depth to the x-axis
-&gt; and map bill length to the y-axis. 
-&gt; Represent each observation with a point
-&gt; and map species to the color of each point.
-&gt; Title the plot "Bill depth and length", 
-&gt; add the subtitle "Dimensions for Adelie, Chinstrap, and Gentoo Penguins", 
-&gt; label the x and y axes as "Bill depth (mm)" and "Bill length (mm)", respectively,
-&gt; label the legend "Species", 
+&gt; Start with the `twinData_cleaned` data frame,
+&gt; map height of Twin 1 to the x-axis,
+&gt; and map height of Twin 2 to the y-axis.
+&gt; Represent each observation with a point,
+&gt; and map zygosity to the color of each point.
+&gt; Title the plot "Height Comparison between Twins", 
+&gt; add the subtitle "by zygosity"
+&gt; label the x and y axes as "Height of Twin 1 (m)" and "Height of Twin 2 (m)", respectively,
+&gt; label the legend "Zygosity", 
 &gt; **and add a caption for the data source.**
 ]
  
 .pull-left[
 
-```r
-ggplot(data = penguins,
-       mapping = aes(x = bill_depth_mm,
-                     y = bill_length_mm,
-                     color = species)) +
+``` r
+ggplot(data = twinData_cleaned,
+       mapping = aes( x = height_t1,
+                      y = height_t2,
+                      color = zyg)) +
   geom_point() +
-  labs(title = "Bill depth and length",
-       subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
-       x = "Bill depth (mm)", y = "Bill length (mm)",
-       color = "Species",
-*      caption = "Source: Palmer Station LTER / palmerpenguins package")
+  labs(title = "Height Comparison between Twins",
+       subtitle = "by zygosity",
+       x = "Height of Twin 1 (m)", y = "Height of Twin 2 (m)",
+       color = "Zygosity",
+*      caption = "Source: Australian National Health and Medical Research Council Twin Registry / OpenMx package")
 ```
 ]
 .pull-right[
-&lt;img src="d04_ggplot2_files/figure-html/unnamed-chunk-16-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="00_ggplot2_files/figure-html/unnamed-chunk-18-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
 
 .midi[
-&gt; Start with the `penguins` data frame,
-&gt; map bill depth to the x-axis
-&gt; and map bill length to the y-axis. 
-&gt; Represent each observation with a point
-&gt; and map species to the color of each point.
-&gt; Title the plot "Bill depth and length", 
-&gt; add the subtitle "Dimensions for Adelie, Chinstrap, and Gentoo Penguins", 
-&gt; label the x and y axes as "Bill depth (mm)" and "Bill length (mm)", respectively,
-&gt; label the legend "Species", 
+&gt; Start with the `twinData_cleaned` data frame,
+&gt; map height of Twin 1 to the x-axis,
+&gt; and map height of Twin 2 to the y-axis.
+&gt; Represent each observation with a point,
+&gt; and map zygosity to the color of each point.
+&gt; Title the plot "Height Comparison between Twins", 
+&gt; add the subtitle "by zygosity"
+&gt; label the x and y axes as "Height of Twin 1 (m)" and "Height of Twin 2 (m)", respectively,
+&gt; label the legend "Zygosity", 
 &gt; and add a caption for the data source.
 &gt; **Finally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness.**
 ]
 
 .pull-left[
 
-```r
-ggplot(data = penguins,
-       mapping = aes(x = bill_depth_mm,
-                     y = bill_length_mm,
-                     color = species)) +
+``` r
+ggplot(data = twinData_cleaned,
+       mapping = aes( x = height_t1,
+                      y = height_t2,
+                      color = zyg)) +
   geom_point() +
-  labs(title = "Bill depth and length",
-       subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
-       x = "Bill depth (mm)", y = "Bill length (mm)",
-       color = "Species",
-       caption = "Source: Palmer Station LTER / palmerpenguins package") +
+  labs(title = "Height Comparison between Twins",
+       subtitle = "by zygosity",
+       x = "Height of Twin 1 (m)", y = "Height of Twin 2 (m)",
+       color = "Zygosity",
+       caption = "Source: Australian National Health and Medical Research Council Twin Registry / OpenMx package") +
 * scale_color_viridis_d()
 ```
 ]
 .pull-right[
-&lt;img src="d04_ggplot2_files/figure-html/unnamed-chunk-17-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="00_ggplot2_files/figure-html/unnamed-chunk-19-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
 
 # Plot
 
-&lt;img src="d04_ggplot2_files/figure-html/unnamed-chunk-18-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+&lt;img src="00_ggplot2_files/figure-html/unnamed-chunk-20-1.png" width="70%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 # Code
 
 
-```r
-ggplot(data = penguins,
-       mapping = aes(x = bill_depth_mm,
-                     y = bill_length_mm,
-                     color = species)) +
+``` r
+ggplot(data = twinData_cleaned,
+       mapping = aes( x = height_t1,
+                      y = height_t2,
+                      color = zyg)) +
   geom_point() +
-  labs(title = "Bill depth and length",
-       subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
-       x = "Bill depth (mm)", y = "Bill length (mm)",
-       color = "Species",
-       caption = "Source: Palmer Station LTER / palmerpenguins package") +
+  labs(title = "Height Comparison between Twins",
+       subtitle = "by zygosity",
+       x = "Height of Twin 1 (m)", y = "Height of Twin 2 (m)",
+       color = "Zygosity",
+       caption = "Source: Australian National Health and Medical Research Council Twin Registry / OpenMx package") +
   scale_color_viridis_d()
-```
-
-```
-## Warning: Removed 2 rows containing missing values or values outside the
-## scale range (`geom_point()`).
 ```
 
 ---
@@ -463,15 +470,15 @@ ggplot(data = penguins,
 # Narrative
 
 .midi[
-+ Start with the `penguins` data frame,
-map bill depth to the x-axis
-and map bill length to the y-axis. 
-+ Represent each observation with a point
-and map species to the color of each point.
-+ Title the plot "Bill depth and length", 
-add the subtitle "Dimensions for Adelie, Chinstrap, and Gentoo Penguins", 
-label the x and y axes as "Bill depth (mm)" and "Bill length (mm)", respectively,
-label the legend "Species", 
++ Start with the `twinData_cleaned` data frame,
+map height of Twin 1 to the x-axis,
+and map height of Twin 2 to the y-axis.
++ Represent each observation with a point,
+and map zygosity to the color of each point.
++ Title the plot "Height Comparison between Twins", 
+add the subtitle "by zygosity"
+label the x and y axes as "Height of Twin 1 (m)" and "Height of Twin 2 (m)", respectively,
+label the legend "Zygosity", 
 and add a caption for the data source.
 + Finally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness.
 ]
@@ -486,22 +493,22 @@ You can omit the names of first two arguments when building plots with `ggplot()
 
 .pull-left[
 
-```r
-ggplot(data = penguins,
-       mapping = aes(x = bill_depth_mm,
-                     y = bill_length_mm,
-                     color = species)) +
+``` r
+ggplot(data = twinData_cleaned,
+       mapping = aes(x = height_t1,
+                     y = height_t1,
+                     color = zyg)) +
   geom_point() +
   scale_color_viridis_d()
 ```
 ]
 .pull-right[
 
-```r
-ggplot(penguins,
-       aes(x = bill_depth_mm,
-           y = bill_length_mm,
-           color = species)) +
+``` r
+ggplot(twinData_cleaned,
+       aes(x = height_t1,
+           y = height_t1,
+           color = zyg)) +
   geom_point() +
   scale_color_viridis_d()
 ```
@@ -536,17 +543,17 @@ Commonly used characteristics of plotting characters that can be **mapped to a s
 
 .pull-left[
 
-```r
-ggplot(penguins,
-       aes(x = bill_depth_mm, 
-           y = bill_length_mm,
-*          color = species)) +
+``` r
+ggplot(twinData_cleaned,
+       aes(x = height_t1, 
+           y = height_t2,
+*          color = zyg)) +
   geom_point() +
   scale_color_viridis_d()
 ```
 ]
 .pull-right[
-&lt;img src="d04_ggplot2_files/figure-html/unnamed-chunk-19-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="00_ggplot2_files/figure-html/unnamed-chunk-21-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -557,18 +564,18 @@ Mapped to a different variable than `color`
 
 .pull-left[
 
-```r
-ggplot(penguins,
-       aes(x = bill_depth_mm, 
-           y = bill_length_mm,
-           color = species,
-*          shape = island)) +
+``` r
+ggplot(twinData_cleaned,
+       aes(x = height_t1, 
+           y = height_t2,
+           color = zyg,
+*          shape = cohort)) +
   geom_point() +
   scale_color_viridis_d()
 ```
 ]
 .pull-right[
-&lt;img src="d04_ggplot2_files/figure-html/unnamed-chunk-20-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="00_ggplot2_files/figure-html/unnamed-chunk-22-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -579,18 +586,18 @@ Mapped to same variable as `color`
 
 .pull-left[
 
-```r
-ggplot(penguins,
-       aes(x = bill_depth_mm, 
-           y = bill_length_mm,
-           color = species,
-*          shape = species)) +
+``` r
+ggplot(twinData_cleaned,
+       aes(x = height_t1, 
+           y = height_t2,
+           color = zyg,
+*          shape = zyg)) +
   geom_point() +
   scale_color_viridis_d()
 ```
 ]
 .pull-right[
-&lt;img src="d04_ggplot2_files/figure-html/unnamed-chunk-21-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="00_ggplot2_files/figure-html/unnamed-chunk-23-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -599,19 +606,19 @@ ggplot(penguins,
 
 .pull-left[
 
-```r
-ggplot(penguins,
-       aes(x = bill_depth_mm, 
-           y = bill_length_mm,
-           color = species,
-           shape = species,
-*          size = body_mass_g)) +
+``` r
+ggplot(twinData_cleaned,
+       aes(x = height_t1, 
+           y = height_t2,
+           color = zyg,
+           shape = zyg,
+*          size = age)) +
   geom_point() +
   scale_color_viridis_d()
 ```
 ]
 .pull-right[
-&lt;img src="d04_ggplot2_files/figure-html/unnamed-chunk-22-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="00_ggplot2_files/figure-html/unnamed-chunk-24-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -620,20 +627,20 @@ ggplot(penguins,
 
 .pull-left[
 
-```r
-ggplot(penguins,
-       aes(x = bill_depth_mm, 
-           y = bill_length_mm,
-           color = species,
-           shape = species,
-           size = body_mass_g,
-*          alpha = flipper_length_mm)) +
+``` r
+ggplot(twinData_cleaned,
+       aes(x = height_t1, 
+           y = height_t2,
+           color = zyg,
+           shape = zyg,
+           size = age,
+*          alpha = family)) +
   geom_point() +
   scale_color_viridis_d()
 ```
 ]
 .pull-right[
-&lt;img src="d04_ggplot2_files/figure-html/unnamed-chunk-23-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="00_ggplot2_files/figure-html/unnamed-chunk-25-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -642,29 +649,29 @@ ggplot(penguins,
 **Mapping**
 
 
-```r
-ggplot(penguins,
-       aes(x = bill_depth_mm,
-           y = bill_length_mm,
-*          size = body_mass_g,
-*          alpha = flipper_length_mm)) +
+``` r
+ggplot(twinData_cleaned,
+       aes(x = height_t1,
+           y = height_t2,
+*          size = age,
+*          alpha = family)) +
   geom_point()
 ```
 
-&lt;img src="d04_ggplot2_files/figure-html/unnamed-chunk-24-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="00_ggplot2_files/figure-html/unnamed-chunk-26-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 .pull-right[
 **Setting**
 
 
-```r
-ggplot(penguins,
-       aes(x = bill_depth_mm,
-           y = bill_length_mm)) + 
+``` r
+ggplot(twinData_cleaned,
+       aes(x = height_t1,
+           y = height_t2)) + 
 * geom_point(size = 2, alpha = 0.5)
 ```
 
-&lt;img src="d04_ggplot2_files/figure-html/unnamed-chunk-25-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="00_ggplot2_files/figure-html/unnamed-chunk-27-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -694,22 +701,17 @@ class: middle
 ---
 
 ### Plot
-&lt;img src="d04_ggplot2_files/figure-html/unnamed-chunk-26-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+&lt;img src="00_ggplot2_files/figure-html/unnamed-chunk-28-1.png" width="70%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 ### Code
 
 
-```r
-ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + 
+``` r
+ggplot(twinData_cleaned, aes(x = height_t1, y = height_t2)) + 
   geom_point() +
-* facet_grid(species ~ island)
-```
-
-```
-## Warning: Removed 2 rows containing missing values or values outside the
-## scale range (`geom_point()`).
+* facet_grid(cohort ~ zyg)
 ```
 
 ---
@@ -727,57 +729,57 @@ But you should always label your plots!
 ---
 
 
-```r
-ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + 
+``` r
+ggplot(twinData_cleaned, aes(x = height_t1, y = height_t2)) + 
   geom_point() +
-* facet_grid(species ~ sex)
+* facet_grid(cohort ~ sex)
 ```
 
-&lt;img src="d04_ggplot2_files/figure-html/unnamed-chunk-27-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="00_ggplot2_files/figure-html/unnamed-chunk-29-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 
-```r
-ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + 
+``` r
+ggplot(twinData_cleaned, aes(x = height_t1, y = height_t2)) + 
   geom_point() +
-* facet_grid(sex ~ species)
+* facet_grid(sex ~ cohort)
 ```
 
-&lt;img src="d04_ggplot2_files/figure-html/unnamed-chunk-28-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="00_ggplot2_files/figure-html/unnamed-chunk-30-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 
-```r
-ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + 
+``` r
+ggplot(twinData_cleaned, aes(x = height_t1, y = height_t2)) + 
   geom_point() +
-* facet_wrap(~ species)
+* facet_wrap(~ cohort)
 ```
 
-&lt;img src="d04_ggplot2_files/figure-html/unnamed-chunk-29-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="00_ggplot2_files/figure-html/unnamed-chunk-31-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 
-```r
-ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + 
+``` r
+ggplot(twinData_cleaned, aes(x = height_t1, y = height_t2)) + 
   geom_point() +
-* facet_grid(. ~ species)
+* facet_grid(. ~ cohort)
 ```
 
-&lt;img src="d04_ggplot2_files/figure-html/unnamed-chunk-30-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="00_ggplot2_files/figure-html/unnamed-chunk-32-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 
-```r
-ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + 
+``` r
+ggplot(twinData_cleaned, aes(x = height_t1, y = height_t2)) + 
   geom_point() +
-* facet_wrap(~ species, ncol = 2)
+* facet_wrap(~ cohort, ncol = 2)
 ```
 
-&lt;img src="d04_ggplot2_files/figure-html/unnamed-chunk-31-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="00_ggplot2_files/figure-html/unnamed-chunk-33-1.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -795,19 +797,19 @@ ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) +
 
 .pull-left-narrow[
 
-```r
+``` r
 ggplot(
-  penguins, 
-  aes(x = bill_depth_mm, 
-      y = bill_length_mm, 
-*     color = species)) +
+  twinData_cleaned, 
+  aes(x = height_t1, 
+      y = height_t2, 
+*     color = zyg)) +
   geom_point() +
-  facet_grid(species ~ sex) +
+  facet_grid(cohort ~ sex) +
 * scale_color_viridis_d()
 ```
 ]
 .pull-right-wide[
-&lt;img src="d04_ggplot2_files/figure-html/unnamed-chunk-32-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="00_ggplot2_files/figure-html/unnamed-chunk-34-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -816,20 +818,20 @@ ggplot(
 
 .pull-left-narrow[
 
-```r
+``` r
 ggplot(
-  penguins, 
-  aes(x = bill_depth_mm, 
-      y = bill_length_mm, 
-      color = species)) +
+  twinData_cleaned, 
+  aes(x = height_t1, 
+      y = height_t2, 
+      color = zyg)) +
   geom_point() +
-  facet_grid(species ~ sex) +
+  facet_grid(cohort ~ sex) +
   scale_color_viridis_d() +
 * guides(color = FALSE)
 ```
 ]
 .pull-right-wide[
-&lt;img src="d04_ggplot2_files/figure-html/unnamed-chunk-33-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="00_ggplot2_files/figure-html/unnamed-chunk-35-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
