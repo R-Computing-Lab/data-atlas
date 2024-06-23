@@ -121,6 +121,7 @@ summary_stats <- df_wide %>%
 
 summary_stats
 ```
+
 As you can see in the table above, the summary statistics provide a quick overview of the central tendencies and variability in the dataset for numeric variables. The table includes the mean, standard deviation, median, minimum, maximum, and interquartile range (IQR) for each numeric variable. But they do so by the twin number, which is useful for our purposes, but... isn't the only descriptive information we'll need. We will need to calculate these statistics for the full sample, not by twin number. But we'll still going to start with the twin number, and then we'll calculate the summary statistics for the full sample.
 
 ### Frequency Tables
@@ -188,6 +189,7 @@ df_summary  %>% mutate(variable = factor(variable, levels = variable_order)) %>%
     arrange(variable, cohort)
 
 ```
+
 As you can see from the table, the summary statistics are calculated for each cohort across the numeric variables. This provides a quick overview of the central tendencies and variability in the dataset for each cohort. Now, these data are still in wide form, but we can easily convert them to long form if needed.
 
 What about descriptive statistics by zygosity and sex?
@@ -233,11 +235,6 @@ numeric variables.
 # Wide Form Data Visualization
 
 ## Plots
-
-
-
-
-
 
 ### Histograms and Scatter Plots
 
