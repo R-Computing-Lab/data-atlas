@@ -253,186 +253,186 @@ ggplot(data = twinData_cleaned,
 ---
 
 .midi[
-> Start with the `penguins` data frame,
-> map bill depth to the x-axis
-> and map bill length to the y-axis. 
+> Start with the `twinData_cleaned` data frame,
+> map height of Twin 1 to the x-axis
+> and map height of Twin 2 to the y-axis. 
 > Represent each observation with a point
-> and map species to the color of each point.
-> **Title the plot "Bill depth and length"**
+> and map zygosity to the color of each point.
+> **Title the plot "Height Comparison between Twins"**
 ]
 
 .pull-left[
-```{r penguins-5, fig.show = "hide", warning = FALSE}
-ggplot(data = penguins,
-       mapping = aes(x = bill_depth_mm,
-                     y = bill_length_mm,
-                     color = species)) +
+```{r twin-5, fig.show = "hide", warning = FALSE}
+ggplot(data = twinData_cleaned,
+       mapping = aes( x = height_t1,
+                      y = height_t2,
+                      color = zyg)) +
   geom_point() +
-  labs(title = "Bill depth and length") #<<
+  labs(title = "Height Comparison between Twins") #<<
 ```
 ]
 .pull-right[
-```{r ref.label = "penguins-5", echo = FALSE, warning = FALSE, out.width = "100%", fig.width = 8}
+```{r ref.label = "twin-5", echo = FALSE, warning = FALSE, out.width = "100%", fig.width = 8}
 ```
 ]
 
 ---
 
 .midi[
-> Start with the `penguins` data frame,
-> map bill depth to the x-axis
-> and map bill length to the y-axis. 
+> Start with the `twinData_cleaned` data frame,
+> map height of Twin 1 to the x-axis
+> and map height of Twin 2 to the y-axis. 
 > Represent each observation with a point
-> and map species to the color of each point.
-> Title the plot "Bill depth and length", 
-> **add the subtitle "Dimensions for Adelie, Chinstrap, and Gentoo Penguins"**
+> and map zygosity to the color of each point.
+> Title the plot "Height Comparison between Twins", 
+> **add the subtitle "by zygosity"**
 ]
 
 .pull-left[
-```{r penguins-6, fig.show = "hide", warning = FALSE}
-ggplot(data = penguins,
-       mapping = aes(x = bill_depth_mm,
-                     y = bill_length_mm,
-                     color = species)) +
+```{r twin-6, fig.show = "hide", warning = FALSE}
+ggplot(data = twinData_cleaned,
+       mapping = aes( x = height_t1,
+                      y = height_t2,
+                      color = zyg)) +
   geom_point() +
-  labs(title = "Bill depth and length",
-       subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins") #<<
+  labs(title = "Height Comparison between Twins",
+       subtitle = "by zygosity") #<<
 ```
 ]
 .pull-right[
-```{r ref.label = "penguins-6", echo = FALSE, warning = FALSE, out.width = "100%", fig.width = 8}
+```{r ref.label = "twin-6", echo = FALSE, warning = FALSE, out.width = "100%", fig.width = 8}
 ```
 ]
 
 ---
 
 .midi[
-> Start with the `penguins` data frame,
-> map bill depth to the x-axis
-> and map bill length to the y-axis. 
-> Represent each observation with a point
-> and map species to the color of each point.
-> Title the plot "Bill depth and length", 
-> add the subtitle "Dimensions for Adelie, Chinstrap, and Gentoo Penguins", 
-> **label the x and y axes as "Bill depth (mm)" and "Bill length (mm)", respectively**
+> Start with the `twinData_cleaned` data frame,
+> map height of Twin 1 to the x-axis,
+> and map height of Twin 2 to the y-axis.
+> Represent each observation with a point,
+> and map zygosity to the color of each point.
+> Title the plot "Height Comparison between Twins", 
+> add the subtitle "by zygosity"
+> **label the x and y axes as "Height of Twin 1 (m)" and "Height of Twin 2 (m)", respectively**
 ]
 
 .pull-left[
-```{r penguins-7, fig.show = "hide", warning = FALSE}
-ggplot(data = penguins,
-       mapping = aes(x = bill_depth_mm,
-                     y = bill_length_mm,
-                     color = species)) +
+```{r twin-7, fig.show = "hide", warning = FALSE}
+ggplot(data = twinData_cleaned,
+       mapping = aes( x = height_t1,
+                      y = height_t2,
+                      color = zyg)) +
   geom_point() +
-  labs(title = "Bill depth and length",
-       subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
-       x = "Bill depth (mm)", y = "Bill length (mm)") #<<
+  labs(title = "Height Comparison between Twins",
+       subtitle = "by zygosity",
+       x = "Height of Twin 1 (m)", y = "Height of Twin 2 (m)") #<<
 ```
 ]
 .pull-right[
-```{r ref.label = "penguins-7", echo = FALSE, warning = FALSE, out.width = "100%", fig.width = 8}
+```{r ref.label = "twin-7", echo = FALSE, warning = FALSE, out.width = "100%", fig.width = 8}
 ```
 ]
 
 ---
 
 .midi[
-> Start with the `penguins` data frame,
-> map bill depth to the x-axis
-> and map bill length to the y-axis. 
-> Represent each observation with a point
-> and map species to the color of each point.
-> Title the plot "Bill depth and length", 
-> add the subtitle "Dimensions for Adelie, Chinstrap, and Gentoo Penguins", 
-> label the x and y axes as "Bill depth (mm)" and "Bill length (mm)", respectively,
-> **label the legend "Species"**
+> Start with the `twinData_cleaned` data frame,
+> map height of Twin 1 to the x-axis,
+> and map height of Twin 2 to the y-axis.
+> Represent each observation with a point,
+> and map zygosity to the color of each point.
+> Title the plot "Height Comparison between Twins", 
+> add the subtitle "by zygosity"
+> label the x and y axes as "Height of Twin 1 (m)" and "Height of Twin 2 (m)", respectively,
+> **label the legend "Zygosity"**
 ]
 
 .pull-left[
-```{r penguins-8, fig.show = "hide", warning = FALSE}
-ggplot(data = penguins,
-       mapping = aes(x = bill_depth_mm,
-                     y = bill_length_mm,
-                     color = species)) +
+```{r twin-8, fig.show = "hide", warning = FALSE}
+ggplot(data = twinData_cleaned,
+       mapping = aes( x = height_t1,
+                      y = height_t2,
+                      color = zyg)) +
   geom_point() +
-  labs(title = "Bill depth and length",
-       subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
-       x = "Bill depth (mm)", y = "Bill length (mm)",
-       color = "Species") #<<
+  labs(title = "Height Comparison between Twins",
+       subtitle = "by zygosity",
+       x = "Height of Twin 1 (m)", y = "Height of Twin 2 (m)",
+       color = "Zygosity") #<<
 ```
 ]
 .pull-right[
-```{r ref.label = "penguins-8", echo = FALSE, warning = FALSE, out.width = "100%", fig.width = 8}
+```{r ref.label = "twin-8", echo = FALSE, warning = FALSE, out.width = "100%", fig.width = 8}
 ```
 ]
 
 ---
 
 .midi[
-> Start with the `penguins` data frame,
-> map bill depth to the x-axis
-> and map bill length to the y-axis. 
-> Represent each observation with a point
-> and map species to the color of each point.
-> Title the plot "Bill depth and length", 
-> add the subtitle "Dimensions for Adelie, Chinstrap, and Gentoo Penguins", 
-> label the x and y axes as "Bill depth (mm)" and "Bill length (mm)", respectively,
-> label the legend "Species", 
+> Start with the `twinData_cleaned` data frame,
+> map height of Twin 1 to the x-axis,
+> and map height of Twin 2 to the y-axis.
+> Represent each observation with a point,
+> and map zygosity to the color of each point.
+> Title the plot "Height Comparison between Twins", 
+> add the subtitle "by zygosity"
+> label the x and y axes as "Height of Twin 1 (m)" and "Height of Twin 2 (m)", respectively,
+> label the legend "Zygosity", 
 > **and add a caption for the data source.**
 ]
  
 .pull-left[
-```{r penguins-9, fig.show = "hide", warning = FALSE}
-ggplot(data = penguins,
-       mapping = aes(x = bill_depth_mm,
-                     y = bill_length_mm,
-                     color = species)) +
+```{r twin-9, fig.show = "hide", warning = FALSE}
+ggplot(data = twinData_cleaned,
+       mapping = aes( x = height_t1,
+                      y = height_t2,
+                      color = zyg)) +
   geom_point() +
-  labs(title = "Bill depth and length",
-       subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
-       x = "Bill depth (mm)", y = "Bill length (mm)",
-       color = "Species",
-       caption = "Source: Palmer Station LTER / palmerpenguins package") #<<
+  labs(title = "Height Comparison between Twins",
+       subtitle = "by zygosity",
+       x = "Height of Twin 1 (m)", y = "Height of Twin 2 (m)",
+       color = "Zygosity",
+       caption = "Source: Australian National Health and Medical Research Council Twin Registry / OpenMx package") #<<
 ```
 ]
 .pull-right[
-```{r ref.label = "penguins-9", echo = FALSE, warning = FALSE, out.width = "100%", fig.width = 8}
+```{r ref.label = "twin-9", echo = FALSE, warning = FALSE, out.width = "100%", fig.width = 8}
 ```
 ]
 
 ---
 
 .midi[
-> Start with the `penguins` data frame,
-> map bill depth to the x-axis
-> and map bill length to the y-axis. 
-> Represent each observation with a point
-> and map species to the color of each point.
-> Title the plot "Bill depth and length", 
-> add the subtitle "Dimensions for Adelie, Chinstrap, and Gentoo Penguins", 
-> label the x and y axes as "Bill depth (mm)" and "Bill length (mm)", respectively,
-> label the legend "Species", 
+> Start with the `twinData_cleaned` data frame,
+> map height of Twin 1 to the x-axis,
+> and map height of Twin 2 to the y-axis.
+> Represent each observation with a point,
+> and map zygosity to the color of each point.
+> Title the plot "Height Comparison between Twins", 
+> add the subtitle "by zygosity"
+> label the x and y axes as "Height of Twin 1 (m)" and "Height of Twin 2 (m)", respectively,
+> label the legend "Zygosity", 
 > and add a caption for the data source.
 > **Finally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness.**
 ]
 
 .pull-left[
-```{r penguins-10, fig.show = "hide", warning = FALSE}
-ggplot(data = penguins,
-       mapping = aes(x = bill_depth_mm,
-                     y = bill_length_mm,
-                     color = species)) +
+```{r twin-10, fig.show = "hide", warning = FALSE}
+ggplot(data = twinData_cleaned,
+       mapping = aes( x = height_t1,
+                      y = height_t2,
+                      color = zyg)) +
   geom_point() +
-  labs(title = "Bill depth and length",
-       subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
-       x = "Bill depth (mm)", y = "Bill length (mm)",
-       color = "Species",
-       caption = "Source: Palmer Station LTER / palmerpenguins package") +
+  labs(title = "Height Comparison between Twins",
+       subtitle = "by zygosity",
+       x = "Height of Twin 1 (m)", y = "Height of Twin 2 (m)",
+       color = "Zygosity",
+       caption = "Source: Australian National Health and Medical Research Council Twin Registry / OpenMx package") +
   scale_color_viridis_d() #<<
 ```
 ]
 .pull-right[
-```{r ref.label = "penguins-10", echo = FALSE, warning = FALSE, out.width = "100%", fig.width = 8}
+```{r ref.label = "twin-10", echo = FALSE, warning = FALSE, out.width = "100%", fig.width = 8}
 ```
 ]
 
@@ -440,24 +440,24 @@ ggplot(data = penguins,
 
 # Plot
 
-```{r ref.label="penguins-10-nohighlight", echo = FALSE, warning = FALSE, out.width = "70%", fig.width = 8}
+```{r ref.label="twin-10-nohighlight", echo = FALSE, warning = FALSE, out.width = "70%", fig.width = 8}
 ```
 
 ---
 
 # Code
 
-```{r penguins-10-nohighlight, fig.show = "hide"}
-ggplot(data = penguins,
-       mapping = aes(x = bill_depth_mm,
-                     y = bill_length_mm,
-                     color = species)) +
+```{r twin-10-nohighlight, fig.show = "hide"}
+ggplot(data = twinData_cleaned,
+       mapping = aes( x = height_t1,
+                      y = height_t2,
+                      color = zyg)) +
   geom_point() +
-  labs(title = "Bill depth and length",
-       subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
-       x = "Bill depth (mm)", y = "Bill length (mm)",
-       color = "Species",
-       caption = "Source: Palmer Station LTER / palmerpenguins package") +
+  labs(title = "Height Comparison between Twins",
+       subtitle = "by zygosity",
+       x = "Height of Twin 1 (m)", y = "Height of Twin 2 (m)",
+       color = "Zygosity",
+       caption = "Source: Australian National Health and Medical Research Council Twin Registry / OpenMx package") +
   scale_color_viridis_d()
 ```
 
@@ -466,15 +466,15 @@ ggplot(data = penguins,
 # Narrative
 
 .midi[
-+ Start with the `penguins` data frame,
-map bill depth to the x-axis
-and map bill length to the y-axis. 
-+ Represent each observation with a point
-and map species to the color of each point.
-+ Title the plot "Bill depth and length", 
-add the subtitle "Dimensions for Adelie, Chinstrap, and Gentoo Penguins", 
-label the x and y axes as "Bill depth (mm)" and "Bill length (mm)", respectively,
-label the legend "Species", 
++ Start with the `twinData_cleaned` data frame,
+map height of Twin 1 to the x-axis,
+and map height of Twin 2 to the y-axis.
++ Represent each observation with a point,
+and map zygosity to the color of each point.
++ Title the plot "Height Comparison between Twins", 
+add the subtitle "by zygosity"
+label the x and y axes as "Height of Twin 1 (m)" and "Height of Twin 2 (m)", respectively,
+label the legend "Zygosity", 
 and add a caption for the data source.
 + Finally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness.
 ]
@@ -489,20 +489,20 @@ You can omit the names of first two arguments when building plots with `ggplot()
 
 .pull-left[
 ```{r named-args, eval = FALSE}
-ggplot(data = penguins,
-       mapping = aes(x = bill_depth_mm,
-                     y = bill_length_mm,
-                     color = species)) +
+ggplot(data = twinData_cleaned,
+       mapping = aes(x = height_t1,
+                     y = height_t1,
+                     color = zyg)) +
   geom_point() +
   scale_color_viridis_d()
 ```
 ]
 .pull-right[
 ```{r not-named-args, eval = FALSE}
-ggplot(penguins,
-       aes(x = bill_depth_mm,
-           y = bill_length_mm,
-           color = species)) +
+ggplot(twinData_cleaned,
+       aes(x = height_t1,
+           y = height_t1,
+           color = zyg)) +
   geom_point() +
   scale_color_viridis_d()
 ```

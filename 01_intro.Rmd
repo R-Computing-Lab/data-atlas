@@ -164,9 +164,18 @@ It would produce a scatter plot comparing the height of twins with the height of
 ```{r ref.label = "twindemo", echo = FALSE, warning = FALSE, out.width = "70%", fig.width = 8}
 ```
 
+### Key Components of a ggplot2 Plot
+
+The code above demonstrates the basic structure of a ggplot2 plot. To break down the key components of the plot you can press the left and right arrows on your keyboard to navigate through the slides below. Or if you prefer, you can click on the slide to advance to the next one. Below the slides you'll find the same content in a more traditional format.
 
 
+```{r, echo=FALSE}
+slide_url(ds4p_urls, "d17_functions", "#7") %>%
+  include_url(height = "400px")
+```
 
+
+#### Plot Breakdown
 **Start with the `twinData_cleaned` data frame**
 
 ```{r twin-0, warning=FALSE, out.width = "70%", fig.width = 8}
@@ -291,3 +300,4 @@ ggplot(data = twinData_cleaned,
        caption = "Source: Australian National Health and Medical Research Council Twin Registry / OpenMx package") +
   scale_color_viridis_d() #<<
 ```
+
