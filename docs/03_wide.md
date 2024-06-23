@@ -169,6 +169,7 @@ summary_stats
 ## 12 age1       34.5    14.2      30    17      88      19    
 ## 13 age2       34.5    14.2      30    17      88      19
 ```
+
 As you can see in the table above, the summary statistics provide a quick overview of the central tendencies and variability in the dataset for numeric variables. The table includes the mean, standard deviation, median, minimum, maximum, and interquartile range (IQR) for each numeric variable. But they do so by the twin number, which is useful for our purposes, but... isn't the only descriptive information we'll need. We will need to calculate these statistics for the full sample, not by twin number. But we'll still going to start with the twin number, and then we'll calculate the summary statistics for the full sample.
 
 ### Frequency Tables
@@ -260,6 +261,7 @@ df_summary  %>% mutate(variable = factor(variable, levels = variable_order)) %>%
 ## 10 younger wt2        64.1   11.6       64    17
 ## # ℹ 16 more rows
 ```
+
 As you can see from the table, the summary statistics are calculated for each cohort across the numeric variables. This provides a quick overview of the central tendencies and variability in the dataset for each cohort. Now, these data are still in wide form, but we can easily convert them to long form if needed.
 
 What about descriptive statistics by zygosity and sex?
@@ -323,36 +325,118 @@ df_summary  %>% mutate(variable = factor(variable, levels = variable_order)) %>%
 ## # ℹ 55 more rows
 ```
 
-As you can see from the table, the summary statistics are calculated for each zygosity and sex across the 
-numeric variables. 
+As you can see from the table, the summary statistics are calculated for each zygosity and sex across the numeric variables. 
 
 # Wide Form Data Visualization
 
-## Plots
+## 1. Univariate Distributions
+
+### Histograms
+
+Histograms are a great way to visualize the distribution of a single variable. Here, we will create histograms for the weight of twin 1 and twin 2.
 
 
-
-
-
-
-### Histograms and Scatter Plots
-
-Visualizing distributions and relationships through histograms and scatter plots can reveal patterns or anomalies in the data that are pertinent for twin studies, especially in examining the concordance and discordance in twin weights.
+#### Histogram of Weight for Twin 1
 
 
 ``` r
 ggplot(df_wide, aes(x = wt1)) +
-  geom_histogram(bins=30, fill="blue", color="black") +
-  labs(x="weight", y="Frequency", title="Distribution of weight for Twin 1") +
+  geom_histogram(bins = 30, fill = "blue", color = "black") +
+  labs(x = "Weight of Twin 1", y = "Frequency", title = "Distribution of Weight for Twin 1") +
   theme_minimal()
 ```
 
-```
-## Warning: Removed 97 rows containing non-finite outside the scale range
-## (`stat_bin()`).
+<img src="03_wide_files/figure-html/histogram-twin1-1.png" width="768" />
+
+#### Histogram of Weight for Twin 2 by Zygosity
+
+
+``` r
+ggplot(df_wide, aes(x = wt2)) +
+  geom_histogram(bins = 30, fill = "red", color = "black") +
+  labs(x = "Weight of Twin 2", y = "Frequency", title = "Distribution of Weight for Twin 2") +
+  theme_minimal() + facet_wrap(~zyg)
 ```
 
-<img src="03_wide_files/figure-html/data-viz-1.png" width="768" />
+<img src="03_wide_files/figure-html/histogram-twin2-1.png" width="768" />
+
+### Density Plots
+
+**Density Plot of Weight for Twin 1**
+
+
+``` r
+ggplot(df_wide, aes(x = wt1, fill = zyg)) +
+  geom_density(alpha = 0.5) +
+  labs(x = "Weight of Twin 1", y = "Density", title = "Density Plot of Weight for Twin 1 by Zygosity") +
+  scale_fill_viridis_d(option = "viridis", begin = 0.1, end = 0.85) +
+  theme_minimal()
+```
+
+<img src="03_wide_files/figure-html/density-twin1-1.png" width="768" />
+
+
+**Density Plot of Weight for Twin 2**
+
+
+``` r
+ggplot(df_wide, aes(x = wt2, fill = zyg)) +
+  geom_density(alpha = 0.5) +
+  labs(x = "Weight of Twin 2", y = "Density", title = "Density Plot of Weight for Twin 2 by Zygosity") +
+  scale_fill_viridis_d(option = "viridis", begin = 0.1, end = 0.85) +
+  theme_minimal() + facet_wrap(~sex)
+```
+
+<img src="03_wide_files/figure-html/density-twin2-1.png" width="768" />
+
+
+### Box Plots
+
+**Box Plot of Weight for Twin 1**
+
+
+``` r
+ggplot(df_wide, aes(x = zyg, y = wt1, fill = zyg)) +
+  geom_boxplot() +
+  labs(x = "Zygosity", y = "Weight of Twin 1", title = "Box Plot of Weight for Twin 1 by Zygosity") +
+  scale_fill_viridis_d(option = "viridis", begin = 0.1, end = 0.85) +
+  theme_minimal()
+```
+
+<img src="03_wide_files/figure-html/boxplot-twin1-1.png" width="768" />
+
+**Box Plot of Weight for Twin 2**
+
+
+``` r
+ggplot(df_wide, aes(x = zyg, y = wt2, fill = zyg)) +
+  geom_boxplot() +
+  labs(x = "Zygosity", y = "Weight of Twin 2", title = "Box Plot of Weight for Twin 2 by Zygosity") +
+  scale_fill_viridis_d(option = "viridis", begin = 0.1, end = 0.85) +
+  theme_minimal()
+```
+
+<img src="03_wide_files/figure-html/boxplot-twin2-1.png" width="768" />
+
+
+**Paired Boxplot of Weights by Zygosity**
+
+
+``` r
+ggplot(df_wide, aes(x = zyg, y = wt1, fill = zyg)) +
+  geom_boxplot() +
+  geom_boxplot(aes(y = wt2), color = "red", fill = NA) +
+  labs(x = "Zygosity", y = "Weight", title = "Paired Boxplot of Weights by Zygosity") +
+  theme_minimal()
+```
+
+<img src="03_wide_files/figure-html/paired-boxplot-1.png" width="768" />
+
+
+## 2. Bivariate Distributions
+
+### Scatter 
+
 
 ``` r
 # Basic Scatter Plot of weight of Twin 1 vs. weight of Twin 2
@@ -361,21 +445,11 @@ p <- ggplot(df_wide, aes(x=wt1, y=wt2, color=zyg)) +
   labs(x = "Weight of Twin 1", 
        y = "Weight of Twin 2", 
        title = "Scatterplot of weight by Zygosity") +
-  scale_color_viridis_d(option = "virdis",
+  scale_color_viridis_d(option = "viridis",
                         begin = 0.1,end=.85) +
   theme_minimal()
 
 p
-```
-
-```
-## Warning in viridisLite::viridis(n, alpha, begin, end, direction, option):
-## Option 'virdis' does not exist. Defaulting to 'viridis'.
-```
-
-```
-## Warning: Removed 173 rows containing missing values or values outside the scale range
-## (`geom_point()`).
 ```
 
 <img src="03_wide_files/figure-html/unnamed-chunk-2-1.png" width="672" />
@@ -391,28 +465,14 @@ p + geom_smooth(method = "lm", se = FALSE)
 ## `geom_smooth()` using formula = 'y ~ x'
 ```
 
-```
-## Warning: Removed 173 rows containing non-finite outside the scale range
-## (`stat_smooth()`).
-```
-
-```
-## Warning in viridisLite::viridis(n, alpha, begin, end, direction, option):
-## Option 'virdis' does not exist. Defaulting to 'viridis'.
-```
-
-```
-## Warning: Removed 173 rows containing missing values or values outside the scale range
-## (`geom_point()`).
-```
-
 <img src="03_wide_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+
+### Marginal Density Plots
 
 
 ``` r
 library(ggplot2)
 library(ggExtra)
-
 
 # Create marginal density plots for x and y axes
 p_x <- ggplot(df_wide, aes(x = wt1, fill = zyg)) +
@@ -426,12 +486,8 @@ p_x <- ggplot(df_wide, aes(x = wt1, fill = zyg)) +
 p_x
 ```
 
-```
-## Warning: Removed 97 rows containing non-finite outside the scale range
-## (`stat_density()`).
-```
-
 <img src="03_wide_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+
 
 ``` r
 p_y <- ggplot(df_wide, aes(x = wt2, fill = zyg)) +
@@ -446,132 +502,48 @@ p_y <- ggplot(df_wide, aes(x = wt2, fill = zyg)) +
  p_y
 ```
 
-```
-## Warning: Removed 86 rows containing non-finite outside the scale range
-## (`stat_density()`).
-```
-
-``` r
-# with marginal histogram
-p1 <- ggMarginal(p, type="histogram")
-```
-
-```
-## Warning in viridisLite::viridis(n, alpha, begin, end, direction, option):
-## Option 'virdis' does not exist. Defaulting to 'viridis'.
-```
-
-```
-## Warning in viridisLite::viridis(n, alpha, begin, end, direction, option):
-## Option 'virdis' does not exist. Defaulting to 'viridis'.
-```
-
-```
-## Warning: Removed 173 rows containing missing values or values outside the scale range
-## (`geom_point()`).
-```
-
-```
-## Warning in viridisLite::viridis(n, alpha, begin, end, direction, option):
-## Option 'virdis' does not exist. Defaulting to 'viridis'.
-```
-
-```
-## Warning: Removed 173 rows containing missing values or values outside the scale range
-## (`geom_point()`).
-```
-
-``` r
-p1
-```
-
-<img src="03_wide_files/figure-html/unnamed-chunk-4-2.png" width="672" />
-
-``` r
-# marginal density
-p2 <- ggMarginal(p, type="density")
-```
-
-```
-## Warning in viridisLite::viridis(n, alpha, begin, end, direction, option):
-## Option 'virdis' does not exist. Defaulting to 'viridis'.
-## Warning in viridisLite::viridis(n, alpha, begin, end, direction, option):
-## Option 'virdis' does not exist. Defaulting to 'viridis'.
-```
-
-```
-## Warning: Removed 173 rows containing missing values or values outside the scale range
-## (`geom_point()`).
-```
-
-```
-## Warning in viridisLite::viridis(n, alpha, begin, end, direction, option):
-## Option 'virdis' does not exist. Defaulting to 'viridis'.
-```
-
-```
-## Warning: Removed 173 rows containing missing values or values outside the scale range
-## (`geom_point()`).
-```
-
-``` r
-p2
-```
-
 <img src="03_wide_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 
 
 ``` r
-# marginal boxplot
-p3 <- ggMarginal(p, type="boxplot")
-```
-
-```
-## Warning in viridisLite::viridis(n, alpha, begin, end, direction, option):
-## Option 'virdis' does not exist. Defaulting to 'viridis'.
-## Warning in viridisLite::viridis(n, alpha, begin, end, direction, option):
-## Option 'virdis' does not exist. Defaulting to 'viridis'.
-```
-
-```
-## Warning: Removed 173 rows containing missing values or values outside the scale range
-## (`geom_point()`).
-```
-
-```
-## Warning in viridisLite::viridis(n, alpha, begin, end, direction, option):
-## Option 'virdis' does not exist. Defaulting to 'viridis'.
-```
-
-```
-## Warning: Removed 173 rows containing missing values or values outside the scale range
-## (`geom_point()`).
-```
-
-``` r
-p3
+# with marginal histogram
+p1 <- ggMarginal(p, type="histogram")
+ 
+p1
 ```
 
 <img src="03_wide_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 
 
-## Correlation Matries and Correlograms
+``` r
+# marginal density
+p2 <- ggMarginal(p, type="density")
+p2
+```
+
+<img src="03_wide_files/figure-html/unnamed-chunk-7-1.png" width="672" />
 
 
 ``` r
-# Calculate the correlation matrix
-
-library(ggcorrplot)
-data(mtcars)
-corr <- round(cor(mtcars), 1)
-ggcorrplot(corr, hc.order = TRUE, 
-           type = "lower", 
-           lab = TRUE, 
-           lab_size = 3, 
-           method="circle", 
-           colors = c("tomato2", "white", "springgreen3"), 
-           title="Correlogram of mtcars", 
-           ggtheme=theme_bw)
+# marginal boxplot
+p3 <- ggMarginal(p, type="boxplot")
+p3
 ```
 
-<img src="03_wide_files/figure-html/correlation-matrix-1.png" width="672" />
+<img src="03_wide_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+
+
+## 4. Correlation Analysis
+
+### Correlation Matrix and Correlogram
+
+
+
+``` r
+library(ggcorrplot)
+corr <- round(cor(df_wide %>% select(where(is.numeric))), 2)
+ggcorrplot(corr, type = "lower", lab = TRUE, lab_size = 3, method = "circle", 
+           colors = c("tomato2", "white", "springgreen3"), title = "Correlation Matrix of Twin Data", ggtheme = theme_bw)
+```
+
+<img src="03_wide_files/figure-html/correlation-matrix-1.png" width="768" />

@@ -1,5 +1,5 @@
 --- 
-title: "Data Atlas"
+title: "DataAtlas"
 author: 
 - S. Mason Garrison
 date: "2024-06-22"
