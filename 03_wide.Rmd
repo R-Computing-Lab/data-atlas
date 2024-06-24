@@ -1,4 +1,4 @@
-# (PART\*) Descriptive Statistics {-}
+# (PART\*) Wide Form Data {-}
 
 
 # Wide Form Data
@@ -395,7 +395,7 @@ p3
 ```
 
 
-## 4. Correlation Analysis
+## 3. Correlation Analysis
 
 ### Correlation Matrix and Correlogram
 

@@ -1,2 +1,123 @@
-# Tables
+# (PART\*) Generating Tables {-}
 
+# Generating Tables in APA Style
+
+When presenting data in scientific papers, it's important to follow the guidelines provided by the American Psychological Association (APA) to ensure clarity and consistency. In this section, we'll demonstrate how to generate tables in APA style using the `kableExtra` package in R.
+
+## Summary Statistics
+
+First, let's calculate summary statistics for the twin data and present them in an APA-style table.
+
+```{r}
+# Load necessary libraries
+library(tidyverse)
+library(kableExtra)
+library(tidyverse)
+library(NlsyLinks)
+library(discord)
+library(BGmisc)
+library(OpenMx)
+library(conflicted) # to handle conflicts
+conflicted::conflicts_prefer(OpenMx::vech,dplyr::filter) # Resolve conflicts
+
+
+data(twinData)
+
+df_long <- twinData %>% select(-age)
+```
+
+```{r}
+# Convert wide data to long form
+df_long <- df_long %>%
+  pivot_longer(
+    cols = matches('1$|2$'), # Select columns ending in '1' or '2'
+     cols_vary = "slowest", # Specify that the columns are in the same order for each twin
+    names_to = c(".value", "twin"), # Split the column names into variable and twin number
+    names_pattern = "(.*)(1|2)" # Capture the variable and twin number
+  )
+# Add 'sex' and 'zyg' columns based on 'zygosity'
+df_long <- df_long %>%
+  mutate(sex = case_when(
+    zygosity %in% c("MZFF", "DZFF") ~ "F",
+    zygosity %in% c("MZMM", "DZMM") ~ "M",
+    TRUE ~ "OS"
+  ),
+  zyg = case_when(
+    zygosity %in% c("MZFF", "MZMM") ~ "MZ",
+    zygosity %in% c("DZFF", "DZMM", "DZOS") ~ "DZ",
+    TRUE ~ NA_character_
+  ))
+```
+```{r}
+# Calculate summary statistics
+summary_stats_long <- df_long %>%
+  summarise(across(where(is.numeric), list(
+    Mean = ~mean(., na.rm = TRUE),
+    SD = ~sd(., na.rm = TRUE),
+    Median = ~median(., na.rm = TRUE),
+    Min = ~min(., na.rm = TRUE),
+    Max = ~max(., na.rm = TRUE),
+    IQR = ~IQR(., na.rm = TRUE)
+  ), .names = "{col}_{fn}")) %>%
+  pivot_longer(
+    cols = everything(),
+    names_to = c("Variable", "Statistic"),
+    names_sep = "_"
+  ) %>%
+  pivot_wider(
+    names_from = Statistic,
+    values_from = value
+  )
+```
+
+Now, let's create an APA-style table for these summary statistics.
+
+```{r}
+# Generate APA-style table
+summary_stats_long %>%
+  kable(caption = "Summary Statistics for Twin Data",
+        col.names = c("Variable", "Mean", "SD", "Median", "Min", "Max", "IQR"),
+        format = "html") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+                full_width = FALSE,
+                position = "left") %>%
+  add_header_above(c(" " = 1, "Summary Statistics" = 6)) %>%
+  footnote(general = "Note. This table presents the summary statistics for the variables in the twin dataset.",
+           general_title = " ",
+           footnote_as_chunk = TRUE)
+```
+
+The table above presents the summary statistics for the variables in the twin dataset, including the mean, standard deviation, median, minimum, maximum, and interquartile range.
+
+
+## Frequency Tables
+Next, we'll create frequency tables for categorical variables such as zygosity and sex, and format them in APA style.
+
+```{r}
+# Calculate frequency tables
+frequency_tables <- df_long %>%
+  select(zyg, sex) %>%
+  pivot_longer(cols = everything(), names_to = "Variable", values_to = "Category") %>%
+  group_by(Variable, Category) %>%
+  summarise(Count = n()) %>%
+  mutate(Percentage = round((Count / sum(Count)) * 100, 2)) %>%
+  ungroup()
+```
+Let's create an APA-style table for these frequency tables.
+
+# Generate APA-style table for frequency tables
+
+
+```{r}
+frequency_tables %>%
+  kable(caption = "Frequency Tables for Categorical Variables",
+        col.names = c("Variable", "Category", "Count", "Percentage"),
+        format = "html") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+                full_width = FALSE,
+                position = "left") %>%
+  add_header_above(c(" " = 2, "Frequency Table" = 2)) %>%
+  footnote(general = "Note. This table presents the frequency and percentage of categories for zygosity and sex in the twin dataset.",
+           general_title = " ",
+           footnote_as_chunk = TRUE)
+```

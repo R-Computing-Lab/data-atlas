@@ -1,3 +1,5 @@
+# (PART\*) Path Diagrams {-}
+
 # Introduction to Path Diagrams
 
 ```{r include = FALSE}
