@@ -133,10 +133,7 @@ It would produce a scatter plot comparing the height of twins with the height of
 The code above demonstrates the basic structure of a ggplot2 plot. To break down the key components of the plot you can press the left and right arrows on your keyboard to navigate through the slides below. Or if you prefer, you can click on the slide to advance to the next one. Below the slides you'll find the same content in a more traditional format.
 
 
-
-```
-#> Error in df_url$link: $ operator is invalid for atomic vectors
-```
+<iframe src="https://r-computing-lab.github.io/data-atlas/00_ggplot2.html#11" width="672" height="400px" data-external="1"></iframe>
 
 
 #### Plot Breakdown

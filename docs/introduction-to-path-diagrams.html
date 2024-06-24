@@ -23,7 +23,7 @@
 <meta name="author" content="S. Mason Garrison" />
 
 
-<meta name="date" content="2024-06-23" />
+<meta name="date" content="2024-06-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -353,50 +353,50 @@ div.csl-indent {
 <div id="example-diagram" class="section level4 hasAnchor" number="7.1.2.1">
 <h4><span class="header-section-number">7.1.2.1</span> Example Diagram<a href="introduction-to-path-diagrams.html#example-diagram" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Let’s put these components together using the <code>DiagrammeR</code> package to:</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="introduction-to-path-diagrams.html#cb78-1" tabindex="-1"></a><span class="fu">library</span>(DiagrammeR)</span>
-<span id="cb78-2"><a href="introduction-to-path-diagrams.html#cb78-2" tabindex="-1"></a><span class="fu">grViz</span>(<span class="st">&quot;</span></span>
-<span id="cb78-3"><a href="introduction-to-path-diagrams.html#cb78-3" tabindex="-1"></a><span class="st">  digraph simple_model {</span></span>
-<span id="cb78-4"><a href="introduction-to-path-diagrams.html#cb78-4" tabindex="-1"></a><span class="st">    node [fontname = Ariel, fontsize = 10]</span></span>
-<span id="cb78-5"><a href="introduction-to-path-diagrams.html#cb78-5" tabindex="-1"></a><span class="st">    Latent [shape = circle, label = &#39;Latent Variable L&#39;]</span></span>
-<span id="cb78-6"><a href="introduction-to-path-diagrams.html#cb78-6" tabindex="-1"></a><span class="st">    Obs1 [shape = box, label = &#39;Observed Variable 1&#39;]</span></span>
-<span id="cb78-7"><a href="introduction-to-path-diagrams.html#cb78-7" tabindex="-1"></a><span class="st">    Obs2 [shape = box, label = &#39;Observed Variable 2&#39;]</span></span>
-<span id="cb78-8"><a href="introduction-to-path-diagrams.html#cb78-8" tabindex="-1"></a><span class="st">    Latent -&gt; Obs1</span></span>
-<span id="cb78-9"><a href="introduction-to-path-diagrams.html#cb78-9" tabindex="-1"></a><span class="st">    Latent -&gt; Obs2</span></span>
-<span id="cb78-10"><a href="introduction-to-path-diagrams.html#cb78-10" tabindex="-1"></a><span class="st">  }</span></span>
-<span id="cb78-11"><a href="introduction-to-path-diagrams.html#cb78-11" tabindex="-1"></a><span class="st">&quot;</span>)</span></code></pre></div>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-728009a770edc01e6671" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-728009a770edc01e6671">{"x":{"diagram":"\n  digraph simple_model {\n    node [fontname = Ariel, fontsize = 10]\n    Latent [shape = circle, label = \"Latent Variable L\"]\n    Obs1 [shape = box, label = \"Observed Variable 1\"]\n    Obs2 [shape = box, label = \"Observed Variable 2\"]\n    Latent -> Obs1\n    Latent -> Obs2\n  }\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="introduction-to-path-diagrams.html#cb77-1" tabindex="-1"></a><span class="fu">library</span>(DiagrammeR)</span>
+<span id="cb77-2"><a href="introduction-to-path-diagrams.html#cb77-2" tabindex="-1"></a><span class="fu">grViz</span>(<span class="st">&quot;</span></span>
+<span id="cb77-3"><a href="introduction-to-path-diagrams.html#cb77-3" tabindex="-1"></a><span class="st">  digraph simple_model {</span></span>
+<span id="cb77-4"><a href="introduction-to-path-diagrams.html#cb77-4" tabindex="-1"></a><span class="st">    node [fontname = Ariel, fontsize = 10]</span></span>
+<span id="cb77-5"><a href="introduction-to-path-diagrams.html#cb77-5" tabindex="-1"></a><span class="st">    Latent [shape = circle, label = &#39;Latent Variable L&#39;]</span></span>
+<span id="cb77-6"><a href="introduction-to-path-diagrams.html#cb77-6" tabindex="-1"></a><span class="st">    Obs1 [shape = box, label = &#39;Observed Variable 1&#39;]</span></span>
+<span id="cb77-7"><a href="introduction-to-path-diagrams.html#cb77-7" tabindex="-1"></a><span class="st">    Obs2 [shape = box, label = &#39;Observed Variable 2&#39;]</span></span>
+<span id="cb77-8"><a href="introduction-to-path-diagrams.html#cb77-8" tabindex="-1"></a><span class="st">    Latent -&gt; Obs1</span></span>
+<span id="cb77-9"><a href="introduction-to-path-diagrams.html#cb77-9" tabindex="-1"></a><span class="st">    Latent -&gt; Obs2</span></span>
+<span id="cb77-10"><a href="introduction-to-path-diagrams.html#cb77-10" tabindex="-1"></a><span class="st">  }</span></span>
+<span id="cb77-11"><a href="introduction-to-path-diagrams.html#cb77-11" tabindex="-1"></a><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-001e01f58a833f411bd8" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-001e01f58a833f411bd8">{"x":{"diagram":"\n  digraph simple_model {\n    node [fontname = Ariel, fontsize = 10]\n    Latent [shape = circle, label = \"Latent Variable L\"]\n    Obs1 [shape = box, label = \"Observed Variable 1\"]\n    Obs2 [shape = box, label = \"Observed Variable 2\"]\n    Latent -> Obs1\n    Latent -> Obs2\n  }\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>This script uses the <code>DiagrammeR</code> package to manually create a path diagram where ‘Latent Variable L’ influences ‘Observed Variable 1’ and ‘Observed Variable 2’. The arrows indicate the direction of influence from the latent to the observed variables.</p>
 </div>
 </div>
 <div id="ace-model-example" class="section level3 hasAnchor" number="7.1.3">
 <h3><span class="header-section-number">7.1.3</span> ACE Model Example<a href="introduction-to-path-diagrams.html#ace-model-example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Here is a more complex example of a path diagram for a univariate ACE model using dot notation and the <code>DiagrammeR</code> package in R.</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="introduction-to-path-diagrams.html#cb79-1" tabindex="-1"></a><span class="fu">library</span>(DiagrammeR)</span>
-<span id="cb79-2"><a href="introduction-to-path-diagrams.html#cb79-2" tabindex="-1"></a><span class="fu">grViz</span>(<span class="st">&#39;digraph &quot;Univariate ACE Model&quot; {</span></span>
-<span id="cb79-3"><a href="introduction-to-path-diagrams.html#cb79-3" tabindex="-1"></a><span class="st">    node [style=filled, fontname=&quot;Arial&quot;, fontsize=16];</span></span>
-<span id="cb79-4"><a href="introduction-to-path-diagrams.html#cb79-4" tabindex="-1"></a></span>
-<span id="cb79-5"><a href="introduction-to-path-diagrams.html#cb79-5" tabindex="-1"></a><span class="st">    /* Observed Trait */</span></span>
-<span id="cb79-6"><a href="introduction-to-path-diagrams.html#cb79-6" tabindex="-1"></a><span class="st">    Trait [shape=square, fillcolor=&quot;#a9fab1&quot;, height=0.5, width=0.5, label=&quot;Trait&quot;];</span></span>
-<span id="cb79-7"><a href="introduction-to-path-diagrams.html#cb79-7" tabindex="-1"></a></span>
-<span id="cb79-8"><a href="introduction-to-path-diagrams.html#cb79-8" tabindex="-1"></a><span class="st">    /* Latent Variables */</span></span>
-<span id="cb79-9"><a href="introduction-to-path-diagrams.html#cb79-9" tabindex="-1"></a><span class="st">    A [shape=circle, fillcolor=&quot;#f4fd78&quot;, label=&quot;A&quot;];</span></span>
-<span id="cb79-10"><a href="introduction-to-path-diagrams.html#cb79-10" tabindex="-1"></a><span class="st">    C [shape=circle, fillcolor=&quot;#f4fd78&quot;, label=&quot;C&quot;];</span></span>
-<span id="cb79-11"><a href="introduction-to-path-diagrams.html#cb79-11" tabindex="-1"></a><span class="st">    E [shape=circle, fillcolor=&quot;#f4fd78&quot;, label=&quot;E&quot;];</span></span>
-<span id="cb79-12"><a href="introduction-to-path-diagrams.html#cb79-12" tabindex="-1"></a></span>
-<span id="cb79-13"><a href="introduction-to-path-diagrams.html#cb79-13" tabindex="-1"></a><span class="st">    /* Paths from Latent Variables to Observed Trait */</span></span>
-<span id="cb79-14"><a href="introduction-to-path-diagrams.html#cb79-14" tabindex="-1"></a><span class="st">    A -&gt; Trait [dir=forward];</span></span>
-<span id="cb79-15"><a href="introduction-to-path-diagrams.html#cb79-15" tabindex="-1"></a><span class="st">    C -&gt; Trait [dir=forward];</span></span>
-<span id="cb79-16"><a href="introduction-to-path-diagrams.html#cb79-16" tabindex="-1"></a><span class="st">    E -&gt; Trait [dir=forward];</span></span>
-<span id="cb79-17"><a href="introduction-to-path-diagrams.html#cb79-17" tabindex="-1"></a></span>
-<span id="cb79-18"><a href="introduction-to-path-diagrams.html#cb79-18" tabindex="-1"></a><span class="st">    /* Variance Paths for Latent Variables */</span></span>
-<span id="cb79-19"><a href="introduction-to-path-diagrams.html#cb79-19" tabindex="-1"></a><span class="st">    A -&gt; A [dir=both, headport=n, tailport=n];</span></span>
-<span id="cb79-20"><a href="introduction-to-path-diagrams.html#cb79-20" tabindex="-1"></a><span class="st">    C -&gt; C [dir=both, headport=n, tailport=n];</span></span>
-<span id="cb79-21"><a href="introduction-to-path-diagrams.html#cb79-21" tabindex="-1"></a><span class="st">    E -&gt; E [dir=both, headport=n, tailport=n];</span></span>
-<span id="cb79-22"><a href="introduction-to-path-diagrams.html#cb79-22" tabindex="-1"></a><span class="st">}&#39;</span></span>
-<span id="cb79-23"><a href="introduction-to-path-diagrams.html#cb79-23" tabindex="-1"></a>)</span></code></pre></div>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-c9dabf63d0a8da1cb9ca" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-c9dabf63d0a8da1cb9ca">{"x":{"diagram":"digraph \"Univariate ACE Model\" {\n\tnode [style=filled, fontname=\"Arial\", fontsize=16];\n\n\t/* Observed Trait */\n\tTrait [shape=square, fillcolor=\"#a9fab1\", height=0.5, width=0.5, label=\"Trait\"];\n\n\t/* Latent Variables */\n\tA [shape=circle, fillcolor=\"#f4fd78\", label=\"A\"];\n\tC [shape=circle, fillcolor=\"#f4fd78\", label=\"C\"];\n\tE [shape=circle, fillcolor=\"#f4fd78\", label=\"E\"];\n\n\t/* Paths from Latent Variables to Observed Trait */\n\tA -> Trait [dir=forward];\n\tC -> Trait [dir=forward];\n\tE -> Trait [dir=forward];\n\n\t/* Variance Paths for Latent Variables */\n\tA -> A [dir=both, headport=n, tailport=n];\n\tC -> C [dir=both, headport=n, tailport=n];\n\tE -> E [dir=both, headport=n, tailport=n];\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="introduction-to-path-diagrams.html#cb78-1" tabindex="-1"></a><span class="fu">library</span>(DiagrammeR)</span>
+<span id="cb78-2"><a href="introduction-to-path-diagrams.html#cb78-2" tabindex="-1"></a><span class="fu">grViz</span>(<span class="st">&#39;digraph &quot;Univariate ACE Model&quot; {</span></span>
+<span id="cb78-3"><a href="introduction-to-path-diagrams.html#cb78-3" tabindex="-1"></a><span class="st">    node [style=filled, fontname=&quot;Arial&quot;, fontsize=16];</span></span>
+<span id="cb78-4"><a href="introduction-to-path-diagrams.html#cb78-4" tabindex="-1"></a></span>
+<span id="cb78-5"><a href="introduction-to-path-diagrams.html#cb78-5" tabindex="-1"></a><span class="st">    /* Observed Trait */</span></span>
+<span id="cb78-6"><a href="introduction-to-path-diagrams.html#cb78-6" tabindex="-1"></a><span class="st">    Trait [shape=square, fillcolor=&quot;#a9fab1&quot;, height=0.5, width=0.5, label=&quot;Trait&quot;];</span></span>
+<span id="cb78-7"><a href="introduction-to-path-diagrams.html#cb78-7" tabindex="-1"></a></span>
+<span id="cb78-8"><a href="introduction-to-path-diagrams.html#cb78-8" tabindex="-1"></a><span class="st">    /* Latent Variables */</span></span>
+<span id="cb78-9"><a href="introduction-to-path-diagrams.html#cb78-9" tabindex="-1"></a><span class="st">    A [shape=circle, fillcolor=&quot;#f4fd78&quot;, label=&quot;A&quot;];</span></span>
+<span id="cb78-10"><a href="introduction-to-path-diagrams.html#cb78-10" tabindex="-1"></a><span class="st">    C [shape=circle, fillcolor=&quot;#f4fd78&quot;, label=&quot;C&quot;];</span></span>
+<span id="cb78-11"><a href="introduction-to-path-diagrams.html#cb78-11" tabindex="-1"></a><span class="st">    E [shape=circle, fillcolor=&quot;#f4fd78&quot;, label=&quot;E&quot;];</span></span>
+<span id="cb78-12"><a href="introduction-to-path-diagrams.html#cb78-12" tabindex="-1"></a></span>
+<span id="cb78-13"><a href="introduction-to-path-diagrams.html#cb78-13" tabindex="-1"></a><span class="st">    /* Paths from Latent Variables to Observed Trait */</span></span>
+<span id="cb78-14"><a href="introduction-to-path-diagrams.html#cb78-14" tabindex="-1"></a><span class="st">    A -&gt; Trait [dir=forward];</span></span>
+<span id="cb78-15"><a href="introduction-to-path-diagrams.html#cb78-15" tabindex="-1"></a><span class="st">    C -&gt; Trait [dir=forward];</span></span>
+<span id="cb78-16"><a href="introduction-to-path-diagrams.html#cb78-16" tabindex="-1"></a><span class="st">    E -&gt; Trait [dir=forward];</span></span>
+<span id="cb78-17"><a href="introduction-to-path-diagrams.html#cb78-17" tabindex="-1"></a></span>
+<span id="cb78-18"><a href="introduction-to-path-diagrams.html#cb78-18" tabindex="-1"></a><span class="st">    /* Variance Paths for Latent Variables */</span></span>
+<span id="cb78-19"><a href="introduction-to-path-diagrams.html#cb78-19" tabindex="-1"></a><span class="st">    A -&gt; A [dir=both, headport=n, tailport=n];</span></span>
+<span id="cb78-20"><a href="introduction-to-path-diagrams.html#cb78-20" tabindex="-1"></a><span class="st">    C -&gt; C [dir=both, headport=n, tailport=n];</span></span>
+<span id="cb78-21"><a href="introduction-to-path-diagrams.html#cb78-21" tabindex="-1"></a><span class="st">    E -&gt; E [dir=both, headport=n, tailport=n];</span></span>
+<span id="cb78-22"><a href="introduction-to-path-diagrams.html#cb78-22" tabindex="-1"></a><span class="st">}&#39;</span></span>
+<span id="cb78-23"><a href="introduction-to-path-diagrams.html#cb78-23" tabindex="-1"></a>)</span></code></pre></div>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-d58f34823d63161df5d9" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-d58f34823d63161df5d9">{"x":{"diagram":"digraph \"Univariate ACE Model\" {\n\tnode [style=filled, fontname=\"Arial\", fontsize=16];\n\n\t/* Observed Trait */\n\tTrait [shape=square, fillcolor=\"#a9fab1\", height=0.5, width=0.5, label=\"Trait\"];\n\n\t/* Latent Variables */\n\tA [shape=circle, fillcolor=\"#f4fd78\", label=\"A\"];\n\tC [shape=circle, fillcolor=\"#f4fd78\", label=\"C\"];\n\tE [shape=circle, fillcolor=\"#f4fd78\", label=\"E\"];\n\n\t/* Paths from Latent Variables to Observed Trait */\n\tA -> Trait [dir=forward];\n\tC -> Trait [dir=forward];\n\tE -> Trait [dir=forward];\n\n\t/* Variance Paths for Latent Variables */\n\tA -> A [dir=both, headport=n, tailport=n];\n\tC -> C [dir=both, headport=n, tailport=n];\n\tE -> E [dir=both, headport=n, tailport=n];\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Below is an explanation of the code snippet:</p>
 <p>Latent Variables:</p>
 <ul>
@@ -424,19 +424,19 @@ div.csl-indent {
 <p>There are several existing software tools that can be used to create path diagrams for specific models, such as the <code>umx</code> and <code>OpenMx</code> packages in R. These tools provide a user-friendly interface for creating and visualizing path diagrams, making it easier to understand and communicate complex models.</p>
 <div id="creating-a-path-diagram-with-omxgraphviz" class="section level3 hasAnchor" number="7.2.1">
 <h3><span class="header-section-number">7.2.1</span> Creating a Path Diagram with <code>omxGraphviz</code><a href="introduction-to-path-diagrams.html#creating-a-path-diagram-with-omxgraphviz" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="introduction-to-path-diagrams.html#cb80-1" tabindex="-1"></a><span class="fu">library</span>(OpenMx)</span>
-<span id="cb80-2"><a href="introduction-to-path-diagrams.html#cb80-2" tabindex="-1"></a><span class="fu">data</span>(demoOneFactor)</span>
-<span id="cb80-3"><a href="introduction-to-path-diagrams.html#cb80-3" tabindex="-1"></a>manifests <span class="ot">&lt;-</span> <span class="fu">names</span>(demoOneFactor)</span>
-<span id="cb80-4"><a href="introduction-to-path-diagrams.html#cb80-4" tabindex="-1"></a>latents <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;G1&quot;</span>)</span>
-<span id="cb80-5"><a href="introduction-to-path-diagrams.html#cb80-5" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">mxModel</span>(<span class="st">&quot;One Factor&quot;</span>, <span class="at">type=</span><span class="st">&quot;RAM&quot;</span>,</span>
-<span id="cb80-6"><a href="introduction-to-path-diagrams.html#cb80-6" tabindex="-1"></a>    <span class="at">manifestVars =</span> manifests,</span>
-<span id="cb80-7"><a href="introduction-to-path-diagrams.html#cb80-7" tabindex="-1"></a>    <span class="at">latentVars =</span> latents,</span>
-<span id="cb80-8"><a href="introduction-to-path-diagrams.html#cb80-8" tabindex="-1"></a>    <span class="fu">mxPath</span>(<span class="at">from=</span>latents, <span class="at">to=</span>manifests),</span>
-<span id="cb80-9"><a href="introduction-to-path-diagrams.html#cb80-9" tabindex="-1"></a>    <span class="fu">mxPath</span>(<span class="at">from=</span>manifests, <span class="at">arrows=</span><span class="dv">2</span>),</span>
-<span id="cb80-10"><a href="introduction-to-path-diagrams.html#cb80-10" tabindex="-1"></a>    <span class="fu">mxPath</span>(<span class="at">from=</span>latents, <span class="at">arrows=</span><span class="dv">2</span>, <span class="at">free=</span>F, <span class="at">values=</span><span class="fl">1.0</span>),</span>
-<span id="cb80-11"><a href="introduction-to-path-diagrams.html#cb80-11" tabindex="-1"></a>    <span class="fu">mxData</span>(<span class="fu">cov</span>(demoOneFactor), <span class="at">type=</span><span class="st">&quot;cov&quot;</span>,<span class="at">numObs=</span><span class="dv">500</span>)</span>
-<span id="cb80-12"><a href="introduction-to-path-diagrams.html#cb80-12" tabindex="-1"></a>)</span>
-<span id="cb80-13"><a href="introduction-to-path-diagrams.html#cb80-13" tabindex="-1"></a><span class="fu">omxGraphviz</span>(model1, <span class="st">&quot;one-factor-generated.dot&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="introduction-to-path-diagrams.html#cb79-1" tabindex="-1"></a><span class="fu">library</span>(OpenMx)</span>
+<span id="cb79-2"><a href="introduction-to-path-diagrams.html#cb79-2" tabindex="-1"></a><span class="fu">data</span>(demoOneFactor)</span>
+<span id="cb79-3"><a href="introduction-to-path-diagrams.html#cb79-3" tabindex="-1"></a>manifests <span class="ot">&lt;-</span> <span class="fu">names</span>(demoOneFactor)</span>
+<span id="cb79-4"><a href="introduction-to-path-diagrams.html#cb79-4" tabindex="-1"></a>latents <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;G1&quot;</span>)</span>
+<span id="cb79-5"><a href="introduction-to-path-diagrams.html#cb79-5" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">mxModel</span>(<span class="st">&quot;One Factor&quot;</span>, <span class="at">type=</span><span class="st">&quot;RAM&quot;</span>,</span>
+<span id="cb79-6"><a href="introduction-to-path-diagrams.html#cb79-6" tabindex="-1"></a>    <span class="at">manifestVars =</span> manifests,</span>
+<span id="cb79-7"><a href="introduction-to-path-diagrams.html#cb79-7" tabindex="-1"></a>    <span class="at">latentVars =</span> latents,</span>
+<span id="cb79-8"><a href="introduction-to-path-diagrams.html#cb79-8" tabindex="-1"></a>    <span class="fu">mxPath</span>(<span class="at">from=</span>latents, <span class="at">to=</span>manifests),</span>
+<span id="cb79-9"><a href="introduction-to-path-diagrams.html#cb79-9" tabindex="-1"></a>    <span class="fu">mxPath</span>(<span class="at">from=</span>manifests, <span class="at">arrows=</span><span class="dv">2</span>),</span>
+<span id="cb79-10"><a href="introduction-to-path-diagrams.html#cb79-10" tabindex="-1"></a>    <span class="fu">mxPath</span>(<span class="at">from=</span>latents, <span class="at">arrows=</span><span class="dv">2</span>, <span class="at">free=</span>F, <span class="at">values=</span><span class="fl">1.0</span>),</span>
+<span id="cb79-11"><a href="introduction-to-path-diagrams.html#cb79-11" tabindex="-1"></a>    <span class="fu">mxData</span>(<span class="fu">cov</span>(demoOneFactor), <span class="at">type=</span><span class="st">&quot;cov&quot;</span>,<span class="at">numObs=</span><span class="dv">500</span>)</span>
+<span id="cb79-12"><a href="introduction-to-path-diagrams.html#cb79-12" tabindex="-1"></a>)</span>
+<span id="cb79-13"><a href="introduction-to-path-diagrams.html#cb79-13" tabindex="-1"></a><span class="fu">omxGraphviz</span>(model1, <span class="st">&quot;one-factor-generated.dot&quot;</span>)</span></code></pre></div>
 <p>The following code snippet creates a path diagram for a one-factor model using the OpenMx package. The model includes one latent variable (G1) and three manifest variables (x1, x2, x3). The <code>mxModel</code> function is used to define the model, and the <code>mxPath</code> function is used to specify the paths between variables. The <code>mxData</code> function is used to specify the data for the model. Finally, the <code>omxGraphviz</code> function is used to generate a graphical representation of the model in the form of a dot file.</p>
 <p>I have annotated the dot file to explain the purpose of each function and argument. The resulting dot file can be visualized using graph visualization tools like Graphviz or packages like <code>DiagrammeR</code>.</p>
 <pre><code>digraph &quot;One Factor&quot; {
@@ -477,84 +477,84 @@ div.csl-indent {
   G1 -&gt; G1[dir=both, headport=n, tailport=n];
 }</code></pre>
 <p>We can load the dot file into R and visualize the path diagram using the <code>DiagrammeR</code> package.</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="introduction-to-path-diagrams.html#cb82-1" tabindex="-1"></a></span>
-<span id="cb82-2"><a href="introduction-to-path-diagrams.html#cb82-2" tabindex="-1"></a><span class="fu">library</span>(DiagrammeR)</span>
-<span id="cb82-3"><a href="introduction-to-path-diagrams.html#cb82-3" tabindex="-1"></a></span>
-<span id="cb82-4"><a href="introduction-to-path-diagrams.html#cb82-4" tabindex="-1"></a></span>
-<span id="cb82-5"><a href="introduction-to-path-diagrams.html#cb82-5" tabindex="-1"></a><span class="fu">grViz</span>(<span class="st">&quot;one-factor-generated.dot&quot;</span>)</span></code></pre></div>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-86debff373fca0fa25a9" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-86debff373fca0fa25a9">{"x":{"diagram":"digraph \"One Factor\" {\n\t node [style=filled, fontname=\"Arial\", fontsize=16];\n \t /* Manifest Variables */\n \t { rank = max; x1; x2; x3; x4; x5 }\n\t x1 [shape=square, fillcolor=\"#a9fab1\", height=0.5, width=0.5];\n\t x2 [shape=square, fillcolor=\"#a9fab1\", height=0.5, width=0.5];\n\t x3 [shape=square, fillcolor=\"#a9fab1\", height=0.5, width=0.5];\n\t x4 [shape=square, fillcolor=\"#a9fab1\", height=0.5, width=0.5];\n\t x5 [shape=square, fillcolor=\"#a9fab1\", height=0.5, width=0.5];\n/* Latent Variables */\n\t G1 [shape=circle, fillcolor=\"#f4fd78\"];\n/* Paths */\n\t G1 -> x1[dir=forward];\n\t G1 -> x2[dir=forward];\n\t G1 -> x3[dir=forward];\n\t G1 -> x4[dir=forward];\n\t G1 -> x5[dir=forward];\n\t x1 -> x1[dir=both, headport=s, tailport=s];\n\t x2 -> x2[dir=both, headport=s, tailport=s];\n\t x3 -> x3[dir=both, headport=s, tailport=s];\n\t x4 -> x4[dir=both, headport=s, tailport=s];\n\t x5 -> x5[dir=both, headport=s, tailport=s];\n\t G1 -> G1[dir=both, headport=n, tailport=n];\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="introduction-to-path-diagrams.html#cb81-1" tabindex="-1"></a></span>
+<span id="cb81-2"><a href="introduction-to-path-diagrams.html#cb81-2" tabindex="-1"></a><span class="fu">library</span>(DiagrammeR)</span>
+<span id="cb81-3"><a href="introduction-to-path-diagrams.html#cb81-3" tabindex="-1"></a></span>
+<span id="cb81-4"><a href="introduction-to-path-diagrams.html#cb81-4" tabindex="-1"></a></span>
+<span id="cb81-5"><a href="introduction-to-path-diagrams.html#cb81-5" tabindex="-1"></a><span class="fu">grViz</span>(<span class="st">&quot;one-factor-generated.dot&quot;</span>)</span></code></pre></div>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-a508773bf9658c442c35" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-a508773bf9658c442c35">{"x":{"diagram":"digraph \"One Factor\" {\n\t node [style=filled, fontname=\"Arial\", fontsize=16];\n \t /* Manifest Variables */\n \t { rank = max; x1; x2; x3; x4; x5 }\n\t x1 [shape=square, fillcolor=\"#a9fab1\", height=0.5, width=0.5];\n\t x2 [shape=square, fillcolor=\"#a9fab1\", height=0.5, width=0.5];\n\t x3 [shape=square, fillcolor=\"#a9fab1\", height=0.5, width=0.5];\n\t x4 [shape=square, fillcolor=\"#a9fab1\", height=0.5, width=0.5];\n\t x5 [shape=square, fillcolor=\"#a9fab1\", height=0.5, width=0.5];\n/* Latent Variables */\n\t G1 [shape=circle, fillcolor=\"#f4fd78\"];\n/* Paths */\n\t G1 -> x1[dir=forward];\n\t G1 -> x2[dir=forward];\n\t G1 -> x3[dir=forward];\n\t G1 -> x4[dir=forward];\n\t G1 -> x5[dir=forward];\n\t x1 -> x1[dir=both, headport=s, tailport=s];\n\t x2 -> x2[dir=both, headport=s, tailport=s];\n\t x3 -> x3[dir=both, headport=s, tailport=s];\n\t x4 -> x4[dir=both, headport=s, tailport=s];\n\t x5 -> x5[dir=both, headport=s, tailport=s];\n\t G1 -> G1[dir=both, headport=n, tailport=n];\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>The resulting path diagram shows the relationships between the latent variable G1 and the manifest variables x1, x2, x3, x4, and x5. The directional paths from G1 to the manifest variables represent the factor loadings, while the bidirectional paths for each manifest variable represent the error terms. The bidirectional path for the latent variable G1 represents its variance.</p>
 </div>
 <div id="creating-a-path-diagram-for-an-ace-model-using-the-umx-package" class="section level3 hasAnchor" number="7.2.2">
 <h3><span class="header-section-number">7.2.2</span> Creating a Path Diagram for an ACE Model Using the <code>umx</code> Package<a href="introduction-to-path-diagrams.html#creating-a-path-diagram-for-an-ace-model-using-the-umx-package" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <code>umx</code> package provides a user-friendly interface for specifying and estimating structural equation models, including path diagrams for classical models like the ACE model in twin studies. The <code>umx</code> package simplifies the process of specifying and estimating complex structural equation models like the ACE model. Below is an example of how to create a path diagram for an ACE model using the <code>umx</code> package in R. (Many thanks to Tim Bates for providing the source code).</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="introduction-to-path-diagrams.html#cb83-1" tabindex="-1"></a><span class="fu">library</span>(umx)</span>
-<span id="cb83-2"><a href="introduction-to-path-diagrams.html#cb83-2" tabindex="-1"></a><span class="co">#&gt; For an overview type &#39;?umx&#39;</span></span>
-<span id="cb83-3"><a href="introduction-to-path-diagrams.html#cb83-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb83-4"><a href="introduction-to-path-diagrams.html#cb83-4" tabindex="-1"></a><span class="co">#&gt; Attaching package: &#39;umx&#39;</span></span>
-<span id="cb83-5"><a href="introduction-to-path-diagrams.html#cb83-5" tabindex="-1"></a><span class="co">#&gt; The following object is masked from &#39;package:stats&#39;:</span></span>
-<span id="cb83-6"><a href="introduction-to-path-diagrams.html#cb83-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb83-7"><a href="introduction-to-path-diagrams.html#cb83-7" tabindex="-1"></a><span class="co">#&gt;     loadings</span></span></code></pre></div>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="introduction-to-path-diagrams.html#cb84-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb84-2"><a href="introduction-to-path-diagrams.html#cb84-2" tabindex="-1"></a><span class="co"># Thanks to Tim Bates for making some nice tidy Source Code</span></span>
-<span id="cb84-3"><a href="introduction-to-path-diagrams.html#cb84-3" tabindex="-1"></a><span class="co"># =====================</span></span>
-<span id="cb84-4"><a href="introduction-to-path-diagrams.html#cb84-4" tabindex="-1"></a><span class="co"># = Make an ACE model =</span></span>
-<span id="cb84-5"><a href="introduction-to-path-diagrams.html#cb84-5" tabindex="-1"></a><span class="co"># =====================</span></span>
-<span id="cb84-6"><a href="introduction-to-path-diagrams.html#cb84-6" tabindex="-1"></a><span class="co"># 1. Clean data: Add separator and scale</span></span>
-<span id="cb84-7"><a href="introduction-to-path-diagrams.html#cb84-7" tabindex="-1"></a><span class="fu">data</span>(twinData)</span>
-<span id="cb84-8"><a href="introduction-to-path-diagrams.html#cb84-8" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">umx_make_twin_data_nice</span>(<span class="at">data=</span>twinData, </span>
-<span id="cb84-9"><a href="introduction-to-path-diagrams.html#cb84-9" tabindex="-1"></a>                               <span class="at">sep=</span><span class="st">&quot;&quot;</span>, <span class="at">zygosity=</span><span class="st">&quot;zygosity&quot;</span>, </span>
-<span id="cb84-10"><a href="introduction-to-path-diagrams.html#cb84-10" tabindex="-1"></a>                               <span class="at">numbering=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb84-11"><a href="introduction-to-path-diagrams.html#cb84-11" tabindex="-1"></a>  <span class="fu">umx_scale_wide_twin_data</span>(<span class="at">varsToScale=</span> <span class="fu">c</span>(<span class="st">&quot;wt&quot;</span>, <span class="st">&quot;ht&quot;</span>), </span>
-<span id="cb84-12"><a href="introduction-to-path-diagrams.html#cb84-12" tabindex="-1"></a>                           <span class="at">sep=</span> <span class="st">&quot;_T&quot;</span>,</span>
-<span id="cb84-13"><a href="introduction-to-path-diagrams.html#cb84-13" tabindex="-1"></a>                           <span class="at">data=</span> .)</span>
-<span id="cb84-14"><a href="introduction-to-path-diagrams.html#cb84-14" tabindex="-1"></a>mzData <span class="ot">&lt;-</span> <span class="fu">subset</span>(tmp, zygosity <span class="sc">%in%</span>  </span>
-<span id="cb84-15"><a href="introduction-to-path-diagrams.html#cb84-15" tabindex="-1"></a>                   <span class="fu">c</span>(<span class="st">&quot;MZFF&quot;</span>, <span class="st">&quot;MZMM&quot;</span>))</span>
-<span id="cb84-16"><a href="introduction-to-path-diagrams.html#cb84-16" tabindex="-1"></a>dzData <span class="ot">&lt;-</span> <span class="fu">subset</span>(tmp, zygosity <span class="sc">%in%</span>  </span>
-<span id="cb84-17"><a href="introduction-to-path-diagrams.html#cb84-17" tabindex="-1"></a>                   <span class="fu">c</span>(<span class="st">&quot;DZFF&quot;</span>, <span class="st">&quot;DZMM&quot;</span>))</span>
-<span id="cb84-18"><a href="introduction-to-path-diagrams.html#cb84-18" tabindex="-1"></a></span>
-<span id="cb84-19"><a href="introduction-to-path-diagrams.html#cb84-19" tabindex="-1"></a><span class="co"># 2. Define paths: You only need the paths for one person:</span></span>
-<span id="cb84-20"><a href="introduction-to-path-diagrams.html#cb84-20" tabindex="-1"></a>paths <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb84-21"><a href="introduction-to-path-diagrams.html#cb84-21" tabindex="-1"></a>  <span class="fu">umxPath</span>(<span class="at">v1m0 =</span> <span class="fu">c</span>(<span class="st">&quot;a1&quot;</span>, <span class="st">&#39;c1&#39;</span>, <span class="st">&quot;e1&quot;</span>)),</span>
-<span id="cb84-22"><a href="introduction-to-path-diagrams.html#cb84-22" tabindex="-1"></a>  <span class="fu">umxPath</span>(<span class="at">means =</span> <span class="fu">c</span>(<span class="st">&quot;wt&quot;</span>)),</span>
-<span id="cb84-23"><a href="introduction-to-path-diagrams.html#cb84-23" tabindex="-1"></a>  <span class="fu">umxPath</span>(<span class="fu">c</span>(<span class="st">&quot;a1&quot;</span>, <span class="st">&#39;c1&#39;</span>, <span class="st">&quot;e1&quot;</span>), <span class="at">to =</span> <span class="st">&quot;wt&quot;</span>, <span class="at">values=</span>.<span class="dv">2</span>)</span>
-<span id="cb84-24"><a href="introduction-to-path-diagrams.html#cb84-24" tabindex="-1"></a>)</span>
-<span id="cb84-25"><a href="introduction-to-path-diagrams.html#cb84-25" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">umxTwinMaker</span>(<span class="st">&quot;test&quot;</span>, paths, <span class="at">mzData =</span> mzData, <span class="at">dzData =</span> dzData)</span>
-<span id="cb84-26"><a href="introduction-to-path-diagrams.html#cb84-26" tabindex="-1"></a><span class="co">#&gt; 6 latent variables were created:a1_T1, c1_T1, e1_T1, a1_T2, c1_T2, e1_T2.</span></span>
-<span id="cb84-27"><a href="introduction-to-path-diagrams.html#cb84-27" tabindex="-1"></a><span class="co">#&gt; 6 latent variables were created:a1_T1, c1_T1, e1_T1, a1_T2, c1_T2, e1_T2.</span></span>
-<span id="cb84-28"><a href="introduction-to-path-diagrams.html#cb84-28" tabindex="-1"></a><span class="co">#&gt; Running test with 4 parameters</span></span>
-<span id="cb84-29"><a href="introduction-to-path-diagrams.html#cb84-29" tabindex="-1"></a><span class="co">#&gt; ?umxSummary options: std=T|F&#39;, digits=, report= &#39;html&#39;, filter= &#39;NS&#39; &amp; more</span></span>
-<span id="cb84-30"><a href="introduction-to-path-diagrams.html#cb84-30" tabindex="-1"></a><span class="co">#&gt; Running Saturated test with 10 parameters</span></span>
-<span id="cb84-31"><a href="introduction-to-path-diagrams.html#cb84-31" tabindex="-1"></a><span class="co">#&gt; Running Independence test with 8 parameters</span></span>
-<span id="cb84-32"><a href="introduction-to-path-diagrams.html#cb84-32" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb84-33"><a href="introduction-to-path-diagrams.html#cb84-33" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb84-34"><a href="introduction-to-path-diagrams.html#cb84-34" tabindex="-1"></a><span class="co">#&gt; Table: (\#tab:unnamed-chunk-5)Parameter loadings for model &#39;test&#39;</span></span>
-<span id="cb84-35"><a href="introduction-to-path-diagrams.html#cb84-35" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb84-36"><a href="introduction-to-path-diagrams.html#cb84-36" tabindex="-1"></a><span class="co">#&gt; |   |name             | Estimate|SE    |type            |</span></span>
-<span id="cb84-37"><a href="introduction-to-path-diagrams.html#cb84-37" tabindex="-1"></a><span class="co">#&gt; |:--|:----------------|--------:|:-----|:---------------|</span></span>
-<span id="cb84-38"><a href="introduction-to-path-diagrams.html#cb84-38" tabindex="-1"></a><span class="co">#&gt; |8  |a1_T1_MZr_a1_T2  |    1.000|0     |Factor Cov      |</span></span>
-<span id="cb84-39"><a href="introduction-to-path-diagrams.html#cb84-39" tabindex="-1"></a><span class="co">#&gt; |10 |c1_T1_MZr_c1_T2  |    1.000|0     |Factor Cov      |</span></span>
-<span id="cb84-40"><a href="introduction-to-path-diagrams.html#cb84-40" tabindex="-1"></a><span class="co">#&gt; |24 |a1_T1_DZr_a1_T2  |    0.500|0     |Factor Cov      |</span></span>
-<span id="cb84-41"><a href="introduction-to-path-diagrams.html#cb84-41" tabindex="-1"></a><span class="co">#&gt; |26 |c1_T1_DZr_c1_T2  |    1.000|0     |Factor Cov      |</span></span>
-<span id="cb84-42"><a href="introduction-to-path-diagrams.html#cb84-42" tabindex="-1"></a><span class="co">#&gt; |1  |a1_to_wt         |    0.773|0.025 |Factor loading  |</span></span>
-<span id="cb84-43"><a href="introduction-to-path-diagrams.html#cb84-43" tabindex="-1"></a><span class="co">#&gt; |2  |c1_to_wt         |    0.461|0.043 |Factor loading  |</span></span>
-<span id="cb84-44"><a href="introduction-to-path-diagrams.html#cb84-44" tabindex="-1"></a><span class="co">#&gt; |3  |e1_to_wt         |    0.378|0.006 |Factor loading  |</span></span>
-<span id="cb84-45"><a href="introduction-to-path-diagrams.html#cb84-45" tabindex="-1"></a><span class="co">#&gt; |7  |a1_T1_with_a1_T1 |    1.000|0     |Factor Variance |</span></span>
-<span id="cb84-46"><a href="introduction-to-path-diagrams.html#cb84-46" tabindex="-1"></a><span class="co">#&gt; |9  |c1_T1_with_c1_T1 |    1.000|0     |Factor Variance |</span></span>
-<span id="cb84-47"><a href="introduction-to-path-diagrams.html#cb84-47" tabindex="-1"></a><span class="co">#&gt; |11 |e1_T1_with_e1_T1 |    1.000|0     |Factor Variance |</span></span>
-<span id="cb84-48"><a href="introduction-to-path-diagrams.html#cb84-48" tabindex="-1"></a><span class="co">#&gt; |12 |a1_T2_with_a1_T2 |    1.000|0     |Factor Variance |</span></span>
-<span id="cb84-49"><a href="introduction-to-path-diagrams.html#cb84-49" tabindex="-1"></a><span class="co">#&gt; |13 |c1_T2_with_c1_T2 |    1.000|0     |Factor Variance |</span></span>
-<span id="cb84-50"><a href="introduction-to-path-diagrams.html#cb84-50" tabindex="-1"></a><span class="co">#&gt; |14 |e1_T2_with_e1_T2 |    1.000|0     |Factor Variance |</span></span>
-<span id="cb84-51"><a href="introduction-to-path-diagrams.html#cb84-51" tabindex="-1"></a><span class="co">#&gt; |15 |one_to_wt        |   -0.065|0.017 |Mean            |</span></span>
-<span id="cb84-52"><a href="introduction-to-path-diagrams.html#cb84-52" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb84-53"><a href="introduction-to-path-diagrams.html#cb84-53" tabindex="-1"></a><span class="co">#&gt; Model Fit: χ²(6) = 8.64, p = 0.195; CFI = 0.999; TLI = 1; RMSEA = 0.012</span></span></code></pre></div>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="introduction-to-path-diagrams.html#cb85-1" tabindex="-1"></a></span>
-<span id="cb85-2"><a href="introduction-to-path-diagrams.html#cb85-2" tabindex="-1"></a><span class="fu">plot</span>(m1, <span class="at">std=</span> <span class="cn">TRUE</span>, <span class="at">means=</span> <span class="cn">FALSE</span>)</span>
-<span id="cb85-3"><a href="introduction-to-path-diagrams.html#cb85-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb85-4"><a href="introduction-to-path-diagrams.html#cb85-4" tabindex="-1"></a><span class="co">#&gt; ?plot.MxModel options: std, means, digits, strip_zero, file, splines=T/F, min=, max =, same = , fixed, resid= &#39;circle|line|none&#39;</span></span></code></pre></div>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-93feff4d9d96707fbf07" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-93feff4d9d96707fbf07">{"x":{"diagram":"digraph G {\n    label=\"MZ\";\n\tsplines=\"TRUE\";\n\t# Latents\n\ta1_T1 [shape = circle];\n\tc1_T1 [shape = circle];\n\te1_T1 [shape = circle];\n\n\t# Manifests\n\twt_T1 [shape = square];\n\n\t#Variances/residuals\n\ta1_T1 -> a1_T1[label=\"@1\", dir=both, headport=n, tailport=n];\n\tc1_T1 -> c1_T1[label=\"@1\", dir=both, headport=n, tailport=n];\n\te1_T1 -> e1_T1[label=\"@1\", dir=both, headport=n, tailport=n];\n\n\n\t# Single arrow paths\n\ta1_T1 -> wt_T1 [label=\"0.79\"];\n\tc1_T1 -> wt_T1 [label=\"0.47\"];\n\te1_T1 -> wt_T1 [label=\"0.39\"];\n\n\t# Covariances\n\n\t{rank=min; a1_T1; c1_T1; e1_T1};\n\t{rank=same; wt_T1};\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="introduction-to-path-diagrams.html#cb82-1" tabindex="-1"></a><span class="fu">library</span>(umx)</span>
+<span id="cb82-2"><a href="introduction-to-path-diagrams.html#cb82-2" tabindex="-1"></a><span class="co">#&gt; For an overview type &#39;?umx&#39;</span></span>
+<span id="cb82-3"><a href="introduction-to-path-diagrams.html#cb82-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb82-4"><a href="introduction-to-path-diagrams.html#cb82-4" tabindex="-1"></a><span class="co">#&gt; Attaching package: &#39;umx&#39;</span></span>
+<span id="cb82-5"><a href="introduction-to-path-diagrams.html#cb82-5" tabindex="-1"></a><span class="co">#&gt; The following object is masked from &#39;package:stats&#39;:</span></span>
+<span id="cb82-6"><a href="introduction-to-path-diagrams.html#cb82-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb82-7"><a href="introduction-to-path-diagrams.html#cb82-7" tabindex="-1"></a><span class="co">#&gt;     loadings</span></span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="introduction-to-path-diagrams.html#cb83-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb83-2"><a href="introduction-to-path-diagrams.html#cb83-2" tabindex="-1"></a><span class="co"># Thanks to Tim Bates for making some nice tidy Source Code</span></span>
+<span id="cb83-3"><a href="introduction-to-path-diagrams.html#cb83-3" tabindex="-1"></a><span class="co"># =====================</span></span>
+<span id="cb83-4"><a href="introduction-to-path-diagrams.html#cb83-4" tabindex="-1"></a><span class="co"># = Make an ACE model =</span></span>
+<span id="cb83-5"><a href="introduction-to-path-diagrams.html#cb83-5" tabindex="-1"></a><span class="co"># =====================</span></span>
+<span id="cb83-6"><a href="introduction-to-path-diagrams.html#cb83-6" tabindex="-1"></a><span class="co"># 1. Clean data: Add separator and scale</span></span>
+<span id="cb83-7"><a href="introduction-to-path-diagrams.html#cb83-7" tabindex="-1"></a><span class="fu">data</span>(twinData)</span>
+<span id="cb83-8"><a href="introduction-to-path-diagrams.html#cb83-8" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">umx_make_twin_data_nice</span>(<span class="at">data=</span>twinData, </span>
+<span id="cb83-9"><a href="introduction-to-path-diagrams.html#cb83-9" tabindex="-1"></a>                               <span class="at">sep=</span><span class="st">&quot;&quot;</span>, <span class="at">zygosity=</span><span class="st">&quot;zygosity&quot;</span>, </span>
+<span id="cb83-10"><a href="introduction-to-path-diagrams.html#cb83-10" tabindex="-1"></a>                               <span class="at">numbering=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb83-11"><a href="introduction-to-path-diagrams.html#cb83-11" tabindex="-1"></a>  <span class="fu">umx_scale_wide_twin_data</span>(<span class="at">varsToScale=</span> <span class="fu">c</span>(<span class="st">&quot;wt&quot;</span>, <span class="st">&quot;ht&quot;</span>), </span>
+<span id="cb83-12"><a href="introduction-to-path-diagrams.html#cb83-12" tabindex="-1"></a>                           <span class="at">sep=</span> <span class="st">&quot;_T&quot;</span>,</span>
+<span id="cb83-13"><a href="introduction-to-path-diagrams.html#cb83-13" tabindex="-1"></a>                           <span class="at">data=</span> .)</span>
+<span id="cb83-14"><a href="introduction-to-path-diagrams.html#cb83-14" tabindex="-1"></a>mzData <span class="ot">&lt;-</span> <span class="fu">subset</span>(tmp, zygosity <span class="sc">%in%</span>  </span>
+<span id="cb83-15"><a href="introduction-to-path-diagrams.html#cb83-15" tabindex="-1"></a>                   <span class="fu">c</span>(<span class="st">&quot;MZFF&quot;</span>, <span class="st">&quot;MZMM&quot;</span>))</span>
+<span id="cb83-16"><a href="introduction-to-path-diagrams.html#cb83-16" tabindex="-1"></a>dzData <span class="ot">&lt;-</span> <span class="fu">subset</span>(tmp, zygosity <span class="sc">%in%</span>  </span>
+<span id="cb83-17"><a href="introduction-to-path-diagrams.html#cb83-17" tabindex="-1"></a>                   <span class="fu">c</span>(<span class="st">&quot;DZFF&quot;</span>, <span class="st">&quot;DZMM&quot;</span>))</span>
+<span id="cb83-18"><a href="introduction-to-path-diagrams.html#cb83-18" tabindex="-1"></a></span>
+<span id="cb83-19"><a href="introduction-to-path-diagrams.html#cb83-19" tabindex="-1"></a><span class="co"># 2. Define paths: You only need the paths for one person:</span></span>
+<span id="cb83-20"><a href="introduction-to-path-diagrams.html#cb83-20" tabindex="-1"></a>paths <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb83-21"><a href="introduction-to-path-diagrams.html#cb83-21" tabindex="-1"></a>  <span class="fu">umxPath</span>(<span class="at">v1m0 =</span> <span class="fu">c</span>(<span class="st">&quot;a1&quot;</span>, <span class="st">&#39;c1&#39;</span>, <span class="st">&quot;e1&quot;</span>)),</span>
+<span id="cb83-22"><a href="introduction-to-path-diagrams.html#cb83-22" tabindex="-1"></a>  <span class="fu">umxPath</span>(<span class="at">means =</span> <span class="fu">c</span>(<span class="st">&quot;wt&quot;</span>)),</span>
+<span id="cb83-23"><a href="introduction-to-path-diagrams.html#cb83-23" tabindex="-1"></a>  <span class="fu">umxPath</span>(<span class="fu">c</span>(<span class="st">&quot;a1&quot;</span>, <span class="st">&#39;c1&#39;</span>, <span class="st">&quot;e1&quot;</span>), <span class="at">to =</span> <span class="st">&quot;wt&quot;</span>, <span class="at">values=</span>.<span class="dv">2</span>)</span>
+<span id="cb83-24"><a href="introduction-to-path-diagrams.html#cb83-24" tabindex="-1"></a>)</span>
+<span id="cb83-25"><a href="introduction-to-path-diagrams.html#cb83-25" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">umxTwinMaker</span>(<span class="st">&quot;test&quot;</span>, paths, <span class="at">mzData =</span> mzData, <span class="at">dzData =</span> dzData)</span>
+<span id="cb83-26"><a href="introduction-to-path-diagrams.html#cb83-26" tabindex="-1"></a><span class="co">#&gt; 6 latent variables were created:a1_T1, c1_T1, e1_T1, a1_T2, c1_T2, e1_T2.</span></span>
+<span id="cb83-27"><a href="introduction-to-path-diagrams.html#cb83-27" tabindex="-1"></a><span class="co">#&gt; 6 latent variables were created:a1_T1, c1_T1, e1_T1, a1_T2, c1_T2, e1_T2.</span></span>
+<span id="cb83-28"><a href="introduction-to-path-diagrams.html#cb83-28" tabindex="-1"></a><span class="co">#&gt; Running test with 4 parameters</span></span>
+<span id="cb83-29"><a href="introduction-to-path-diagrams.html#cb83-29" tabindex="-1"></a><span class="co">#&gt; ?umxSummary options: std=T|F&#39;, digits=, report= &#39;html&#39;, filter= &#39;NS&#39; &amp; more</span></span>
+<span id="cb83-30"><a href="introduction-to-path-diagrams.html#cb83-30" tabindex="-1"></a><span class="co">#&gt; Running Saturated test with 10 parameters</span></span>
+<span id="cb83-31"><a href="introduction-to-path-diagrams.html#cb83-31" tabindex="-1"></a><span class="co">#&gt; Running Independence test with 8 parameters</span></span>
+<span id="cb83-32"><a href="introduction-to-path-diagrams.html#cb83-32" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb83-33"><a href="introduction-to-path-diagrams.html#cb83-33" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb83-34"><a href="introduction-to-path-diagrams.html#cb83-34" tabindex="-1"></a><span class="co">#&gt; Table: (\#tab:unnamed-chunk-5)Parameter loadings for model &#39;test&#39;</span></span>
+<span id="cb83-35"><a href="introduction-to-path-diagrams.html#cb83-35" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb83-36"><a href="introduction-to-path-diagrams.html#cb83-36" tabindex="-1"></a><span class="co">#&gt; |   |name             | Estimate|SE    |type            |</span></span>
+<span id="cb83-37"><a href="introduction-to-path-diagrams.html#cb83-37" tabindex="-1"></a><span class="co">#&gt; |:--|:----------------|--------:|:-----|:---------------|</span></span>
+<span id="cb83-38"><a href="introduction-to-path-diagrams.html#cb83-38" tabindex="-1"></a><span class="co">#&gt; |8  |a1_T1_MZr_a1_T2  |    1.000|0     |Factor Cov      |</span></span>
+<span id="cb83-39"><a href="introduction-to-path-diagrams.html#cb83-39" tabindex="-1"></a><span class="co">#&gt; |10 |c1_T1_MZr_c1_T2  |    1.000|0     |Factor Cov      |</span></span>
+<span id="cb83-40"><a href="introduction-to-path-diagrams.html#cb83-40" tabindex="-1"></a><span class="co">#&gt; |24 |a1_T1_DZr_a1_T2  |    0.500|0     |Factor Cov      |</span></span>
+<span id="cb83-41"><a href="introduction-to-path-diagrams.html#cb83-41" tabindex="-1"></a><span class="co">#&gt; |26 |c1_T1_DZr_c1_T2  |    1.000|0     |Factor Cov      |</span></span>
+<span id="cb83-42"><a href="introduction-to-path-diagrams.html#cb83-42" tabindex="-1"></a><span class="co">#&gt; |1  |a1_to_wt         |    0.773|0.025 |Factor loading  |</span></span>
+<span id="cb83-43"><a href="introduction-to-path-diagrams.html#cb83-43" tabindex="-1"></a><span class="co">#&gt; |2  |c1_to_wt         |    0.461|0.043 |Factor loading  |</span></span>
+<span id="cb83-44"><a href="introduction-to-path-diagrams.html#cb83-44" tabindex="-1"></a><span class="co">#&gt; |3  |e1_to_wt         |    0.378|0.006 |Factor loading  |</span></span>
+<span id="cb83-45"><a href="introduction-to-path-diagrams.html#cb83-45" tabindex="-1"></a><span class="co">#&gt; |7  |a1_T1_with_a1_T1 |    1.000|0     |Factor Variance |</span></span>
+<span id="cb83-46"><a href="introduction-to-path-diagrams.html#cb83-46" tabindex="-1"></a><span class="co">#&gt; |9  |c1_T1_with_c1_T1 |    1.000|0     |Factor Variance |</span></span>
+<span id="cb83-47"><a href="introduction-to-path-diagrams.html#cb83-47" tabindex="-1"></a><span class="co">#&gt; |11 |e1_T1_with_e1_T1 |    1.000|0     |Factor Variance |</span></span>
+<span id="cb83-48"><a href="introduction-to-path-diagrams.html#cb83-48" tabindex="-1"></a><span class="co">#&gt; |12 |a1_T2_with_a1_T2 |    1.000|0     |Factor Variance |</span></span>
+<span id="cb83-49"><a href="introduction-to-path-diagrams.html#cb83-49" tabindex="-1"></a><span class="co">#&gt; |13 |c1_T2_with_c1_T2 |    1.000|0     |Factor Variance |</span></span>
+<span id="cb83-50"><a href="introduction-to-path-diagrams.html#cb83-50" tabindex="-1"></a><span class="co">#&gt; |14 |e1_T2_with_e1_T2 |    1.000|0     |Factor Variance |</span></span>
+<span id="cb83-51"><a href="introduction-to-path-diagrams.html#cb83-51" tabindex="-1"></a><span class="co">#&gt; |15 |one_to_wt        |   -0.065|0.017 |Mean            |</span></span>
+<span id="cb83-52"><a href="introduction-to-path-diagrams.html#cb83-52" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb83-53"><a href="introduction-to-path-diagrams.html#cb83-53" tabindex="-1"></a><span class="co">#&gt; Model Fit: χ²(6) = 8.64, p = 0.195; CFI = 0.999; TLI = 1; RMSEA = 0.012</span></span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="introduction-to-path-diagrams.html#cb84-1" tabindex="-1"></a></span>
+<span id="cb84-2"><a href="introduction-to-path-diagrams.html#cb84-2" tabindex="-1"></a><span class="fu">plot</span>(m1, <span class="at">std=</span> <span class="cn">TRUE</span>, <span class="at">means=</span> <span class="cn">FALSE</span>)</span>
+<span id="cb84-3"><a href="introduction-to-path-diagrams.html#cb84-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb84-4"><a href="introduction-to-path-diagrams.html#cb84-4" tabindex="-1"></a><span class="co">#&gt; ?plot.MxModel options: std, means, digits, strip_zero, file, splines=T/F, min=, max =, same = , fixed, resid= &#39;circle|line|none&#39;</span></span></code></pre></div>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-a8cfbf64b4cc80ea84b5" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-a8cfbf64b4cc80ea84b5">{"x":{"diagram":"digraph G {\n    label=\"MZ\";\n\tsplines=\"TRUE\";\n\t# Latents\n\ta1_T1 [shape = circle];\n\tc1_T1 [shape = circle];\n\te1_T1 [shape = circle];\n\n\t# Manifests\n\twt_T1 [shape = square];\n\n\t#Variances/residuals\n\ta1_T1 -> a1_T1[label=\"@1\", dir=both, headport=n, tailport=n];\n\tc1_T1 -> c1_T1[label=\"@1\", dir=both, headport=n, tailport=n];\n\te1_T1 -> e1_T1[label=\"@1\", dir=both, headport=n, tailport=n];\n\n\n\t# Single arrow paths\n\ta1_T1 -> wt_T1 [label=\"0.79\"];\n\tc1_T1 -> wt_T1 [label=\"0.47\"];\n\te1_T1 -> wt_T1 [label=\"0.39\"];\n\n\t# Covariances\n\n\t{rank=min; a1_T1; c1_T1; e1_T1};\n\t{rank=same; wt_T1};\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>The resulting path diagram shows the relationships between the latent variables A, C, and E and the manifest variable <code>wt</code>. The paths between the latent variables and manifest variables represent the factor loadings, while the bidirectional paths for each manifest variable represent the error terms. The bidirectional path for each latent variable represents its variance.</p>
 <p>This diagram only shows the paths for one twin, but the model is estimated using data from multiple twin pairs to estimate the genetic, shared environmental, and non-shared environmental influences on the trait.</p>
 
