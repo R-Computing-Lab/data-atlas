@@ -1,3 +1,5 @@
+# (PART\*) Path Diagrams {-}
+
 # Introduction to Path Diagrams
 
 
@@ -42,8 +44,8 @@ grViz("
 
 
 ```{=html}
-<div class="grViz html-widget html-fill-item" id="htmlwidget-0e1afa7959bd4c227db9" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-0e1afa7959bd4c227db9">{"x":{"diagram":"\n  digraph simple_model {\n    node [fontname = Ariel, fontsize = 10]\n    Latent [shape = circle, label = \"Latent Variable L\"]\n    Obs1 [shape = box, label = \"Observed Variable 1\"]\n    Obs2 [shape = box, label = \"Observed Variable 2\"]\n    Latent -> Obs1\n    Latent -> Obs2\n  }\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-728009a770edc01e6671" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-728009a770edc01e6671">{"x":{"diagram":"\n  digraph simple_model {\n    node [fontname = Ariel, fontsize = 10]\n    Latent [shape = circle, label = \"Latent Variable L\"]\n    Obs1 [shape = box, label = \"Observed Variable 1\"]\n    Obs2 [shape = box, label = \"Observed Variable 2\"]\n    Latent -> Obs1\n    Latent -> Obs2\n  }\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 
@@ -85,8 +87,8 @@ grViz('digraph "Univariate ACE Model" {
 
 
 ```{=html}
-<div class="grViz html-widget html-fill-item" id="htmlwidget-725859428e38a6dae6ed" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-725859428e38a6dae6ed">{"x":{"diagram":"digraph \"Univariate ACE Model\" {\n\tnode [style=filled, fontname=\"Arial\", fontsize=16];\n\n\t/* Observed Trait */\n\tTrait [shape=square, fillcolor=\"#a9fab1\", height=0.5, width=0.5, label=\"Trait\"];\n\n\t/* Latent Variables */\n\tA [shape=circle, fillcolor=\"#f4fd78\", label=\"A\"];\n\tC [shape=circle, fillcolor=\"#f4fd78\", label=\"C\"];\n\tE [shape=circle, fillcolor=\"#f4fd78\", label=\"E\"];\n\n\t/* Paths from Latent Variables to Observed Trait */\n\tA -> Trait [dir=forward];\n\tC -> Trait [dir=forward];\n\tE -> Trait [dir=forward];\n\n\t/* Variance Paths for Latent Variables */\n\tA -> A [dir=both, headport=n, tailport=n];\n\tC -> C [dir=both, headport=n, tailport=n];\n\tE -> E [dir=both, headport=n, tailport=n];\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-c9dabf63d0a8da1cb9ca" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-c9dabf63d0a8da1cb9ca">{"x":{"diagram":"digraph \"Univariate ACE Model\" {\n\tnode [style=filled, fontname=\"Arial\", fontsize=16];\n\n\t/* Observed Trait */\n\tTrait [shape=square, fillcolor=\"#a9fab1\", height=0.5, width=0.5, label=\"Trait\"];\n\n\t/* Latent Variables */\n\tA [shape=circle, fillcolor=\"#f4fd78\", label=\"A\"];\n\tC [shape=circle, fillcolor=\"#f4fd78\", label=\"C\"];\n\tE [shape=circle, fillcolor=\"#f4fd78\", label=\"E\"];\n\n\t/* Paths from Latent Variables to Observed Trait */\n\tA -> Trait [dir=forward];\n\tC -> Trait [dir=forward];\n\tE -> Trait [dir=forward];\n\n\t/* Variance Paths for Latent Variables */\n\tA -> A [dir=both, headport=n, tailport=n];\n\tC -> C [dir=both, headport=n, tailport=n];\n\tE -> E [dir=both, headport=n, tailport=n];\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 
@@ -196,8 +198,8 @@ grViz("one-factor-generated.dot")
 
 
 ```{=html}
-<div class="grViz html-widget html-fill-item" id="htmlwidget-2f2b106f00001517362b" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-2f2b106f00001517362b">{"x":{"diagram":"digraph \"One Factor\" {\n\t node [style=filled, fontname=\"Arial\", fontsize=16];\n \t /* Manifest Variables */\n \t { rank = max; x1; x2; x3; x4; x5 }\n\t x1 [shape=square, fillcolor=\"#a9fab1\", height=0.5, width=0.5];\n\t x2 [shape=square, fillcolor=\"#a9fab1\", height=0.5, width=0.5];\n\t x3 [shape=square, fillcolor=\"#a9fab1\", height=0.5, width=0.5];\n\t x4 [shape=square, fillcolor=\"#a9fab1\", height=0.5, width=0.5];\n\t x5 [shape=square, fillcolor=\"#a9fab1\", height=0.5, width=0.5];\n/* Latent Variables */\n\t G1 [shape=circle, fillcolor=\"#f4fd78\"];\n/* Paths */\n\t G1 -> x1[dir=forward];\n\t G1 -> x2[dir=forward];\n\t G1 -> x3[dir=forward];\n\t G1 -> x4[dir=forward];\n\t G1 -> x5[dir=forward];\n\t x1 -> x1[dir=both, headport=s, tailport=s];\n\t x2 -> x2[dir=both, headport=s, tailport=s];\n\t x3 -> x3[dir=both, headport=s, tailport=s];\n\t x4 -> x4[dir=both, headport=s, tailport=s];\n\t x5 -> x5[dir=both, headport=s, tailport=s];\n\t G1 -> G1[dir=both, headport=n, tailport=n];\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-86debff373fca0fa25a9" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-86debff373fca0fa25a9">{"x":{"diagram":"digraph \"One Factor\" {\n\t node [style=filled, fontname=\"Arial\", fontsize=16];\n \t /* Manifest Variables */\n \t { rank = max; x1; x2; x3; x4; x5 }\n\t x1 [shape=square, fillcolor=\"#a9fab1\", height=0.5, width=0.5];\n\t x2 [shape=square, fillcolor=\"#a9fab1\", height=0.5, width=0.5];\n\t x3 [shape=square, fillcolor=\"#a9fab1\", height=0.5, width=0.5];\n\t x4 [shape=square, fillcolor=\"#a9fab1\", height=0.5, width=0.5];\n\t x5 [shape=square, fillcolor=\"#a9fab1\", height=0.5, width=0.5];\n/* Latent Variables */\n\t G1 [shape=circle, fillcolor=\"#f4fd78\"];\n/* Paths */\n\t G1 -> x1[dir=forward];\n\t G1 -> x2[dir=forward];\n\t G1 -> x3[dir=forward];\n\t G1 -> x4[dir=forward];\n\t G1 -> x5[dir=forward];\n\t x1 -> x1[dir=both, headport=s, tailport=s];\n\t x2 -> x2[dir=both, headport=s, tailport=s];\n\t x3 -> x3[dir=both, headport=s, tailport=s];\n\t x4 -> x4[dir=both, headport=s, tailport=s];\n\t x5 -> x5[dir=both, headport=s, tailport=s];\n\t G1 -> G1[dir=both, headport=n, tailport=n];\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 
@@ -285,8 +287,8 @@ plot(m1, std= TRUE, means= FALSE)
 
 
 ```{=html}
-<div class="grViz html-widget html-fill-item" id="htmlwidget-e128fa68bf2423a4abdd" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-e128fa68bf2423a4abdd">{"x":{"diagram":"digraph G {\n    label=\"MZ\";\n\tsplines=\"TRUE\";\n\t# Latents\n\ta1_T1 [shape = circle];\n\tc1_T1 [shape = circle];\n\te1_T1 [shape = circle];\n\n\t# Manifests\n\twt_T1 [shape = square];\n\n\t#Variances/residuals\n\ta1_T1 -> a1_T1[label=\"@1\", dir=both, headport=n, tailport=n];\n\tc1_T1 -> c1_T1[label=\"@1\", dir=both, headport=n, tailport=n];\n\te1_T1 -> e1_T1[label=\"@1\", dir=both, headport=n, tailport=n];\n\n\n\t# Single arrow paths\n\ta1_T1 -> wt_T1 [label=\"0.79\"];\n\tc1_T1 -> wt_T1 [label=\"0.47\"];\n\te1_T1 -> wt_T1 [label=\"0.39\"];\n\n\t# Covariances\n\n\t{rank=min; a1_T1; c1_T1; e1_T1};\n\t{rank=same; wt_T1};\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-93feff4d9d96707fbf07" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-93feff4d9d96707fbf07">{"x":{"diagram":"digraph G {\n    label=\"MZ\";\n\tsplines=\"TRUE\";\n\t# Latents\n\ta1_T1 [shape = circle];\n\tc1_T1 [shape = circle];\n\te1_T1 [shape = circle];\n\n\t# Manifests\n\twt_T1 [shape = square];\n\n\t#Variances/residuals\n\ta1_T1 -> a1_T1[label=\"@1\", dir=both, headport=n, tailport=n];\n\tc1_T1 -> c1_T1[label=\"@1\", dir=both, headport=n, tailport=n];\n\te1_T1 -> e1_T1[label=\"@1\", dir=both, headport=n, tailport=n];\n\n\n\t# Single arrow paths\n\ta1_T1 -> wt_T1 [label=\"0.79\"];\n\tc1_T1 -> wt_T1 [label=\"0.47\"];\n\te1_T1 -> wt_T1 [label=\"0.39\"];\n\n\t# Covariances\n\n\t{rank=min; a1_T1; c1_T1; e1_T1};\n\t{rank=same; wt_T1};\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ```
 
 

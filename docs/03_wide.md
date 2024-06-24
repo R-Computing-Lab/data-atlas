@@ -1,4 +1,4 @@
-# (PART\*) Descriptive Statistics {-}
+# (PART\*) Wide Form Data {-}
 
 
 # Wide Form Data
@@ -533,7 +533,7 @@ p3
 <img src="03_wide_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 
 
-## 4. Correlation Analysis
+## 3. Correlation Analysis
 
 ### Correlation Matrix and Correlogram
 

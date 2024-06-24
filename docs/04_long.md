@@ -1,3 +1,5 @@
+# (PART\*) Long Form Data {-}
+
 # Long Form Data
 
 
@@ -93,7 +95,7 @@ df_long <- df_long %>%
 
 Unfortunately, the data do not contain the information for the gender for each twin, so we will just have to settle for noting that the data is missing.
 
-## Summary Statistics (Long Form)
+## Summary Statistics
 
 Once again, let's calculate summary statistics for numeric variables across the full sample. This will provide a quick overview of central tendencies and variability in the dataset. When working with long form data, it is often helpful to start with summarizing by the data structure you already have. In this case, we will calculate summary statistics by specific measurement across all twins.
 
@@ -181,3 +183,237 @@ combined_summary_long
 
 As you can see, the long form data structure allows for a straightforward calculation of frequency tables for categorical variables. The resulting tables provide a clear picture of the distribution, and it does not differ  from the wide form analysis, as long as one remembers to that we're now looking at individual twins rather than pairs.
 
+## Data Visualization
+
+### 1. Univariate Distributions
+
+Univariate distributions are used to examine the distribution of a single variable within a dataset. They provide insights into the central tendency, variability, and shape of the data distribution. Unlike wide form data, long form data can be directly visualized using ggplot2 without the need for additional data manipulation.
+
+#### Histograms
+
+Histograms are useful for visualizing the frequency distribution of a single variable. They help identify the distribution pattern, such as normal distribution, skewness, or the presence of outliers.
+
+**Histogram of Weight**
+
+
+``` r
+ggplot(df_long, aes(x = wt)) +
+  geom_histogram(bins = 30, fill = "blue", color = "black") +
+  labs(x = "Weight", y = "Frequency", title = "Distribution of Weights") +
+  theme_minimal()
+```
+
+<img src="04_long_files/figure-html/unnamed-chunk-7-1.png" width="768" />
+
+This histogram shows the distribution of weights across all twins in the dataset. The x-axis represents the weight, while the y-axis shows the frequency of each weight range.
+
+#### Histograms
+
+Histograms are useful for visualizing the frequency distribution of a single variable. They help identify the distribution pattern, such as normal distribution, skewness, or the presence of outliers.
+
+**Histogram of Weight**
+
+
+``` r
+ggplot(df_long, aes(x = wt)) +
+  geom_histogram(bins = 30, fill = "blue", color = "black") +
+  labs(x = "Weight", y = "Frequency", title = "Distribution of Weights") +
+  theme_minimal()
+```
+
+<img src="04_long_files/figure-html/unnamed-chunk-8-1.png" width="768" />
+
+This histogram shows the distribution of weights across all twins in the dataset. The x-axis represents the weight, while the y-axis shows the frequency of each weight range.
+
+**Histogram of Weight by Zygosity**
+
+
+``` r
+ggplot(df_long, aes(x = wt, fill = zyg)) +
+  geom_histogram(bins = 30, color = "black", alpha = 0.5) +
+  labs(x = "Weight", y = "Frequency", title = "Distribution of Weights by Zygosity") +
+  theme_minimal()
+```
+
+<img src="04_long_files/figure-html/unnamed-chunk-9-1.png" width="768" />
+
+This histogram shows the distribution of weights by zygosity type. The fill color distinguishes between monozygotic (MZ) and dizygotic (DZ) twins. The x-axis represents the weight, while the y-axis shows the frequency of each weight range. The transparency helps in visualizing the overlap between the two distributions.
+
+### Density Plots
+
+Density plots provide a smooth representation of the distribution of a variable. They are useful for comparing distributions between groups.
+
+**Density Plot of Weights by Zygosity**
+
+
+
+``` r
+ggplot(df_long, aes(x = wt, fill = zyg)) +
+  geom_density(alpha = 0.5) +
+  labs(x = "Weight", y = "Density", title = "Density Plot of Weights by Zygosity") +
+  theme_minimal()
+```
+
+<img src="04_long_files/figure-html/unnamed-chunk-10-1.png" width="768" />
+
+This density plot shows the distribution of weights by zygosity type. The fill color distinguishes between monozygotic (MZ) and dizygotic (DZ) twins. The x-axis represents the weight, while the y-axis shows the density of each weight range. The plot provides a smooth representation of the distribution, highlighting the differences between the two zygosity groups.
+
+
+**Density Plot of Weights by Sex**
+
+
+``` r
+ggplot(df_long, aes(x = wt, fill = sex)) +
+  geom_density(alpha = 0.5) +
+  labs(x = "Weight", y = "Density", title = "Density Plot of Weights by Sex") +
+  theme_minimal() + 
+  facet_wrap(~sex)
+```
+
+<img src="04_long_files/figure-html/unnamed-chunk-11-1.png" width="768" />
+
+This density plot shows the weight distributions for male (M) and female (F) twins and OS twins. The plot is faceted by sex to provide a clear comparison between the groups groups.
+
+#### 2. Box Plots
+
+Box plots are useful for visualizing the distribution of a variable and identifying potential outliers. They display the median, quartiles, and extremes of the data.
+
+**Box Plot of Weights by Zygosity**
+
+
+``` r
+ggplot(df_long, aes(x = zyg, y = wt, fill = zyg)) +
+  geom_boxplot() +
+  labs(x = "Zygosity", y = "Weight", title = "Box Plot of Weights by Zygosity") +
+  theme_minimal()
+```
+
+<img src="04_long_files/figure-html/unnamed-chunk-12-1.png" width="768" />
+
+This box plot shows the distribution of weights by zygosity type. The x-axis represents the zygosity (monozygotic or dizygotic), while the y-axis shows the weight range. The plot displays the median, quartiles, and potential outliers for each zygosity group.
+
+
+**Violin Plot of Heights by Zygosity**
+
+
+``` r
+ggplot(df_long, aes(x = zyg, y = ht, fill = zyg)) +
+  geom_violin() +
+  labs(x = "Zygosity", y = "Height", title = "Violin Plot of Heights by Zygosity") +
+  theme_minimal()
+```
+
+<img src="04_long_files/figure-html/unnamed-chunk-13-1.png" width="768" />
+
+This violin plot shows the distribution of heights by zygosity type. The x-axis represents the zygosity (monozygotic or dizygotic), while the y-axis shows the height range. The plot provides a smooth representation of the distribution, highlighting the differences between the two zygosity groups.
+
+### 2. Bivariate Distributions
+
+Bivariate distributions are used to examine the relationship between two variables. They help in understanding the correlation and interaction between the variables.
+
+#### Scatter Plots
+
+Scatter plots are useful for visualizing the relationship between two continuous variables. They help identify patterns, trends, and potential outliers in the data.
+
+**Scatter Plot of Height vs. Weight**
+
+
+``` r
+ggplot(df_long, aes(x = wt, y = ht, color = zyg)) +
+  geom_point(alpha = 0.5) +
+  labs(x = "Weight", y = "Height", title = "Scatter Plot of Weight vs. Height by Zygosity") +
+  theme_minimal() +
+  geom_smooth(method = "lm", se = FALSE)
+```
+
+```
+## `geom_smooth()` using formula = 'y ~ x'
+```
+
+<img src="04_long_files/figure-html/unnamed-chunk-14-1.png" width="768" />
+
+This scatter plot shows the relationship between weight and height, with points colored by zygosity. A linear regression line is added to highlight the trend in the data. The x-axis represents the weight, while the y-axis shows the height. The plot helps in understanding the correlation between weight and height, as well as the differences between monozygotic and dizygotic twins.
+
+### 4. Marginal Density Plots
+
+Marginal density plots are useful for adding distribution information to scatter plots, providing additional context on the variables' distributions.
+
+**Marginal Density Plot of Height vs. Weight**
+
+
+``` r
+library(ggExtra)
+
+p <- ggplot(df_long, aes(x = wt, y = ht, color = zyg)) +
+  geom_point(alpha = 0.5) +
+  labs(x = "Weight", y = "Height", title = "Scatter Plot of Weight vs. Height by Zygosity") +
+  theme_minimal()
+
+ggMarginal(p, type = "density")
+```
+
+<img src="04_long_files/figure-html/unnamed-chunk-15-1.png" width="768" />
+
+This plot shows a scatter plot of weight vs. height with marginal density plots on the x and y axes, providing additional distribution information.
+
+### 5. Correlations
+
+Correlation matrices and correlograms are useful for visualizing the relationships between multiple variables. They show the strength and direction of correlations between variables.
+
+** Correlation Matrix of Twin Data **
+
+
+``` r
+library(ggcorrplot)
+
+# Select only the variables of interest
+df_cor_long <- df_long %>% select(wt, ht)
+
+# Compute correlation matrix
+corr_long <- cor(df_cor_long ,use="pairwise.complete") %>% round(2)
+
+ggcorrplot(corr_long, type = "lower", lab = TRUE, 
+           lab_size = 3, 
+           method = "circle", 
+           colors = c("tomato2", "white", "springgreen3"), 
+           title = "Correlation Matrix of Twin Data", 
+           ggtheme = theme_bw)
+```
+
+<img src="04_long_files/figure-html/unnamed-chunk-16-1.png" width="768" />
+
+This correlation matrix shows the relationships between weight and height. The values indicate the strength and direction of the correlations, with the color representing the correlation strength. 
+
+**Correlation Matrix by Zygosity**
+
+
+``` r
+corr_zyg_long <- df_long %>%
+  group_by(zyg) %>%
+  summarise(
+    cor_wt_ht = cor(wt, ht, use = "pairwise.complete")
+  ) %>%
+  pivot_longer(-zyg, names_to = "pairs", values_to = "correlation") %>%
+  unite("pairs", pairs, zyg, sep = "_") %>%
+  pivot_wider(names_from = pairs, values_from = correlation)
+
+combined_matrix_long <- matrix(1, nrow = 2, ncol = 2)
+rownames(combined_matrix_long) <- colnames(combined_matrix_long) <- c("wt", "ht")
+
+# Fill the lower triangle with MZ correlations
+combined_matrix_long[lower.tri(combined_matrix_long)] <- c(corr_zyg_long$cor_wt_ht_MZ)
+
+# Fill the upper triangle with DZ correlations
+combined_matrix_long[upper.tri(combined_matrix_long)] <- c(corr_zyg_long$cor_wt_ht_DZ)
+
+ggcorrplot(combined_matrix_long, show.diag = TRUE, lab = TRUE, 
+           lab_size = 3, method = "circle", 
+           colors = c("tomato2", "white", "springgreen3"), 
+           title = "Correlation Matrix of Twin Data by Zygosity",
+           ggtheme = theme_bw) + 
+  labs(caption = "MZ correlations in the lower triangle,\nDZ correlations in the upper triangle")
+```
+
+<img src="04_long_files/figure-html/unnamed-chunk-17-1.png" width="768" />
+
+This plot shows a correlation matrix separated by zygosity. MZ correlations are displayed in the lower triangle, and DZ correlations are in the upper triangle, allowing for a comparison of correlation strengths between the two groups.

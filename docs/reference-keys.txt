@@ -1,3 +1,5 @@
+tab:unnamed-chunk-4
+tab:unnamed-chunk-6
 crash-course-on-the-tidyverse
 what-is-the-tidyverse
 tidy-data
@@ -31,7 +33,17 @@ long-form-data
 converting-from-wide-to-long-form
 data-structure-1
 adding-sex-and-zyg
-summary-statistics-long-form
+summary-statistics
+data-visualization
+univariate-distributions-1
+histograms-1
+histograms-2
+density-plots-1
+box-plots-1
+bivariate-distributions-1
+scatter-plots
+marginal-density-plots-1
+correlations
 long-form-data-plots
 introduction-to-path-diagrams
 constructing-a-simple-path-diagram
@@ -42,5 +54,8 @@ ace-model-example
 pre-existing-software
 creating-a-path-diagram-with-omxgraphviz
 creating-a-path-diagram-for-an-ace-model-using-the-umx-package
-tables
+generating-tables-in-apa-style
+summary-statistics-1
+frequency-tables-1
+generate-apa-style-table-for-frequency-tables
 final-words
