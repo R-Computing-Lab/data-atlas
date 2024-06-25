@@ -99,7 +99,7 @@ The code above demonstrates the basic structure of a ggplot2 plot. To break down
 
 
 ```{r, echo=FALSE}
-"https://r-computing-lab.github.io/data-atlas/00_ggplot2/00_ggplot2.html#11" %>%
+"https://r-computing-lab.github.io/slides/00_ggplot2/00_ggplot2.html#19" %>%
   include_url(height = "400px")
 ```
 
