@@ -3,7 +3,18 @@
 
 # Wide Form Data
 
-Wide form data is a common way to store data, especially when it comes from family data. surveys or experiments where each family has multiple members (twins, siblings etc) In this form, each row represents a family, and each column represents a variable or measurement for a specific family member. This format is easy to understand and work with, but it can be challenging for certain types of analyses or visualizations. In this section, demonstrate straightforward ways to import, summarize, and visualize wide form data using the `twinData` dataset from the `OpenMx` package.
+Wide form data is a common format in many kinds of data, especially for family studies. This tutorial demonstrates how to work with wide form data using the `twinData` dataset from the `OpenMx` package in R. We'll cover importing, summarizing, visualizing, and analyzing twin data. 
+
+
+## What is Wide Form Data?
+
+Wide form data is a data structure where each row represents a single unit of observation (like a family or an individual), and each column represents a different variable or measurement. In the context of twin studies, wide form data typically has one row per twin pair, with separate columns for each twin's measurements. For example, instead of having a single "weight" column, wide form data might have "weight_twin1" and "weight_twin2" columns. This format is particularly useful when you want to analyze relationships within pairs or when you have a fixed number of repeated measurements. However, it can be less flexible for certain types of analyses compared to long form data, where each observation would be on its own row.
+
+**Learning Objectives:**
+
+- Understand the structure of wide form data
+- Learn techniques for summarizing and visualizing wide form data
+- Explore relationships between variables within and across group members
 
 ## Import Data
 
@@ -51,7 +62,7 @@ df_wide <- df_wide %>% mutate(sex =
                                 TRUE ~ NA_character_ ))
 ```
 
-### Annotated explainaton for the code snippet above:
+### Annotated explanation for the code snippet above:
 
 The provided R code uses the `tidyverse` package's `dplyr` library to manipulate a data frame named `df_wide`. The `mutate` function is used to create new variables or modify existing ones within the data frame. (In this case it is creating `sex` and over writing `zyg`. Here's an annotation of what each part of the code is doing:
 
@@ -163,7 +174,7 @@ library(tidyverse)
 # Grouping by 'cohort' and calculating summary statistics for each group across values that are numeric
 df_summary <- df_wide %>%
     group_by(cohort) %>%
-    summarise(across(where(is.numeric), list(
+    summarize(across(where(is.numeric), list(
         mean = ~mean(., na.rm = TRUE),
         sd = ~sd(., na.rm = TRUE),
         median = ~median(., na.rm = TRUE),
@@ -231,13 +242,16 @@ df_summary  %>% mutate(variable = factor(variable, levels = variable_order)) %>%
 
 As you can see from the table, the summary statistics are calculated for each zygosity and sex across the numeric variables. 
 
-# Wide Form Data Visualization
+# Wide Form Data Visualizations
+
+Illustrate relationships between variables within and across group members.
+
 
 ## 1. Univariate Distributions
 
 ### Histograms
 
-Histograms are a great way to visualize the distribution of a single variable. Here, we will create histograms for the weight of twin 1 and twin 2.
+Histograms are a great way to visualize the distribution of a single variable. Here, we will create histograms for the weight of twin 1 and twin 2. We will also create separate histograms for twin 2 by zygosity to see if there are any differences in the distribution of weights based on zygosity. (Typically, we would use a density plot for this, but we'll do that next. The goal is to show you how to do this with histograms as well as provide a way to demonstrate twice as many plots.)
 
 
 #### Histogram of Weight for Twin 1
