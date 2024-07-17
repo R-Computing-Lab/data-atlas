@@ -1,0 +1,13 @@
+The adage 'A picture is worth a thousand words' is just as applicable to Behavior Genetics as it is to journalism. This talk briefly explored the importance of data visualization in our field, tracing advancements from Wright's (1920) classic path diagram of guinea pigs to modern applications. I presented a case study on the misappropriation and misinterpretation of a UMAP (Uniform Manifold Approximation and Projection) figure, highlighting the importance of intentional design.
+
+
+To bolster the field's visualization toolkit, I introduced two R resources under development (Garrison, 2024). The first, an atlas employing 'ggplot2' in R, guides researchers in selecting appropriate visualizations based on their data and provides source code for easy implementation. This atlas, accessible at r-computing-lab.github.io/data-atlas/, includes various plot types and practical tips. The second resource is a proposed R package aimed at integrating OpenMx-compatible visualizations, streamlining the presentation of complex genetic analyses. Emphasizing practical advice, the talk covered effective uses of path diagrams, family trees, and interaction visualizations to improve the clarity and interpretability of genetic data. This initiative aims to democratize advanced data visualization tools, making them more accessible to the behavior genetics community and, in turn, amplifying the impact and reach of its research.
+
+
+
+Reference
+
+Garrison SM (2024) Data Atlas for Behavior Geneticists. Wake Forest University, Winston-Salem. Available at: r-computing-lab.github.io/data-atlas/.
+
+Wright S (1920) The relative importance of heredity and environment in determining the piebald pattern of guinea-pigs. Proc Natl Acad Sci 6(6):320-332. https://doi.org/10.1073/pnas.6.6.320
+

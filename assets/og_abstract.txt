@@ -1,0 +1,10 @@
+The adage 'A picture is worth a thousand words' is just as applicable to Behavior Genetics as it is to journalism. In this talk, I delve into the rich diverse history of data visualization techniques in the field of behavior genetics, tracing advancements from Wright’s (1920) classic path diagram of guinea pigs to the contemporary usage of Manhattan plots. This survey sets the stage for developing two resources to bolster the field’s visualization toolkit. The first, an atlas employing 'ggplot2' in R, aims to guide researchers in selecting the most appropriate visualization techniques for their data and provides source code to facilitate implementation. The second, a proposed R package, seeks to facilitate the integration of 'OpenMx'-compatible visualizations, streamlining the presentation of complex genetic analyses. Emphasizing practical advice, the talk will cover effective uses of path diagrams, family trees, and interaction visualizations to improve the clarity and interpretability of genetic data. This initiative aspires to democratize advanced data visualization tools, making them more accessible to the behavior genetics community and, in turn, amplifying the impact and reach of its research.
+
+
+
+Reference
+
+
+
+Wright, S. (1920). The relative importance of heredity and environment in determining the piebald pattern of guinea-pigs. Proceedings of the National Academy of Sciences, 6(6), 320-332. https://doi.org/10.1073/pnas.6.6.320
+
